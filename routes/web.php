@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SesionController;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +26,10 @@ Route::post('/registro', [RegistroController::class, 'store'])->middleware('gues
 
 
 Route::get('/home', [HomeController::class, 'home'])->middleware('auth');
+
+Route::post('logout',[SesionController::class, 'destroy'])->middleware('auth');
+Route::get('logout',[SesionController::class, 'destroy'])->middleware('auth');//Para cuando intento acceder sin estar logueado
+
+Route::get('/perfil', [PerfilController::class, 'show'])->middleware('auth')->name('perfil.show');
+Route::post('/perfil', [PerfilController::class, 'update'])->middleware('auth')->name('perfil.update');
+

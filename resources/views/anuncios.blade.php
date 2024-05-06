@@ -4,12 +4,11 @@
     <p>No hay anuncios para mostrar.</p>
 @else
     @foreach ($listadoAnuncios as $anuncio)
-        <div>
-        
-            <h4>{{ $anuncio->tituloB }}</h4>
-            <p>{{ $anuncio->habilidad_ofrecida }}</p>
-            <!-- Muestra otros detalles del anuncio según sea necesario -->
-        </div>
+    <section>
+        <article><h3>{{ $anuncio->tituloB }}</h3></article>
+
+    </section>
+       
     @endforeach
 
 @endif

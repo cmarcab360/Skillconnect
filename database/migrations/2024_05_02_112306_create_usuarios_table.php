@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->longText('descripcion')->nullable();
-            $table->string('url_foto', 50)->nullable();
+            $table->string('url_foto', 150)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -1,7 +1,16 @@
 <h1>Mi perfil:</h1>
 
-<form action="{{ route('perfil.update') }}" method="POST">
+<form action="{{ route('perfil.update') }}" method="POST" enctype="multipart/form-data">
     @csrf
+    @if ($usuario->url_foto == null)
+        <img src="{{asset('fotos/usuario_base.png')}}" alt="Imagen base">
+    @else
+        <img src="{{ ($usuario->url_foto) }}" alt="foto de perfil">
+    @endif
+
+    <label for="url_foto">Foto:</label><br>
+    <input type="file" name="url_foto" id="url_foto" placeholder="Ingrese la ciudad"
+        value="{{ asset('storage/app/' . $usuario->url_foto) }}"><br>
 
     <br><label for="nombre">Nombre:</label><br>
     <input type="text" name="nombre" id="nombre" value="{{ $usuario->nombre }}"><br>
@@ -21,12 +30,7 @@
     @else
         <textarea name="descripcion" id="descripcion" rows="4" cols="35">{{ $usuario->descripcion }}</textarea><br>
     @endif
-    <br> <label for="url_foto">Foto:</label><br>
-    @if ($usuario->url_foto == null)
-        <input type="text" name="url_foto" id="url_foto" placeholder="Ingrese la ciudad"><br>
-    @else
-        <input type="text" name="url_foto" id="url_foto" placeholder="Ingrese la ciudad" value="{{ $usuario->url_foto }}"><br>
-    @endif
+
 
     <br><input type="submit" name="guardar" value="Guardar">
     <input type="reset" value="Cancelar">

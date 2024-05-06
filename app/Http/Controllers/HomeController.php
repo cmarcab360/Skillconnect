@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Anuncio;
+use App\Models\Habilidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -9,9 +11,14 @@ class HomeController extends Controller
 {
     public function home(Request $request)
     {
-
         $userId = Auth::id();
-        return view('home', compact('userId'));
+
+        //listado de anuncios diferentes al los del usuario
+        $anuncios = Anuncio::where('id', '!=', $userId)->get();
+
+        //listado de habilidades
+        $habilidades = Habilidad::all();
+        return view('home', compact('userId', 'anuncios', 'habilidades'));
 
     }
 }

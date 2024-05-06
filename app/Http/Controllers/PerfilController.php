@@ -26,8 +26,8 @@ class PerfilController extends Controller
             'email' => 'required|email',
             'password' => 'required|string|min:8',
             'descripcion' => 'nullable|string',
-            'localidad' => 'nullable|string',
-            'ciudad' => 'nullable|string'
+            'url_foto' => 'nullable|string',
+            
         ]);
 
         $userId = Auth::id();
@@ -54,6 +54,9 @@ class PerfilController extends Controller
         
         if ( $usuario->descripcion !== $request->descripcion) {
             $usuario->descripcion = $request->descripcion;
+        }
+        if ( $usuario->url_foto !== $request->url_foto) {
+            $usuario->url_foto = $request->url_foto;
         }
        
         // Guardar los cambios en la base de datos

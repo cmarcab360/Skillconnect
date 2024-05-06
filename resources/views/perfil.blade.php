@@ -1,5 +1,4 @@
 <h1>Mi perfil:</h1>
-<p>"{{ $userId }}"</p>
 
 <form action="{{ route('perfil.update') }}" method="POST">
     @csrf
@@ -22,19 +21,11 @@
     @else
         <textarea name="descripcion" id="descripcion" rows="4" cols="35">{{ $usuario->descripcion }}</textarea><br>
     @endif
-    <br> <label for="ciudad">Ciudad:</label><br>
-    @if ($usuario->descripcion == null)
-        <input type="text" name="ciudad" id="ciudad" placeholder="Ingrese la ciudad"><br>
+    <br> <label for="url_foto">Foto:</label><br>
+    @if ($usuario->url_foto == null)
+        <input type="text" name="url_foto" id="url_foto" placeholder="Ingrese la ciudad"><br>
     @else
-        <input type="text" name="ciudad" id="ciudad" placeholder="Ingrese la ciudad"
-            value="{{ $usuario->ciudad }}"><br>
-    @endif
-    <br> <label for="localidad">Localidad:</label><br>
-    @if ($usuario->descripcion == null)
-        <input type="text" name="localidad" id="localidad" placeholder="Ingrese la localidad"><br>
-    @else
-        <input type="text" name="localidad" id="localidad" placeholder="Ingrese la localidad"
-            value="{{ $usuario->ciudad }}"><br>
+        <input type="text" name="url_foto" id="url_foto" placeholder="Ingrese la ciudad" value="{{ $usuario->url_foto }}"><br>
     @endif
 
     <br><input type="submit" name="guardar" value="Guardar">

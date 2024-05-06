@@ -39,5 +39,8 @@ Route::get('/publicar', [PublicarAnunciosController::class, 'show'])->middleware
 Route::post('/publicar', [PublicarAnunciosController::class, 'create'])->middleware('auth');
 
 Route::get('/anuncios', [AnunciosController::class, 'show'])->middleware('auth');
+Route::delete('/anuncios/{id}/delete', [AnunciosController::class, 'delete'])->middleware('auth')->name('anuncios.delete');
+
+
 
 

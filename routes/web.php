@@ -6,6 +6,7 @@ use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\PublicarAnunciosController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SesionController;
+use App\Http\Controllers\VerAnuncioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,5 +44,5 @@ Route::delete('/anuncios/{id}/delete', [AnunciosController::class, 'delete'])->m
 Route::get('/anuncios/{id}/editar', [AnunciosController::class, 'edit'])->middleware('auth')->name('anuncios.editar');
 Route::put('/anuncios/{id}/editar', [AnunciosController::class, 'edit'])->middleware('auth')->name('anuncios.editar');
 
-
+Route::get('/ver/{id}', [VerAnuncioController::class, 'show'])->middleware('auth');
 

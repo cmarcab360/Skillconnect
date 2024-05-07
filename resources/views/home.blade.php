@@ -1,5 +1,5 @@
 <h1>Inicio</h1>
-<p>Usuario id:{{$userId}}</p>
+<p>Usuario id:{{ $userId }}</p>
 
 <button><a href="/perfil">Perfil</a></button>
 <button><a href="/anuncios">Anuncios</a></button>
@@ -8,32 +8,34 @@
 
 
 @foreach ($habilidades as $habilidad)
-    <p>{{$habilidad->titulo}}</p>
+    <p>{{ $habilidad->titulo }}</p>
 @endforeach
 
 
 
 <h1>Listado de anuncios</h1>
-@foreach ( $anuncios as $anuncio)
+@foreach ($anuncios as $anuncio)
     <section>
-        <p>Usuario id:{{$anuncio->id_usuario}}</p>
-        <article>
-            <h3>{{$anuncio->titulo_of}}</h3>
-            @foreach ($habilidades as $habilidad)
-                @if ($anuncio->habilidad_ofrecida == $habilidad->id)
-                    <h4>{{$habilidad->titulo}}</h4>
-                @endif
-            @endforeach
-            <p>{{$anuncio->descripcion_of}}</p>
-        </article>
-        <article>
-            <h3>{{$anuncio->tituloB}}</h3>
-            @foreach ($habilidades as $habilidad)
-                @if ($anuncio->habilidad_buscada == $habilidad->id)
-                    <h4>{{$habilidad->titulo}}</h4>
-                @endif
-            @endforeach
-            <p>{{$anuncio->descripcion_Bus}}</p>
-        </article>
+        <a href="/ver/{{$anuncio->id }}">
+            <p>Usuario id:{{ $anuncio->id_usuario }}</p>
+            <article>
+                <h3>{{ $anuncio->titulo_of }}</h3>
+                @foreach ($habilidades as $habilidad)
+                    @if ($anuncio->habilidad_ofrecida == $habilidad->id)
+                        <h4>{{ $habilidad->titulo }}</h4>
+                    @endif
+                @endforeach
+                <p>{{ $anuncio->descripcion_of }}</p>
+            </article>
+            <article>
+                <h3>{{ $anuncio->tituloB }}</h3>
+                @foreach ($habilidades as $habilidad)
+                    @if ($anuncio->habilidad_buscada == $habilidad->id)
+                        <h4>{{ $habilidad->titulo }}</h4>
+                    @endif
+                @endforeach
+                <p>{{ $anuncio->descripcion_Bus }}</p>
+            </article>
+        </a>
     </section>
 @endforeach

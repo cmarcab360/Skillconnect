@@ -11,6 +11,8 @@
                 @method('DELETE')
             <input type="submit" value="Eliminar">
         </form>
+       <a href="{{ route('anuncios.editar', $anuncio->id) }}">Editar</a>
+
         
     </section>
        

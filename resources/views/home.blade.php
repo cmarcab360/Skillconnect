@@ -1,4 +1,5 @@
 <h1>Inicio</h1>
+<p>Usuario id:{{$userId}}</p>
 
 <button><a href="/perfil">Perfil</a></button>
 <button><a href="/anuncios">Anuncios</a></button>
@@ -11,9 +12,11 @@
 @endforeach
 
 
+
 <h1>Listado de anuncios</h1>
 @foreach ( $anuncios as $anuncio)
     <section>
+        <p>Usuario id:{{$anuncio->id_usuario}}</p>
         <article>
             <h3>{{$anuncio->titulo_of}}</h3>
             @foreach ($habilidades as $habilidad)

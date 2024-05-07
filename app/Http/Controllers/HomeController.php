@@ -14,7 +14,7 @@ class HomeController extends Controller
         $userId = Auth::id();
 
         //listado de anuncios diferentes al los del usuario
-        $anuncios = Anuncio::where('id', '!=', $userId)->get();
+        $anuncios = Anuncio::where('id_usuario', '!=', $userId)->get();
 
         //listado de habilidades
         $habilidades = Habilidad::all();

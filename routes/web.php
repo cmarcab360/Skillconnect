@@ -40,7 +40,8 @@ Route::post('/publicar', [PublicarAnunciosController::class, 'create'])->middlew
 
 Route::get('/anuncios', [AnunciosController::class, 'show'])->middleware('auth');
 Route::delete('/anuncios/{id}/delete', [AnunciosController::class, 'delete'])->middleware('auth')->name('anuncios.delete');
-
+Route::get('/anuncios/{id}/editar', [AnunciosController::class, 'edit'])->middleware('auth')->name('anuncios.editar');
+Route::put('/anuncios/{id}/editar', [AnunciosController::class, 'edit'])->middleware('auth')->name('anuncios.editar');
 
 
 

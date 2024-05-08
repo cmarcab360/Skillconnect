@@ -7,6 +7,7 @@ use App\Http\Controllers\PublicarAnunciosController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SesionController;
 use App\Http\Controllers\VerAnuncioController;
+use App\Http\Controllers\PusherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,4 +46,9 @@ Route::get('/anuncios/{id}/editar', [AnunciosController::class, 'edit'])->middle
 Route::put('/anuncios/{id}/editar', [AnunciosController::class, 'edit'])->middleware('auth')->name('anuncios.editar');
 
 Route::get('/ver/{id}', [VerAnuncioController::class, 'show'])->middleware('auth');
+
+//Mesajes
+Route::get('/mensaje', [ PusherController::class, 'index'])->middleware('auth');
+Route::post('/broadcast', [PusherController::class, 'broadcast'])->middleware('auth');
+Route::post('/receive', [PusherController::class, 'recrive'])->middleware('auth');
 

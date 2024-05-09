@@ -12,8 +12,8 @@
     <input type="file" name="url_foto" id="url_foto" placeholder="Ingrese la ciudad"
         value="{{ asset('storage/app/' . $usuario->url_foto) }}"><br>
 
-    <br><label for="nombre">Nombre:</label><br>
-    <input type="text" name="nombre" id="nombre" value="{{ $usuario->nombre }}"><br>
+    <br><label for="name">Nombre:</label><br>
+    <input type="text" name="name" id="name" value="{{ $usuario->name }}"><br>
 
     <br><label for="username">Nombre de usuario:</label><br>
     <input type="text" name="username" id="username" value="{{ $usuario->username }}"><br>

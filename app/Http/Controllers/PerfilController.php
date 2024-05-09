@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -13,7 +13,7 @@ class PerfilController extends Controller
     {
         $userId = Auth::id();
 
-        $usuario = Usuario::where('id', $userId)->first();
+        $usuario = User::where('id', $userId)->first();
         //$contrasena_desencriptada = decrypt($usuario->password);
         return view('/perfil')->with(compact('usuario', 'userId'));
     }
@@ -22,7 +22,7 @@ class PerfilController extends Controller
     {
         //dd($request->all());
         $request->validate([
-            'nombre' => 'required|string',
+            'name' => 'required|string',
             'username' => 'required|string',
             'email' => 'required|email',
             'password' => 'required|string|min:8',
@@ -33,12 +33,12 @@ class PerfilController extends Controller
 
         $userId = Auth::id();
 
-        $usuario = Usuario::findOrFail($userId);
+        $usuario = User::findOrFail($userId);
         //dd($usuario);
 
         // Actualizar los datos del usuario
-        if ($usuario->nombre !== $request->nombre) {
-            $usuario->nombre = $request->nombre;
+        if ($usuario->name !== $request->name) {
+            $usuario->name = $request->name;
         }
 
         if ($usuario->username !== $request->username) {

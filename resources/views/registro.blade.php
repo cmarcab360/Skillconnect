@@ -5,8 +5,8 @@
             <!--Crea un campo hidden con un token para este usuario-->
             @csrf 
             <div class="wrapper__form__input">
-                <label for="nombre" class="wrapper__form__input__label">NAME</label>
-                <input type="text" name="nombre" id="nombre" value="{{old('nombre')/*Cuando se haya cometido un error en otro campo no tenga que volver a llenar este campo*/}}" required class="wrapper__form__input__input">
+                <label for="name" class="wrapper__form__input__label">NAME</label>
+                <input type="text" name="name" id="name" value="{{old('name')/*Cuando se haya cometido un error en otro campo no tenga que volver a llenar este campo*/}}" required class="wrapper__form__input__input">
                 @error('name')
                     <p class="error">{{$message}}</p>
                 @enderror

@@ -2,9 +2,7 @@
 
 <form action="/publicar" method="post">
 
-
     @csrf
-    <input type="hidden" name="id_usuario" id="id_usuario" value="{{ $userId }}">
     <h2>Servicio/habilidad que ofrece</h2>
     <label for="titulo_of">Titulo descriptivo</label>
     <input type="text" name="titulo_of" id="titulo_of" placeholder="Titulo"><br>

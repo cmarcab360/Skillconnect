@@ -21,11 +21,11 @@
 
 <p>Publicado el {{ $anuncio->created_at }}</p>
 
-<h1>datos de usaurio</h1>
-<img src="{{ $usuario->url_foto }}" alt="foto de perfil">
+<h1>datos de usuario</h1>
+
 <p>{{$usuario->username}}</p>
 <p>media de estrellas</p>
-<button><a href="">contactar</a></button>
+<button><a href="/mensajes/{{$anuncio->id_usuario}}">contactar</a></button>
 
 <h1>Anuncios similares</h1>
 @foreach ($anunciosSimilares as $anuncio)

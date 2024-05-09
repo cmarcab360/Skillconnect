@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RegistroController extends Controller
@@ -14,14 +14,14 @@ class RegistroController extends Controller
     //Creación del usuario que se va a guardar
     public function store(){
         $attributes = request()->validate([
-            'nombre'=>'required|',
+            'name'=>'required|',
             'username'=>'required|min:3|unique:usuarios,username',//unique:users,username-> comprueba que este valor en la tabla users y la columna username, sea único
             'email'=>'required|email|unique:usuarios,email',
             'password'=>'required'
         ]);
         //Se llama al mutator setPasswordAttributes automaticamente porque hago User->password
         $attributes['password'] = bcrypt($attributes['password']);
-        $usuario = Usuario::create($attributes);
+        $usuario = User::create($attributes);
 
         //Mantener el usuario logueado
         auth()->login($usuario);

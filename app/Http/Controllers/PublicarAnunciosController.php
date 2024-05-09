@@ -13,7 +13,6 @@ class PublicarAnunciosController extends Controller
     public function show()
     {
 
-        
         $habilidades = Habilidad::all();
         //dd($habilidades);
         $userId = Auth::id();
@@ -22,8 +21,8 @@ class PublicarAnunciosController extends Controller
 
     public function create(Request $request)
     {
+
         $request->validate([
-            'id_usuario' => 'required|integer',
             'titulo_of' => 'required|string',
             'habilidad_ofrecida' => 'required|integer',
             'descripcion_of' => 'required|string',
@@ -37,7 +36,7 @@ class PublicarAnunciosController extends Controller
 
         //Crea el anuncio
         Anuncio::create([
-            'id_usuario' => $request->input('id_usuario'),
+            'id_usuario' => Auth::id(),
             'habilidad_buscada' => $request->input('habilidad_buscada'),
             'habilidad_ofrecida' => $request->input('habilidad_ofrecida'),
             'tituloB' => $request->input('titulo_B'),

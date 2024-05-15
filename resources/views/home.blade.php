@@ -6,6 +6,7 @@
 <button><a href="/perfil">Perfil</a></button>
 <button><a href="/anuncios">Anuncios</a></button>
 <button><a href="publicar">Agregar anuncio</a></button>
+<button><a href="mensajes">mensajes</a></button>
 <br><a href="/logout">Cerrar sesion</a>
 
 <form action="/home" method="post">

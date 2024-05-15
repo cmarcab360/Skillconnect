@@ -1,12 +1,18 @@
 <h1>Inicio</h1>
 <p>Usuario id:{{ $userId }}</p>
 
+
+
 <button><a href="/perfil">Perfil</a></button>
 <button><a href="/anuncios">Anuncios</a></button>
 <button><a href="publicar">Agregar anuncio</a></button>
 <br><a href="/logout">Cerrar sesion</a>
 
 <form action="/home" method="post">
+    @if (isset($habilidad) && (!empty($habilidad)))
+    <input type="hidden" name="habilidad" value="{{$habilidad}}">
+        
+    @endif
     @csrf
     <label for="ciudad">Ciudad</label>
     @if (!isset($busqueda['ciudad']))
@@ -33,8 +39,19 @@
 </form>
 
 @foreach ($habilidades as $habilidad)
-    <p>{{ $habilidad->titulo }}</p>
+<form action="/home" method="post">
+    @csrf
+    <input type="hidden" name="habilidad" value="{{$habilidad->id}}">
+    <button type="submit"><p>{{ $habilidad->titulo }}</p></button>
+</form>
+    
 @endforeach
+
+<form action="/home" method="post">
+    @csrf
+    <input type="hidden" name="eliminar" value="eliminar">
+    <button type="submit">x</p></button>
+</form>
 
 
 @if (isset($resultados) && !empty($resultados))

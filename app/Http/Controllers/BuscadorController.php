@@ -1,0 +1,76 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Anuncio;
+use App\Models\Habilidad;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class BuscadorController extends Controller
+{
+    public function show(Request $request)
+    {
+        $userId = Auth::id();
+        $habilidades = Habilidad::all();
+
+        //Variable para almacenar los resultados de los anuncios
+        $resultados = collect();
+        $busqueda = [];
+
+        //Si el buscador esta vacio envia todos los anuncios disponibles que no sean del usaurio loggeado
+        if (($request->input('ciudad') == null) && ($request->input('localidad') == null) && ($request->input('palabra') == null)) {
+            $anuncios = Anuncio::where('id_usuario', '!=', $userId)->get();
+            return view('home', compact('anuncios', 'userId', 'habilidades'));
+        } else {
+            // Si no va filtrando por cada campo
+            if ($request->input('palabra') !== null) {
+                $palabra = $request->input('palabra');
+                $busqueda['palabra'] = $palabra;
+                $anunciosPalabras = Anuncio::where('tituloB', 'like', '%' . $palabra . '%')
+                    ->orWhere('descripcion_of', 'like', '%' . $request->input('palabra') . '%')->where('id_usuario', '!=', $userId)
+                    ->get();
+                $resultados = $resultados->merge($anunciosPalabras);
+            }
+
+            if ($request->input('ciudad') !== null) {
+                $ciudad = $request->input('ciudad');
+                $busqueda['ciudad'] = $ciudad;
+                if (empty($resultados)) {
+
+                    $anunciosCiudad = Anuncio::where('Ciudad', $ciudad)->where('id_usuario', '!=', $userId)->get();
+                    $resultados = $resultados->merge($anunciosCiudad);
+                } else {
+                    foreach ($resultados as $resultado) {
+                        if (strcasecmp($resultado->Ciudad, $ciudad) == 0) {
+                            echo "true";
+                            $anunciosCiudad[] = $resultado;
+                        }
+                    }
+                    //dd($anunciosCiudad);
+                    $resultados = collect(); // vacia la colección
+                    $resultados = $resultados->merge($anunciosCiudad);
+                }
+            }
+
+            if ($request->input('localidad') !== null) {
+                $localidad = $request->input('localidad');
+                $busqueda['localidad'] = $localidad;
+                if (empty($resultados)) {
+                    $anunciosLocalidad = Anuncio::where('Localidad', $localidad)->where('id_usuario', '!=', $userId)->get();
+                    $resultados = $resultados->merge($anunciosLocalidad);
+                } else {
+                    foreach ($resultados as $resultado) {
+                        if (strcasecmp($resultado->Localidad, $localidad) == 0) {
+                            $anunciosLocalidad[] = $resultado;
+                        }
+                    }
+                    $resultados = collect(); // vacia la colección
+                    $resultados = $resultados->merge($anunciosLocalidad);
+                }
+            }
+        }
+
+        return view('home', compact('userId', 'habilidades', 'resultados', 'busqueda'));
+    }
+}

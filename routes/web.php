@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnunciosController;
+use App\Http\Controllers\BuscadorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\PublicarAnunciosController;
@@ -29,6 +30,7 @@ Route::post('/registro', [RegistroController::class, 'store'])->middleware('gues
 
 
 Route::get('/home', [HomeController::class, 'home'])->middleware('auth');
+Route::post('/home', [BuscadorController::class, 'show'])->middleware('auth');
 
 Route::post('logout',[SesionController::class, 'destroy'])->middleware('auth');
 Route::get('logout',[SesionController::class, 'destroy'])->middleware('auth');//Para cuando intento acceder sin estar logueado
@@ -45,4 +47,6 @@ Route::get('/anuncios/{id}/editar', [AnunciosController::class, 'edit'])->middle
 Route::put('/anuncios/{id}/editar', [AnunciosController::class, 'edit'])->middleware('auth')->name('anuncios.editar');
 
 Route::get('/ver/{id}', [VerAnuncioController::class, 'show'])->middleware('auth');
+
+
 

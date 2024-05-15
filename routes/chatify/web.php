@@ -96,11 +96,6 @@ Route::post('/updateSettings', 'MessagesController@updateSettings')->name('avata
  */
 Route::post('/setActiveStatus', 'MessagesController@setActiveStatus')->name('activeStatus.set');
 
-
-
-
-
-
 /*
 * [Group] view by id
 */
@@ -114,5 +109,5 @@ Route::get('/group/{id}', 'MessagesController@index')->name('group');
 * e.g. - The commented routes below :
 */
 // Route::get('/route', function(){ return 'Munaf'; }); // works as a route
-Route::get('/{id}', 'MessagesController@index')->name('user');
+Route::get('/{id}/{anuncio}', 'MessagesController@index')->name('user');
 // Route::get('/route', function(){ return 'Munaf'; }); // works as a user id

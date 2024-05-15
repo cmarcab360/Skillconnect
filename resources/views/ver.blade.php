@@ -25,7 +25,7 @@
 
 <p>{{$usuario->username}}</p>
 <p>media de estrellas</p>
-<button><a href="/mensajes/{{$anuncio->id_usuario}}">contactar</a></button>
+<button><a href="/mensajes/{{$anuncio->id_usuario}}/{{$anuncio->id}">contactar</a></button>
 
 <h1>Anuncios similares</h1>
 @foreach ($anunciosSimilares as $anuncio)

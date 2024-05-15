@@ -18,8 +18,7 @@ class BuscadorController extends Controller
         $resultados = collect();
         $busqueda = [];
         $habilidad = '';
-        //dd(((($request->input('ciudad') == null) && ($request->input('localidad') == null) && ($request->input('palabra') == null) && ($request->input('habilidad') == null)) || ($request->input('eliminar') !== null)) );
-
+        
         //Si no hay filtros de busquedad o se eliminan los filtros envia todos los anuncios disponibles que no sean del usaurio loggeado
         if ((($request->input('ciudad') == null) && ($request->input('localidad') == null) && ($request->input('palabra') == null) && ($request->input('habilidad') == null)) || ($request->input('eliminar') !== null)) {
             
@@ -29,7 +28,6 @@ class BuscadorController extends Controller
 
             // Si no va filtrando por cada campo
             if ($request->input('palabra') !== null) {
-                echo "entro";
                 $palabra = $request->input('palabra');
                 $busqueda['palabra'] = $palabra;
                 $anunciosPalabras = Anuncio::where('tituloB', 'like', '%' . $palabra . '%')
@@ -41,12 +39,10 @@ class BuscadorController extends Controller
             if ($request->input('habilidad') !== null) {
                 $habilidad = $request->input('habilidad');
                 if ($resultados->isEmpty()) {
-                    echo "entro nuevo";
                     $anuncioshabilidad = Anuncio::where('habilidad_buscada', $habilidad)->where('id_usuario', '!=', $userId)
                         ->orWhere('habilidad_ofrecida', $habilidad)->where('id_usuario', '!=', $userId)->get();
                     $resultados = $resultados->merge($anuncioshabilidad);
                 } else {
-                    echo "entro por el filtro";
                     $anuncioshabilidad = []; 
                     foreach ($resultados as $resultado) {
                         if ($resultado->habilidad_buscada == $habilidad || $resultado->habilidad_ofrecida == $habilidad) {
@@ -74,7 +70,6 @@ class BuscadorController extends Controller
                             $anunciosCiudad[] = $resultado;
                         }
                     }
-                    //dd($anunciosCiudad);
                     $resultados = collect(); // vacia la colección
                     $resultados = $resultados->merge($anunciosCiudad);
                 }

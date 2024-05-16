@@ -1,0 +1,56 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use App\Models\Valoracion;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class ValoracionController extends Controller
+{
+    public function form($id)
+    {
+        return view('/valorar')->with(compact('id'));
+    }
+
+    public function show($usuario)
+    {
+        $usuarioLogueado = Auth::id();
+        $valoraciones = Valoracion::where('id_usuario_evaluado', $usuario)->get();
+        $usuario = User::where('id', $usuario)->first();
+
+        if (!empty($valoraciones)) {
+            $media = 0;
+            foreach ($valoraciones as $valoracion) {
+                $media += $valoracion->calificacion;
+            }
+            $media = round($media/count($valoraciones));
+        }else{
+            $media = 0;
+        }
+
+        return view('/valoraciones')->with(compact('media', 'valoraciones', 'usuario', 'usuarioLogueado'));
+    }
+
+    function create(Request $request)
+    {
+
+        $request->validate([
+            'calificacion' => 'required|integer',
+            'comentario' => 'required|string'
+        ]);
+
+        //Crea el anuncio
+        Valoracion::create([
+            'id_usuario_evaluador' => Auth::id(),
+            'id_usuario_evaluado' =>  $request->input('id'),
+            'calificacion' => $request->input('calificacion'),
+            'comentario' => $request->input('comentario')
+        ]);
+        $id = $request->input('id');
+
+        // Redirigir de vuelta al perfil del usuario con un mensaje de éxito
+        return redirect('/anuncios/' . $id);
+    }
+}

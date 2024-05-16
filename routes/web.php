@@ -7,6 +7,7 @@ use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\PublicarAnunciosController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SesionController;
+use App\Http\Controllers\ValoracionController;
 use App\Http\Controllers\VerAnuncioController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,11 +43,16 @@ Route::get('/publicar', [PublicarAnunciosController::class, 'show'])->middleware
 Route::post('/publicar', [PublicarAnunciosController::class, 'create'])->middleware('auth');
 
 Route::get('/anuncios', [AnunciosController::class, 'show'])->middleware('auth');
+Route::get('/anuncios/{id}', [AnunciosController::class, 'anunciosUsuario'])->middleware('auth');
 Route::delete('/anuncios/{id}/delete', [AnunciosController::class, 'delete'])->middleware('auth')->name('anuncios.delete');
 Route::get('/anuncios/{id}/editar', [AnunciosController::class, 'edit'])->middleware('auth')->name('anuncios.editar');
 Route::put('/anuncios/{id}/editar', [AnunciosController::class, 'edit'])->middleware('auth')->name('anuncios.editar');
 
 Route::get('/ver/{id}', [VerAnuncioController::class, 'show'])->middleware('auth');
+
+Route::get('/valorar/{id}', [ValoracionController::class, 'form'])->middleware('auth');
+Route::get('/valorar/{id}/mostrar', [ValoracionController::class, 'show'])->middleware('auth')->name('valorar.mostrar');
+Route::post('/valorar', [ValoracionController::class, 'create'])->middleware('auth');
 
 
 

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('valoraciones', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_usuario_evaluador')->constrained('usuarios')->onDelete('cascade');
-            $table->foreignId('id_usuario_evaluado')->constrained('usuarios')->onDelete('cascade');
+            $table->foreignId('id_usuario_evaluador')->constrained('users')->onDelete('cascade');
+            $table->foreignId('id_usuario_evaluado')->constrained('users')->onDelete('cascade');
             $table->integer('calificacion');
             $table->longText('comentario');
             $table->timestamps();

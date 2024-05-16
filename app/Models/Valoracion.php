@@ -14,12 +14,13 @@ class Valoracion extends Model
      * @var array<int, string>
      */
     protected $guarded = [];
+    protected $table = 'valoraciones';
 
     public function usuario_evaluador(){
-        return $this->belongsTo(Usuario::class, 'id_usuario_evaluador');
+        return $this->belongsTo(User::class, 'id_usuario_evaluador');
     }
 
     public function usuario_evaluado(){
-        return $this->belongsTo(Usuario::class, 'id_usuario_evaluador');
+        return $this->belongsTo(User::class, 'id_usuario_evaluador');
     }
 }

@@ -13,9 +13,21 @@ class AnunciosController extends Controller
     {
         $userId = Auth::id();
         $listadoAnuncios = Anuncio::where('id_usuario', $userId)->get();
-
-        return view('/anuncios')->with(compact('listadoAnuncios'));
+        $id = $userId;
+        return view('/anuncios')->with(compact('listadoAnuncios', 'id'));
     }
+
+    public function anunciosUsuario($id)
+    {
+        $userId = Auth::id();
+        if ($userId !== $id) {
+            $listadoAnunciosExternos = Anuncio::where('id_usuario', $id)->get();
+        }
+
+        $numAnuncios = strlen($listadoAnunciosExternos);
+        return view('/anuncios')->with(compact('listadoAnunciosExternos', 'id'));
+    }
+
 
     public function edit(Request $request, $id)
     {

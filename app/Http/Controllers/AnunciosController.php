@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Anuncio;
 use App\Models\Habilidad;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,21 +12,25 @@ class AnunciosController extends Controller
 {
     public function show()
     {
-        $userId = Auth::id();
-        $listadoAnuncios = Anuncio::where('id_usuario', $userId)->get();
-        $id = $userId;
-        return view('/anuncios')->with(compact('listadoAnuncios', 'id'));
+        $id = Auth::id();
+        $habilidades = Habilidad::all();
+        $usuarioLog = Auth::id();
+        $listadoAnuncios = Anuncio::where('id_usuario', $id)->get();
+        $usuario = User::where('id', $id)->first();
+        $numAnuncios = count($listadoAnuncios);
+
+        return view('/anuncios')->with(compact('listadoAnuncios', 'habilidades', 'id', 'usuario', 'numAnuncios', 'usuarioLog'));
     }
 
     public function anunciosUsuario($id)
     {
-        $userId = Auth::id();
-        if ($userId !== $id) {
+        $usuarioLog = Auth::id();
+            $habilidades = Habilidad::all();
             $listadoAnunciosExternos = Anuncio::where('id_usuario', $id)->get();
-        }
-
-        $numAnuncios = strlen($listadoAnunciosExternos);
-        return view('/anuncios')->with(compact('listadoAnunciosExternos', 'id'));
+            $usuario = User::where('id', $id)->first();
+            $numAnuncios = count($listadoAnunciosExternos);
+       
+        return view('/anuncios')->with(compact('listadoAnunciosExternos', 'habilidades', 'usuarioLog', 'id', 'usuario', 'numAnuncios'));
     }
 
 

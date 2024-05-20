@@ -1,8 +1,6 @@
 <h1>Inicio</h1>
 <p>Usuario id:{{ $userId }}</p>
 
-
-
 <button><a href="/perfil">Perfil</a></button>
 <button><a href="/anuncios">Anuncios</a></button>
 <button><a href="publicar">Agregar anuncio</a></button>
@@ -10,9 +8,8 @@
 <br><a href="/logout">Cerrar sesion</a>
 
 <form action="/home" method="post">
-    @if (isset($habilidad) && (!empty($habilidad)))
-    <input type="hidden" name="habilidad" value="{{$habilidad}}">
-        
+    @if (isset($habilidad) && !empty($habilidad))
+        <input type="hidden" name="habilidad" value="{{ $habilidad }}">
     @endif
     @csrf
     <label for="ciudad">Ciudad</label>
@@ -40,12 +37,13 @@
 </form>
 
 @foreach ($habilidades as $habilidad)
-<form action="/home" method="post">
-    @csrf
-    <input type="hidden" name="habilidad" value="{{$habilidad->id}}">
-    <button type="submit"><p>{{ $habilidad->titulo }}</p></button>
-</form>
-    
+    <form action="/home" method="post">
+        @csrf
+        <input type="hidden" name="habilidad" value="{{ $habilidad->id }}">
+        <button type="submit">
+            <p>{{ $habilidad->titulo }}</p>
+        </button>
+    </form>
 @endforeach
 
 <form action="/home" method="post">
@@ -59,14 +57,24 @@
     @foreach ($resultados as $anuncio)
         <section>
             <a href="/ver/{{ $anuncio->id }}">
-                <p>Usuario id:{{ $anuncio->id_usuario }}</p>
-                <article>
-                    <h3>{{ $anuncio->titulo_of }}</h3>
+                <section>
                     @foreach ($habilidades as $habilidad)
                         @if ($anuncio->habilidad_ofrecida == $habilidad->id)
                             <h4>{{ $habilidad->titulo }}</h4>
                         @endif
                     @endforeach
+
+                    @foreach ($usuarios as $usuario)
+                        @if ($usuario->id == $anuncio->id_usuario)
+                            <p><img src="{{ asset('fotos/usuario_base.png') }}" alt="Imagen base"
+                                    style="height: 50px; width: 50px;">{{ $usuario->username }}</p>
+                        @endif
+                    @endforeach
+
+                </section>
+                <article>
+                    <h3>{{ $anuncio->titulo_of }}</h3>
+
                     <p>{{ $anuncio->descripcion_of }}</p>
                 </article>
                 <article>
@@ -86,14 +94,24 @@
     @foreach ($anuncios as $anuncio)
         <section>
             <a href="/ver/{{ $anuncio->id }}">
-                <p>Usuario id:{{ $anuncio->id_usuario }}</p>
-                <article>
-                    <h3>{{ $anuncio->titulo_of }}</h3>
+                <section>
                     @foreach ($habilidades as $habilidad)
                         @if ($anuncio->habilidad_ofrecida == $habilidad->id)
                             <h4>{{ $habilidad->titulo }}</h4>
                         @endif
                     @endforeach
+
+                    @foreach ($usuarios as $usuario)
+                        @if ($usuario->id == $anuncio->id_usuario)
+                            <p><img src="{{ asset('fotos/usuario_base.png') }}" alt="Imagen base"
+                                    style="height: 50px; width: 50px;">{{ $usuario->username }}</p>
+                        @endif
+                    @endforeach
+
+                </section>
+                <article>
+                    <h3>{{ $anuncio->titulo_of }}</h3>
+
                     <p>{{ $anuncio->descripcion_of }}</p>
                 </article>
                 <article>

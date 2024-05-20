@@ -19,6 +19,7 @@ class ValoracionController extends Controller
         $usuarioLogueado = Auth::id();
         $valoraciones = Valoracion::where('id_usuario_evaluado', $usuario)->get();
         $usuario = User::where('id', $usuario)->first();
+        $usuarios = User::all();
 
         if (!empty($valoraciones)) {
             $media = 0;
@@ -30,7 +31,7 @@ class ValoracionController extends Controller
             $media = 0;
         }
 
-        return view('/valoraciones')->with(compact('media', 'valoraciones', 'usuario', 'usuarioLogueado'));
+        return view('/valoraciones')->with(compact('media', 'valoraciones', 'usuario', 'usuarioLogueado', 'usuarios'));
     }
 
     function create(Request $request)

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class PerfilController extends Controller
 {
@@ -21,20 +21,23 @@ class PerfilController extends Controller
     public function update(Request $request)
     {
         //dd($request->all());
-        $request->validate([
-            'name' => 'required|string',
-            'username' => 'required|string',
-            'email' => 'required|email',
-            'password' => 'required|string|min:8',
-            'descripcion' => 'nullable|string',
-            'url_foto' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+        $userId = Auth::id();
+        $usuario = User::findOrFail($userId);
 
+        // Validar los datos de entrada
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users,username,' . $usuario->id,
+            'email' => 'required|string|email|max:255|unique:users,email,' . $usuario->id,
+            'password' => 'nullable|string|min:8',
+            'descripcion' => 'nullable|string|max:255',
+            'url_foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $userId = Auth::id();
-
-        $usuario = User::findOrFail($userId);
-        //dd($usuario);
+        // Verificar si la validación falla
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
         // Actualizar los datos del usuario
         if ($usuario->name !== $request->name) {
@@ -49,20 +52,21 @@ class PerfilController extends Controller
             $usuario->email = $request->email;
         }
 
-        if (($usuario->password) !== bcrypt($request->password)) {
+        if ($request->password !== "contraseña") {
             $usuario->password = bcrypt($request->password); //encriptar la contraseña
         }
 
-        if ($usuario->descripcion !== $request->descripcion) {
+        if ($usuario->descripcion !== $request->descripcion ) {
             $usuario->descripcion = $request->descripcion;
         }
-        if ($usuario->url_foto !== $request->url_foto) {
+
+        if ($usuario->avatar !== $request->url_foto && !empty($request->url_foto)) {
             $foto = $request->file('url_foto');
 
             // Guardar el archivo en la carpeta de almacenamiento
-            $rutaFoto = $foto->store('fotos', 'public');;
+            $rutaFoto = $foto->store('fotos', 'public');
 
-            $usuario->url_foto = $rutaFoto;
+            $usuario->avatar = $rutaFoto;
         }
 
         // Guardar los cambios en la base de datos

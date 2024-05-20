@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Anuncio;
 use App\Models\Habilidad;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,6 +14,8 @@ class BuscadorController extends Controller
     {
         $userId = Auth::id();
         $habilidades = Habilidad::all();
+        $usuarios = User::all();
+        
 
         //Variable para almacenar los resultados de los anuncios
         $resultados = collect();
@@ -23,7 +26,7 @@ class BuscadorController extends Controller
         if ((($request->input('ciudad') == null) && ($request->input('localidad') == null) && ($request->input('palabra') == null) && ($request->input('habilidad') == null)) || ($request->input('eliminar') !== null)) {
             
             $anuncios = Anuncio::where('id_usuario', '!=', $userId)->get();
-            return view('home', compact('anuncios', 'userId', 'habilidades'));
+            return view('home', compact('anuncios', 'userId', 'habilidades', 'usuarios'));
         } else {
 
             // Si no va filtrando por cada campo
@@ -92,8 +95,9 @@ class BuscadorController extends Controller
                     $resultados = $resultados->merge($anunciosLocalidad);
                 }
             }
-        }
+        }           
+           
 
-        return view('home', compact('userId', 'habilidades', 'resultados', 'busqueda', 'habilidad'));
+        return view('home', compact('userId', 'habilidades', 'resultados', 'busqueda', 'habilidad', 'usuarios'));
     }
 }

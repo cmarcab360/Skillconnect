@@ -5,19 +5,31 @@ namespace App\Http\Controllers;
 use App\Models\Anuncio;
 use App\Models\Habilidad;
 use App\Models\User;
+use App\Models\Valoracion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VerAnuncioController extends Controller
 {
     public function show($id)
     {
-        $anuncio = Anuncio::where('id', $id)->first();
-       //dd($anuncio);
-        $anunciosSimilares = Anuncio::where('habilidad_buscada', $anuncio->habilidad_buscada)->where('id', '!=', $anuncio->id)->limit(3)->get();
-        $usuario = User::where('id', $anuncio->id_usuario)->first();
-   
         $habilidades = Habilidad::all();
+        $anuncio = Anuncio::where('id', $id)->first();
+        $usuario = User::where('id', $anuncio->id_usuario)->first();
 
-        return view('/ver')->with(compact('anuncio', 'anunciosSimilares', 'usuario', 'habilidades'));
+        $anunciosSimilares = Anuncio::where('habilidad_buscada', $anuncio->habilidad_buscada)->where('id', '!=', $anuncio->id)->limit(3)->get();
+        $valoraciones = Valoracion::where('id_usuario_evaluado', $anuncio->id_usuario)->get();
+
+        if (!empty($valoraciones)) {
+            $media = 0;
+            foreach ($valoraciones as $valoracion) {
+                $media += $valoracion->calificacion;
+            }
+            $media = round($media/count($valoraciones));
+        }else{
+            $media = 0;
+        }
+
+        return view('/ver')->with(compact('anuncio', 'anunciosSimilares', 'usuario', 'habilidades', 'media'));
     }
 }

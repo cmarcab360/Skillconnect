@@ -1,0 +1,146 @@
+/*------------Colores primarios----------*/
+$azul-claro: #119da4;
+$azul-oscuro: #0c7489;
+
+/*------------Colores Secundarios----------*/
+$gris-oscuro: #948b89;
+$gris-claro: #d7d9ce;
+$beige: #d7d0d0;
+
+/*------------Letras (Estilo, tamaño, color)----------*/
+$font-family: "Nunito", sans-serif;
+$letra-negra: #000000;
+$letra-blanca: #fffcfb;
+
+.header {
+    display: flex;
+    flex-direction: row;
+    background-color: $azul-oscuro;
+    justify-content: space-between;
+    align-items: center;
+    &__picture {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 30%;
+        &__logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40%;
+            height: auto;
+            padding: 0.3em;
+        }
+    }
+
+    &__options {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+      
+        &__enlace{
+            margin-right: 0.5em;
+            color: $letra-blanca;
+            font-size: x-large;
+            &--bordeBlancos{
+                color: $letra-blanca;
+                border: solid 1px $letra-blanca;
+                padding: 0.4em;
+                border-radius: 15px;
+                font-size: x-large;
+                margin-right: 0.5em;
+            }
+        }
+
+        &__user {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5em;
+            &__img {
+                width: 35px;
+                
+                border-radius: 100px;
+            }
+
+            &__menu {
+                display: inline-block;
+                position: relative;
+                margin-right: 9px;
+                &__contenido {
+                    display: none;
+                    position: absolute;
+                    width: 100%;
+                    overflow: auto;
+                    width: 200px;
+                    right: 0;
+                    z-index: 1;
+                    background-color: $letra-blanca;
+                    &__cabecera{
+                       border-bottom: $azul-oscuro solid 1.5px;
+                       &__texto{
+                        padding-left: 1em;
+                        font-weight: bold;
+                        font-size: large;
+                       }
+                    }
+                   
+                }
+            
+                &:hover &__contenido {
+                    display: block;
+                }
+            
+                &__contenido a {
+                    display: block;
+                    color: #000000;
+                    padding: 0.5em;
+                    text-decoration: none;
+            
+                    &:hover {
+                        color: #ffffff;
+                        background-color: #00a4bd;
+                    }
+                }
+
+                &__icono{
+                    color: $letra-blanca;
+                    font-size: larger;
+                }
+            }
+        }
+    }
+}
+
+/*---------------------Menu------------------------*/
+
+/*---------------------Media------------------------*/
+
+/* header */
+
+@media (min-width: 700px) {
+    .header {
+        &__picture {
+            width: 10%;
+            &__logo {
+                width: 50%;
+                height: auto;
+                padding: 1em;
+            }
+        }
+
+        &__options {
+            gap: 5px;
+            width: 50%;
+            &__user {
+                gap: 0.5em;
+                &__img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 100px;
+                }
+            }
+        }
+    }
+}

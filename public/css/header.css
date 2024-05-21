@@ -1,0 +1,122 @@
+@charset "UTF-8";
+/*------------Colores primarios----------*/
+/*------------Colores Secundarios----------*/
+/*------------Letras (Estilo, tamaño, color)----------*/
+.header {
+  display: flex;
+  flex-direction: row;
+  background-color: #0c7489;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__picture {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 30%;
+}
+.header__picture__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: auto;
+  padding: 0.3em;
+}
+.header__options {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+.header__options__enlace {
+  margin-right: 0.5em;
+  color: #fffcfb;
+  font-size: x-large;
+}
+.header__options__enlace--bordeBlancos {
+  color: #fffcfb;
+  border: solid 1px #fffcfb;
+  padding: 0.4em;
+  border-radius: 15px;
+  font-size: x-large;
+  margin-right: 0.5em;
+}
+.header__options__user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5em;
+}
+.header__options__user__img {
+  width: 35px;
+  border-radius: 100px;
+}
+.header__options__user__menu {
+  display: inline-block;
+  position: relative;
+  margin-right: 9px;
+}
+.header__options__user__menu__contenido {
+  display: none;
+  position: absolute;
+  width: 100%;
+  overflow: auto;
+  width: 200px;
+  right: 0;
+  z-index: 1;
+  background-color: #fffcfb;
+}
+.header__options__user__menu__contenido__cabecera {
+  border-bottom: #0c7489 solid 1.5px;
+}
+.header__options__user__menu__contenido__cabecera__texto {
+  padding-left: 1em;
+  font-weight: bold;
+  font-size: large;
+}
+.header__options__user__menu:hover .header__options__user__menu__contenido {
+  display: block;
+}
+.header__options__user__menu__contenido a {
+  display: block;
+  color: #000000;
+  padding: 0.5em;
+  text-decoration: none;
+}
+.header__options__user__menu__contenido a:hover {
+  color: #ffffff;
+  background-color: #00a4bd;
+}
+.header__options__user__menu__icono {
+  color: #fffcfb;
+  font-size: larger;
+}
+
+/*---------------------Menu------------------------*/
+/*---------------------Media------------------------*/
+/* header */
+@media (min-width: 700px) {
+  .header__picture {
+    width: 10%;
+  }
+  .header__picture__logo {
+    width: 50%;
+    height: auto;
+    padding: 1em;
+  }
+  .header__options {
+    gap: 5px;
+    width: 50%;
+  }
+  .header__options__user {
+    gap: 0.5em;
+  }
+  .header__options__user__img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */

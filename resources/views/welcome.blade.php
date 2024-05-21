@@ -1,29 +1,40 @@
-
-    <!--Solo si eres un guest, se mostrará el botón de register y el Formulario de log in. Tbn podría ser if(! auth->check())-->
+<x-layout>
     @guest
-    <section class= "wrapper">
-            <h1 class="wrapper__title">Log In</h1>
-            <form action="/" method="POST" class="wrapper__form" id="register-form">
-                <!--Crea un campo hidden con un token para este usuario-->
-                @csrf 
-                <div class="wrapper__form__input">
-                    <label for="email" class="wrapper__form__input__label">EMAIL</label>
-                    <input type="email" name="email" id="email" value="{{old('email')}}" required class="wrapper__form__input__input">
-                    @error('email')
-                        <p class="error">{{$message}}</p>
-                    @enderror
-                </div>
-                <div class="wrapper__form__input">
-                    <label for="password" class="wrapper__form__input__label">PASSWORD</label>
-                    <input type="password" name="password" id="password" required class="wrapper__form__input__input">
-                    @error('password')
-                        <p class="error">{{$message}}</p>
-                    @enderror
-                </div>
-                <div class="wrapper__form__buttons">
-                    <button class="wrapper__form__buttons__button wrapper__form__buttons__button--blue"><a href="/registro" class="wrapper__form__buttons__button__a">Sign Up</a></button>
-                    <button type="submit" class="wrapper__form__buttons__button">Log In</button>
-                </div>
-            </form>
+        <section class="contenedor">
+            <section class="contenedor__texto">
+                <h3 class="contenedor__texto__titulo">¡Que bueno volver a verte en SkillConnect!</h3>
+                <article class="contenedor__texto__separador"></article>
+                <h3 class="contenedor__texto__subtitulo">Inicia sesión para acceder a tu cuenta.</h3>
+            </section>
+            <section class="contenedor__formulario">
+                <form action="/" method="POST" id="register-form">
+                    @csrf
+                    <header class="contenedor__formulario__cabecera">
+                        <h1 class="contenedor__formulario__cabecera__titulo">Iniciar sesión</h1>
+                        <p>¿Aún no eres miembro?</p>
+                        <a href="/registro">Registrate</a>
+                    </header>
+                    <article class="contenedor__formulario__article">
+                        <label for="email">Email*</label>
+                        <input class="contenedor__formulario__article__input" type="email" name="email" id="email" value="{{ old('email') }}" placeholder="Email"
+                            required>
+                        @error('email')
+                            <p class="error">{{ $message }}</p>
+                        @enderror
+                    </article>
+                    <article class="contenedor__formulario__article">
+                        <label for="password">Contraseña*</label>
+                        <input class="contenedor__formulario__article__input" type="password" name="password" id="password" placeholder="Contraseña" required>
+                        @error('password')
+                            <p class="error">{{ $message }}</p>
+                        @enderror
+                    </article>
+
+                    <section class="contenedor__formulario__footer">
+                        <button class="contenedor__formulario__footer__boton--azul" type="submit">Iniciar Sesión</button>
+                    </section>
+                </form>
+            </section>
         </section>
     @endguest
+</x-layout>

@@ -1,3 +1,6 @@
+<x-layout>
+
+    <x-header />
 <h1>Editar Anuncio</h1>
 
     <form action="{{ route('anuncios.editar', $anuncios->id) }}" method="post">
@@ -52,3 +55,4 @@
         <input type="reset" value="Cancelar" name="cancelar">
     </form>
 
+</x-layout>

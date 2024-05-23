@@ -1,0 +1,367 @@
+/*------------Colores primarios----------*/
+$azul-claro: #119da4;
+$azul-oscuro: #0c7489;
+
+/*------------Colores Secundarios----------*/
+$gris-oscuro: #948b89;
+$beige: #d7d0d0;
+$beige-claro: #ece3e3;
+
+/*------------Letras (Estilo, tamaño, color)----------*/
+$font-family: "Nunito", sans-serif;
+$letra-negra: #000000;
+$letra-blanca: #fffcfb;
+
+.box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    &__formulario {
+        width: 99%;
+        display: flex;
+        flex-direction: row;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        background-color: $beige;
+        justify-content: space-between;
+        border-radius: 20px;
+        &__article {
+            width: 20%;
+            padding: 0.5em;
+            line-height: 0.5em;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            &:not(:first-child)::before {
+                //Separador del buscador
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                height: 50%; // Adjust this value to control the height of the separator line
+                border-right: 1px solid $letra-blanca;
+            }
+            &__label {
+                font-size: x-small;
+            }
+            &__input {
+                border: none;
+                font-size: xx-small;
+                background-color: $beige;
+                width: 100%;
+                &:hover {
+                    background-color: $beige-claro;
+                }
+            }
+            &:hover {
+                background-color: $beige-claro;
+                border-radius: 25px;
+                padding: 0.5em;
+            }
+        }
+        &__boton {
+            display: flex;
+            align-items: center;
+            &--busquedad {
+                background-color: $azul-oscuro;
+                border: none;
+                color: $letra-blanca;
+                border-radius: 29px;
+                height: 34px;
+                width: 34px;
+            }
+        }
+    }
+
+    //Anuncios
+    &__section {
+        margin-top: 2em;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        &__enlace {
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            background-color: $beige;
+            &__header {
+                background-color: $azul-oscuro;
+                height: 35%;
+                &__titulo {
+                    color: $letra-blanca;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    font-size: x-large;
+                    margin: 0.2em;
+                }
+                &__usuario {
+                    display: flex;
+                    flex-direction: row;
+                    margin-left: 0.5em;
+                    margin-right: 0.5em;
+                    color: $letra-blanca;
+                    font-size: large;
+                    &__img {
+                        height: 50px;
+                        width: 50px;
+                        border-radius: 50%;
+                        margin-right: 0.5em;
+                    }
+                }
+            }
+
+            &__contenido {
+                margin-left: 0.5em;
+                margin-right: 0.5em;
+                &__article {
+                    color: $letra-negra;
+                    &__titulo {
+                        font-size: x-large;
+                        margin: 0.5em 0em 0.5em 0;
+                    }
+                    &__descripcion {
+                        font-size: small;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//Carrusel
+.wrapper {
+    width: 90%;
+    position: relative;
+    
+
+  }
+  .wrapper .flecha {
+    width: 20px;
+    height: 20px;
+    background-color:$azul-oscuro;
+    color: $letra-blanca;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 25%;
+    font-size: 0.5em;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+    transform: translateY(-50%);
+  }
+  
+  .wrapper .flecha:first-child {
+    left: 0px;
+  }
+  .wrapper .flecha:last-child {
+    right: 0px;
+  }
+  
+  .wrapper .carousel {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 5) - 15px);
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .carousel .card {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+
+  .card .img img {
+
+    width: 20px;
+    height:20px;
+    background-color: #fffcfb;
+    
+    
+  }
+
+  .img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    width: 40px;
+    height:30px;
+  }
+
+  .texto{
+    font-size: 8px;
+  }
+  
+
+/*---------------------Media------------------------*/
+@media (min-width: 500px) {
+    .box {
+        align-content: center;
+        &__formulario {
+            width: 92%;
+            display: flex;
+            flex-direction: row;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            background-color: $beige;
+            justify-content: space-between;
+            border-radius: 70px;
+            &__article {
+                width: 20%;
+                height: 6vh;
+                padding: 0.4em;
+                line-height: 1em;
+                flex: 1;
+                justify-content: center;
+                &__label {
+                    font-size: medium;
+                    margin-left: 0.2em;
+                }
+                &__input {
+                    font-size: small;
+                }
+            }
+            &__boton {
+                &--busquedad {
+                    font-size: large;
+                    height: 50px;
+                    width: 50px;
+                }
+            }
+        }
+        //Anuncios
+        &__section {
+            &__enlace {
+                width: 70%;
+                &__header {
+                    background-color: $azul-oscuro;
+                    height: 40%;
+                }
+            }
+        }
+    }
+
+    .wrapper .carousel {
+        grid-auto-columns: calc(100% / 7);
+    }
+
+
+}
+@media (min-width: 700px) {
+    .box {
+        align-content: center;
+        &__formulario {
+            width: 75%;
+            &__boton {
+                &--busquedad {
+                    font-size: large;
+                    height: 55px;
+                    width: 55px;
+                }
+            }
+        }
+        //Anuncios
+        &__section {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            gap: 1em;
+            width: 90%;
+            &__enlace {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                background-color: $beige;
+                &__header {
+                    background-color: $azul-oscuro;
+                    height: 40%;
+                }
+            }
+        }
+    }
+
+    .card .img img {
+        width: 30px;
+        height:30px; 
+      }
+    
+      .img{
+        width: 45px;
+        height:45px;
+      }
+    
+      .texto{
+        font-size: 10px;
+      }
+
+      .wrapper .flecha {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        top: 20%;
+        font-size: 1em;
+      }
+}
+
+@media (min-width: 1024px) {
+    .box {
+        align-content: center;
+        //Anuncios
+        &__section {
+            display: grid;
+            grid-template-columns: 33% 33% 33%;
+            gap: 1em;
+            width: 75%;
+            &__enlace {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                background-color: $beige;
+                &__header {
+                    background-color: $azul-oscuro;
+                    height: 35%;
+                }
+            }
+        }
+    }
+
+    .wrapper .carousel {
+        grid-auto-columns: calc(100% / 10);
+    }
+
+    .card .img img {
+        width: 35px;
+        height:35px; 
+      }
+    
+      .img{
+        width: 50px;
+        height:50px;
+      }
+    
+      .texto{
+        font-size: 10px;
+      }
+}

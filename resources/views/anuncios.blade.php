@@ -1,3 +1,6 @@
+<x-layout>
+
+    <x-header />
 <p>Anuncios</p>
 <a href="{{ route('valorar.mostrar', $id) }}">Valoraciones</a>
 
@@ -81,3 +84,5 @@
     @endforeach
 
 @endif
+
+</x-layout>

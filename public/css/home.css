@@ -1,0 +1,328 @@
+@charset "UTF-8";
+/*------------Colores primarios----------*/
+/*------------Colores Secundarios----------*/
+/*------------Letras (Estilo, tamaño, color)----------*/
+.box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+.box__formulario {
+  width: 99%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: #d7d0d0;
+  justify-content: space-between;
+  border-radius: 20px;
+}
+.box__formulario__article {
+  width: 20%;
+  padding: 0.5em;
+  line-height: 0.5em;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.box__formulario__article:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50%;
+  border-right: 1px solid #fffcfb;
+}
+.box__formulario__article__label {
+  font-size: x-small;
+}
+.box__formulario__article__input {
+  border: none;
+  font-size: xx-small;
+  background-color: #d7d0d0;
+  width: 100%;
+}
+.box__formulario__article__input:hover {
+  background-color: #ece3e3;
+}
+.box__formulario__article:hover {
+  background-color: #ece3e3;
+  border-radius: 25px;
+  padding: 0.5em;
+}
+.box__formulario__boton {
+  display: flex;
+  align-items: center;
+}
+.box__formulario__boton--busquedad {
+  background-color: #0c7489;
+  border: none;
+  color: #fffcfb;
+  border-radius: 29px;
+  height: 34px;
+  width: 34px;
+}
+.box__section {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.box__section__enlace {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  background-color: #d7d0d0;
+}
+.box__section__enlace__header {
+  background-color: #0c7489;
+  height: 35%;
+}
+.box__section__enlace__header__titulo {
+  color: #fffcfb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: x-large;
+  margin: 0.2em;
+}
+.box__section__enlace__header__usuario {
+  display: flex;
+  flex-direction: row;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  color: #fffcfb;
+  font-size: large;
+}
+.box__section__enlace__header__usuario__img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 0.5em;
+}
+.box__section__enlace__contenido {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+.box__section__enlace__contenido__article {
+  color: #000000;
+}
+.box__section__enlace__contenido__article__titulo {
+  font-size: x-large;
+  margin: 0.5em 0em 0.5em 0;
+}
+.box__section__enlace__contenido__article__descripcion {
+  font-size: small;
+}
+
+.wrapper {
+  width: 90%;
+  position: relative;
+}
+
+.wrapper .flecha {
+  width: 20px;
+  height: 20px;
+  background-color: #0c7489;
+  color: #fffcfb;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 25%;
+  font-size: 0.5em;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-50%);
+}
+
+.wrapper .flecha:first-child {
+  left: 0px;
+}
+
+.wrapper .flecha:last-child {
+  right: 0px;
+}
+
+.wrapper .carousel {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(20% - 15px);
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.carousel .card {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card .img img {
+  width: 20px;
+  height: 20px;
+  background-color: #fffcfb;
+}
+
+.img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  width: 40px;
+  height: 30px;
+}
+
+.texto {
+  font-size: 8px;
+}
+
+/*---------------------Media------------------------*/
+@media (min-width: 500px) {
+  .box {
+    align-content: center;
+  }
+  .box__formulario {
+    width: 92%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: #d7d0d0;
+    justify-content: space-between;
+    border-radius: 70px;
+  }
+  .box__formulario__article {
+    width: 20%;
+    height: 6vh;
+    padding: 0.4em;
+    line-height: 1em;
+    flex: 1;
+    justify-content: center;
+  }
+  .box__formulario__article__label {
+    font-size: medium;
+    margin-left: 0.2em;
+  }
+  .box__formulario__article__input {
+    font-size: small;
+  }
+  .box__formulario__boton--busquedad {
+    font-size: large;
+    height: 50px;
+    width: 50px;
+  }
+  .box__section__enlace {
+    width: 70%;
+  }
+  .box__section__enlace__header {
+    background-color: #0c7489;
+    height: 40%;
+  }
+  .wrapper .carousel {
+    grid-auto-columns: 14.2857142857%;
+  }
+}
+@media (min-width: 700px) {
+  .box {
+    align-content: center;
+  }
+  .box__formulario {
+    width: 75%;
+  }
+  .box__formulario__boton--busquedad {
+    font-size: large;
+    height: 55px;
+    width: 55px;
+  }
+  .box__section {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1em;
+    width: 90%;
+  }
+  .box__section__enlace {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #d7d0d0;
+  }
+  .box__section__enlace__header {
+    background-color: #0c7489;
+    height: 40%;
+  }
+  .card .img img {
+    width: 30px;
+    height: 30px;
+  }
+  .img {
+    width: 45px;
+    height: 45px;
+  }
+  .texto {
+    font-size: 10px;
+  }
+  .wrapper .flecha {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    top: 20%;
+    font-size: 1em;
+  }
+}
+@media (min-width: 1024px) {
+  .box {
+    align-content: center;
+  }
+  .box__section {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    gap: 1em;
+    width: 75%;
+  }
+  .box__section__enlace {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #d7d0d0;
+  }
+  .box__section__enlace__header {
+    background-color: #0c7489;
+    height: 35%;
+  }
+  .wrapper .carousel {
+    grid-auto-columns: 10%;
+  }
+  .card .img img {
+    width: 35px;
+    height: 35px;
+  }
+  .img {
+    width: 50px;
+    height: 50px;
+  }
+  .texto {
+    font-size: 10px;
+  }
+}
+
+/*# sourceMappingURL=home.css.map */

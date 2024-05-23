@@ -1,0 +1,207 @@
+/*------------Colores primarios----------*/
+$azul-claro: #119da4;
+$azul-oscuro: #0c7489;
+
+/*------------Colores Secundarios----------*/
+$gris-oscuro: #948b89;
+$gris-claro: #d7d9ce;
+$beige: #d7d0d0;
+
+/*------------Letras (Estilo, tamaño, color)----------*/
+$font-family: "Nunito", sans-serif;
+$letra-negra: #000000;
+$letra-blanca: #fffcfb;
+
+.header {
+    display: flex;
+    flex-direction: row;
+    background-color: $azul-oscuro;
+    justify-content: space-between;
+    align-items: center;
+    &__picture {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 30%;
+        &__logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            height: auto;
+            padding: 0.3em;
+        }
+    }
+
+    &__options {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+
+        &__enlace {
+            margin-right: 0.5em;
+            color: $letra-blanca;
+            font-size: large;
+            &--bordeBlancos {
+                display: none;
+            }
+        }
+
+        &__user {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5em;
+            &__img {
+                width: 30px;
+                height: 30px;
+                border-radius: 100px;
+            }
+
+            &__menu {
+                display: inline-block;
+                position: relative;
+                margin-right: 9px;
+                &__contenido {
+                    display: none;
+                    position: absolute;
+                    overflow: auto;
+                    width: 200px;
+                    right: 0;
+                    z-index: 3;
+                    background-color: $letra-blanca;
+                    &__cabecera {
+                        border-bottom: $azul-oscuro solid 1.5px;
+                        &__texto {
+                            padding-left: 1em;
+                            font-weight: bold;
+                            font-size: large;
+                        }
+                    }
+                }
+
+                &:hover &__contenido {
+                    display: block;
+                }
+
+                &__contenido a {
+                    display: block;
+                    color: #000000;
+                    padding: 0.5em;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: #ffffff;
+                        background-color: #00a4bd;
+                    }
+                }
+
+                &__icono {
+                    color: $letra-blanca;
+                    font-size: medium;
+                }
+            }
+        }
+    }
+}
+
+
+/*---------------------Media------------------------*/
+@media (min-width: 600px) {
+    .header {
+        &__picture {
+            width: 30%;
+            &__logo {
+                width: 40%;
+                height: auto;
+                padding: 0.3em;
+            }
+        }
+        &__options {
+            &__enlace {
+                margin-right: 0.5em;
+                font-size:large;
+                &--bordeBlancos {
+                    display: block;
+                    color: $letra-blanca;
+                    border: solid 1px $letra-blanca;
+                    padding: 0.4em;
+                    border-radius: 15px;
+                    font-size: large;
+                    margin-right: 0.5em;
+                }
+            }
+            &__user {
+                gap: 0.5em;
+                &__img {
+                    width: 35px;
+                }
+                &__menu {
+                    margin-right: 9px;
+                    &__contenido {
+                        &__cabecera {
+                            &__texto {
+                                padding-left: 1em;
+                                font-weight: bold;
+                                font-size: large;
+                            }
+                        }
+                    }
+                    &__icono {
+                        color: $letra-blanca;
+                        font-size: larger;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 900px) {
+    .header {
+        &__picture {
+            width: 30%;
+            &__logo {
+                width: 20%;
+                height: auto;                
+            }
+        }
+        &__options {
+            &__enlace {
+                font-size:x-large;
+                &--bordeBlancos {
+                    display: block;
+                    color: $letra-blanca;
+                    border: solid 1px $letra-blanca;
+                    padding: 0.4em;
+                    border-radius: 15px;
+                    font-size: x-large;;
+                }
+            }
+            &__user {
+                gap: 0.6em;
+                &__img {
+                    width: 40px;
+                    height: 40px;
+                }
+                &__menu {
+       
+                    margin-right: 9px;
+                    &__contenido {
+                        width: 200px;
+                        &__cabecera {
+                            &__texto {
+                                font-size: large;
+                            }
+                        }
+                    }
+                    &__icono {
+                        font-size: larger;
+                    }
+                }
+            }
+        }
+    }
+}
+

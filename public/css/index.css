@@ -6,10 +6,19 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   margin: 0;
   padding: 0;
   align-items: center;
+}
+.box__contenedor {
+  padding-top: 1em;
+  text-align: center;
+}
+.box__contenedor__img {
+  height: 35%;
+}
+.box__contenedor__texto {
+  font-size: small;
 }
 .box__formulario {
   width: 99%;
@@ -69,13 +78,14 @@
   width: 34px;
 }
 .box__section {
-  margin-top: 2em;
+  margin-top: 0.6em;
   display: flex;
   flex-direction: column;
   gap: 1em;
   width: 100%;
   justify-content: center;
   align-items: center;
+  padding-bottom: 1em;
 }
 .box__section__enlace {
   width: 90%;
@@ -85,7 +95,7 @@
 }
 .box__section__enlace__header {
   background-color: #0c7489;
-  height: 35%;
+  height: 45%;
 }
 .box__section__enlace__header__titulo {
   color: #fffcfb;
@@ -123,6 +133,27 @@
 .box__section__enlace__contenido__article__descripcion {
   font-size: small;
 }
+.box__article {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.box__article__titulo {
+  font-size: xx-large;
+  margin: 0;
+  padding: 0;
+}
+.box__article__boton {
+  background: none;
+  border: none;
+  align-items: center;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  font-size: medium;
+}
 
 .wrapper {
   width: 90%;
@@ -155,6 +186,7 @@
 
 .wrapper .carousel {
   width: 100%;
+  height: 100%;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: calc(20% - 15px);
@@ -171,6 +203,9 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 30px;
+  height: 30px;
+  padding-bottom: 0.6em;
 }
 
 .card .img img {
@@ -186,8 +221,17 @@
   justify-content: center;
   background: none;
   border: none;
-  width: 40px;
-  height: 30px;
+  width: 5px;
+  height: 5px;
+}
+
+.select {
+  padding-bottom: 0.6em;
+  border-bottom: #119da4 0.2em solid;
+}
+
+.img:hover {
+  border-bottom: #fffcfb 0.5em solid;
 }
 
 .texto {
@@ -236,6 +280,12 @@
     background-color: #0c7489;
     height: 40%;
   }
+  .box__article {
+    width: 70%;
+  }
+  .box__article__boton {
+    font-size: large;
+  }
   .wrapper .carousel {
     grid-auto-columns: 14.2857142857%;
   }
@@ -243,6 +293,16 @@
 @media (min-width: 700px) {
   .box {
     align-content: center;
+  }
+  .box__contenedor {
+    padding-top: 2em;
+    text-align: center;
+  }
+  .box__contenedor__img {
+    height: 35%;
+  }
+  .box__contenedor__texto {
+    font-size: medium;
   }
   .box__formulario {
     width: 75%;
@@ -269,13 +329,23 @@
     background-color: #0c7489;
     height: 40%;
   }
+  .box__article {
+    width: 90%;
+  }
+  .box__article__boton {
+    font-size: large;
+  }
   .card .img img {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
+    margin-top: 1em;
+  }
+  .card {
+    padding-bottom: 1.5em;
   }
   .img {
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
   }
   .texto {
     font-size: 10px;
@@ -287,6 +357,14 @@
     top: 20%;
     font-size: 1em;
   }
+  .select {
+    border: none;
+    padding-bottom: 0;
+  }
+  .select .texto {
+    padding-bottom: 0.5em;
+    border-bottom: #119da4 0.3em solid;
+  }
 }
 @media (min-width: 1024px) {
   .box {
@@ -295,8 +373,8 @@
   .box__section {
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    gap: 1em;
-    width: 75%;
+    gap: 1.5em;
+    width: 80%;
   }
   .box__section__enlace {
     width: 100%;
@@ -307,7 +385,16 @@
   }
   .box__section__enlace__header {
     background-color: #0c7489;
-    height: 35%;
+    height: 110px;
+  }
+  .box__section__enlace__contenido {
+    height: 200px;
+  }
+  .box__article {
+    width: 80%;
+  }
+  .box__article__boton {
+    font-size: large;
   }
   .wrapper .carousel {
     grid-auto-columns: 10%;
@@ -316,6 +403,10 @@
     width: 35px;
     height: 35px;
   }
+  .card {
+    height: 80%;
+    padding-bottom: 2.5em;
+  }
   .img {
     width: 50px;
     height: 50px;
@@ -323,6 +414,14 @@
   .texto {
     font-size: 10px;
   }
+  .select {
+    border: none;
+    padding-bottom: 0;
+  }
+  .select .texto {
+    padding-bottom: 0.5em;
+    border-bottom: #119da4 0.3em solid;
+  }
 }
 
-/*# sourceMappingURL=home.css.map */
+/*# sourceMappingURL=index.css.map */

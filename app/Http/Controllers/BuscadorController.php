@@ -20,7 +20,7 @@ class BuscadorController extends Controller
         //Variable para almacenar los resultados de los anuncios
         $resultados = collect();
         $busqueda = [];
-        $habilidad = '';
+        $habilidad_select = '';
         
         //Si no hay filtros de busquedad o se eliminan los filtros envia todos los anuncios disponibles que no sean del usaurio loggeado
         if ((($request->input('ciudad') == null) && ($request->input('localidad') == null) && ($request->input('palabra') == null) && ($request->input('habilidad') == null)) || ($request->input('eliminar') !== null)) {
@@ -40,15 +40,15 @@ class BuscadorController extends Controller
             }
 
             if ($request->input('habilidad') !== null) {
-                $habilidad = $request->input('habilidad');
+                $habilidad_select = $request->input('habilidad');
                 if ($resultados->isEmpty()) {
-                    $anuncioshabilidad = Anuncio::where('habilidad_buscada', $habilidad)->where('id_usuario', '!=', $userId)
-                        ->orWhere('habilidad_ofrecida', $habilidad)->where('id_usuario', '!=', $userId)->get();
+                    $anuncioshabilidad = Anuncio::where('habilidad_buscada', $habilidad_select)->where('id_usuario', '!=', $userId)
+                        ->orWhere('habilidad_ofrecida', $habilidad_select)->where('id_usuario', '!=', $userId)->get();
                     $resultados = $resultados->merge($anuncioshabilidad);
                 } else {
                     $anuncioshabilidad = []; 
                     foreach ($resultados as $resultado) {
-                        if ($resultado->habilidad_buscada == $habilidad || $resultado->habilidad_ofrecida == $habilidad) {
+                        if ($resultado->habilidad_buscada == $habilidad_select || $resultado->habilidad_ofrecida == $habilidad_select) {
                             $anuncioshabilidad[] = $resultado;
                         }
                     }
@@ -96,8 +96,6 @@ class BuscadorController extends Controller
                 }
             }
         }           
-           
-
-        return view('home', compact('userId', 'habilidades', 'resultados', 'busqueda', 'habilidad', 'usuarios'));
+        return view('home', compact('userId', 'habilidades', 'resultados', 'busqueda', 'habilidad_select', 'usuarios'));
     }
 }

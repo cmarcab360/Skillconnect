@@ -11,7 +11,7 @@
     <link href="css/login.css" rel="stylesheet">
     <link href="css/registro.css" rel="stylesheet">
     <link href="css/head.css" rel="stylesheet">
-    <link href="css/home.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
 
     <!-- iconos-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -21,8 +21,5 @@
 </head>
 
 <body>
-
     {{ $slot }}
-
-
 </body>

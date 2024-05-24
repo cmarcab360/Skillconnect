@@ -1,0 +1,201 @@
+/*------------Colores primarios----------*/
+$azul-claro: #119da4;
+$azul-oscuro: #0c7489;
+
+/*------------Colores Secundarios----------*/
+$gris-oscuro: #948b89;
+$gris-claro: #d9d9d9;
+$beige: #d7d0d0;
+$beige-claro: #ece3e3;
+
+/*------------Letras (Estilo, tamaño, color)----------*/
+$font-family: "Nunito", sans-serif;
+$letra-negra: #000000;
+$letra-blanca: #fffcfb;
+$letra-label: #6b6766;
+
+.conte {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    &__formulario {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        width: 90%;
+        padding-top: 1em;
+        &__article {
+            min-height: 45%;
+            max-height: 45%;
+            padding: 1em;
+            background-color: $gris-claro;
+            border-radius: 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.7em;
+            &__titulo {
+                font-size: large;
+                text-align: center;
+                margin: 0;
+            }
+            &__datos {
+                display: flex;
+                flex-direction: column;
+                &__input {
+                    border: none;
+                    padding: 0.5em;
+                }
+            }
+
+            &__juntos {
+                display: flex;
+                gap: 1em;
+                &__datos {
+                    display: flex;
+                    flex-direction: column;
+                    &__input {
+                        width: 90%;
+                        border: none;
+                        justify-content: space-between;
+                        padding: 0.5em;
+                    }
+                }
+            }
+        }
+        &__botones {
+            display: flex;
+            justify-content: end;
+            gap: 1em;
+            padding-bottom: 0.5em;
+            &__boton {
+                background-color: $azul-oscuro;
+                border: none;
+                color: $letra-blanca;
+                border-radius: 13px;
+                width: 35%;
+                padding: 0.6em;
+                font-size: medium;
+                &:hover {
+                    cursor: pointer;
+                    background-color: $azul-claro;
+                }
+            }
+        }
+    }
+}
+
+//--------------Media Query-----------------
+@media (min-width: 700px) {
+    .conte {
+        &__formulario {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            justify-content: center;
+            width: 80%;
+            height: 100%;
+            &__article {
+                min-height: 95%;
+                max-height: 95%;
+                padding: 1em;
+                gap: 1.5em;
+                justify-content: flex-start;
+                &__titulo {
+                    padding: 1em 1.8em 1.5em 1.8em;
+                    font-size: large;
+                    text-align: center;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 1024px) {
+    .conte {
+        &__formulario {
+            gap: 2em;
+            &__article {
+                min-height: 95%;
+                max-height: 95%;
+                padding: 1em;
+                gap: 1.5em;
+                justify-content: flex-start;
+                &__titulo {
+                    padding: 1em 2em 1.5em 2em;
+                    font-size: x-large;
+                    text-align: center;
+                    margin: 0;
+                }
+                &__datos {
+                    &__input {
+                        padding: 0.8em;
+                    }
+                }
+                &__juntos {
+                    &__datos {
+                        &__input {
+                            padding: 0.8em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (min-width: 1400px) {
+    .conte {
+        width:100%;
+        &__formulario {
+            gap: 2em;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            justify-content: center;
+            width: 75%;
+            height: 100%;
+            gap: 2em;
+            &__article {
+                min-height: 95%;
+                max-height: 95%;
+                padding: 1.5em;
+                gap: 1.5em;
+                justify-content: flex-start;
+                &__titulo {
+                    padding: 1em 1.8em 1em 1.8em;
+                    font-size: x-large;
+                    text-align: center;
+                    margin: 0;
+                }
+                &__datos {
+                    font-size: large;
+                    &__input {
+                        padding: 0.8em;
+                        font-size: large;
+                    }
+                }
+                &__juntos {
+                    justify-content: space-between;
+                    &__datos {
+                        font-size: large;
+                        &__input {
+                            padding: 0.8em;
+                            font-size: large;
+                        }
+                    }
+                }
+            }
+            &__botones {
+                justify-content: start;
+                padding-bottom: 1.5em;
+                &__boton {
+                    border-radius: 20px;
+                    width: 35%;
+                    padding: 0.5em;
+                    font-size: x-large;
+                }
+            }
+        }
+    }
+}

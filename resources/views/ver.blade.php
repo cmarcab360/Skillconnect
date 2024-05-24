@@ -25,8 +25,11 @@
     <p>Publicado el {{ $anuncio->created_at }}</p>
 
     <h1>datos de usuario</h1>
-    <a href="/anuncios/{{ $usuario->id }}">{{ $usuario->username }}</a>
 
+    <form action="/anuncios" method="get">
+        <input type="hidden" name="id" value="{{ $usuario->id }}">
+        <input type="submit" value="{{ $usuario->username }}">
+    </form>
     @if ($media == 0)
         <p>Nuevo</p>
     @else

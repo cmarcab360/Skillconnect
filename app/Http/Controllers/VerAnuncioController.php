@@ -30,6 +30,6 @@ class VerAnuncioController extends Controller
             $media = 0;
         }
 
-        return view('/ver')->with(compact('anuncio', 'anunciosSimilares', 'usuario', 'habilidades', 'media'));
+        return view('ver')->with(compact('anuncio', 'anunciosSimilares', 'usuario', 'habilidades', 'media'));
     }
 }

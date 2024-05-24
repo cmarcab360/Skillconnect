@@ -10,29 +10,27 @@ use Illuminate\Support\Facades\Auth;
 
 class AnunciosController extends Controller
 {
-    public function show()
+    public function show(Request $request)
     {
-        $id = Auth::id();
-        $habilidades = Habilidad::all();
-        $usuarioLog = Auth::id();
-        $listadoAnuncios = Anuncio::where('id_usuario', $id)->get();
-        $usuario = User::where('id', $id)->first();
-        $numAnuncios = count($listadoAnuncios);
+        if (isset($request->id)) {
+            $id = $request->id;
+            $usuarioLog = Auth::id();
+            $habilidades = Habilidad::all();
+            $listadoAnuncios = Anuncio::where('id_usuario', $id)->get();
+            $usuario = User::where('id', $id)->first();
+            $numAnuncios = count($listadoAnuncios);
+        } else {
+            $id = Auth::id();
+            $habilidades = Habilidad::all();
+            $usuarioLog = Auth::id();
+            $listadoAnuncios = Anuncio::where('id_usuario', $id)->get();
+            $usuario = User::where('id', $id)->first();
+            $numAnuncios = count($listadoAnuncios);
+        }
+
 
         return view('/anuncios')->with(compact('listadoAnuncios', 'habilidades', 'id', 'usuario', 'numAnuncios', 'usuarioLog'));
     }
-
-    public function anunciosUsuario($id)
-    {
-        $usuarioLog = Auth::id();
-            $habilidades = Habilidad::all();
-            $listadoAnunciosExternos = Anuncio::where('id_usuario', $id)->get();
-            $usuario = User::where('id', $id)->first();
-            $numAnuncios = count($listadoAnunciosExternos);
-       
-        return view('/anuncios')->with(compact('listadoAnunciosExternos', 'habilidades', 'usuarioLog', 'id', 'usuario', 'numAnuncios'));
-    }
-
 
     public function edit(Request $request, $id)
     {
@@ -48,10 +46,10 @@ class AnunciosController extends Controller
                 'habilidad_buscada' => 'required|integer',
                 'descripcion_bus' => 'required|string'
             ]);
-          // dd($request);
+            // dd($request);
             $anuncio = Anuncio::findOrFail($request->id);
-           
-            
+
+
 
             // Actualizar los datos del usuario
             if ($anuncio->titulo_of !== $request->titulo_of) {
@@ -104,8 +102,6 @@ class AnunciosController extends Controller
 
         // Devolver la vista de edición junto con los datos del anuncio
         return view('editar')->with(compact('anuncios', 'habilidades', 'userId'));
-
-    
     }
 
     public function delete($id)

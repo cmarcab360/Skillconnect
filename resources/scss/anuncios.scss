@@ -1,0 +1,375 @@
+/*------------Colores primarios----------*/
+$azul-claro: #119da4;
+$azul-oscuro: #0c7489;
+
+/*------------Colores Secundarios----------*/
+$gris-oscuro: #948b89;
+$gris-claro: #d9d9d9;
+$beige: #d7d0d0;
+$beige-claro: #ece3e3;
+
+/*------------Letras (Estilo, tamaño, color)----------*/
+$font-family: "Nunito", sans-serif;
+$letra-negra: #000000;
+$letra-blanca: #fffcfb;
+$letra-label: #6b6766;
+
+.cont {
+    flex: 1;
+    margin: 1em;
+    padding: 1.5em;
+    &__header {
+        display: flex;
+        flex-direction: column;
+        &__usuario {
+            display: flex;
+            justify-content: space-between;
+            background-color: $gris-claro;
+            padding: 1em;
+            border-radius: 15px;
+            &__datos {
+                display: flex;
+                gap: 0.5em;
+                align-items: end;
+                &__img {
+                    height: 70px;
+                    width: 70px;
+                    border-radius: 50%;
+                }
+                &__nombre {
+                    font-size: large;
+                    margin: 0;
+                    padding: 0;
+                }
+                &__descrip {
+                    display: none;
+                }
+            }
+        }
+        &__menu {
+            &__listado {
+                display: flex;
+                gap: 2em;
+                padding: 0;
+                list-style: none;
+                &--select {
+                    font-weight: bold;
+                    border-bottom: 0.1em solid $azul-oscuro;
+                }
+                a:visited {
+                    color: $letra-negra;
+                }
+            }
+        }
+    }
+
+    &__anuncios {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        gap: 1em;
+
+        &__article {
+            text-align: center;
+            padding-top: 1em;
+            &__img {
+                height: 105px;
+                width: 105px;
+            }
+            &__txt {
+                padding-bottom: 0.5em;
+                font-size: large;
+                font-weight: bold;
+            }
+            &__enlace {
+                padding: 0.8em;
+                background-color: $azul-oscuro;
+                border-radius: 10px;
+                font-size: large;
+                color: $letra-blanca;
+                &:hover {
+                    cursor: pointer;
+                    background-color: $azul-claro;
+                }
+            }
+        }
+
+        .agregar {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            color: $gris-oscuro;
+            border: $gris-oscuro 0.2em dashed;
+            margin: 0;
+            padding: 0;
+            height: 310px;
+            &__texto {
+                font-size: xx-large;
+                margin: 0;
+            }
+        }
+
+        &__anuncio {
+            height: 310px;
+            background-color: $gris-claro;
+
+            &__enlace {
+                color: $letra-blanca;
+            }
+
+            &__header {
+                display: flex;
+                flex-direction: column;
+                background-color: $azul-oscuro;
+                height: 105px;
+                padding: 0.5em;
+                &__titulo {
+                    text-align: center;
+                    font-size: x-large;
+                    color: $letra-blanca;
+                    margin: 0.5em 0 0.5em 0;
+                }
+                &__datos {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    color: $letra-blanca;
+                    &__menu {
+                        display: inline-block;
+                        position: relative;
+                        &__contenido {
+                            display: none;
+                            position: absolute;
+                            overflow: auto;
+                            width: 90px;
+                            right: 0;
+                            z-index: 3;
+                            padding: 0;
+                            margin: 0;
+                            background-color: $letra-blanca;
+                            &__enlace {
+                                display: block;
+                                color: $azul-oscuro;
+                                padding: 0.5em;
+                                text-decoration: none;
+                                margin: 0;
+                                input {
+                                    display: none;
+                                }
+                                &:hover {
+                                    color: $letra-blanca;
+                                    background-color: $azul-oscuro;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                        &:hover &__contenido {
+                            display: block;
+                        }
+                    }
+                    &__usuario {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 0.5em;
+                        &__img {
+                            height: 50px;
+                            width: 50px;
+                            border-radius: 50px;
+                        }
+                    }
+                }
+            }
+            &__contenido {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5em;
+                align-items: center;
+                padding: 0.5em 0.5em 0 0.5em;
+                &__article {
+                    display: flex;
+                    flex-direction: column;
+                    &__titulo {
+                        margin: 0;
+                    }
+                    &__descrip {
+                        margin: 0;
+                        max-width: 224px;
+                        max-height: 46px;
+                        min-width: 224px;
+                        min-height: 46px;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        font-size: small;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//--------------Media Query-----------------
+@media (min-width: 700px) {
+    .cont {
+        height: 100vh;
+        padding: 1.5em 2em 1.5em 2em;
+        &__header {
+            &__usuario {
+                &__datos {
+                    &__img {
+                        width: 85px;
+                        height: 85px;
+                    }
+                    &__descrip {
+                        display: block;
+                        max-height: 80px;
+                        max-width: 300px;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                }
+            }
+            &__menu {
+                &__listado {
+                    font-size: larger;
+                }
+            }
+        }
+
+        &__anuncios {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 320px;
+            gap: 1.5em;
+            .agregar {
+                height: 320px;
+                width: 300px;
+            }
+            &__anuncio {
+                width: 300px;
+                height: 320px;
+                background-color: $gris-claro;
+                &__contenido {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.5em;
+                    align-items: center;
+                    padding: 0.5em 0.5em 0 0.5em;
+                    &__article {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.5em;
+                        &__descrip {
+                            max-width: 280px;
+                            max-height: 50px;
+                            min-width: 280px;
+                            min-height: 50px;
+                            font-size: medium;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .cont {
+        &__header {
+            &__usuario {
+                &__datos {
+                    &__img {
+                        width: 100px;
+                        height: 100px;
+                    }
+                    &__descrip {
+                        max-height: 80px;
+                        max-width: 400px;
+                        min-height: 80px;
+                        min-width: 400px;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                }
+            }
+            &__menu {
+                &__listado {
+                    font-size: x-large;
+                }
+            }
+        }
+
+        &__anuncios {
+            display: grid;
+            grid-template-columns: 33% 33% 33%;
+            grid-template-rows: 360px;
+            gap: 1em;
+            .agregar {
+                height: 100%;
+                width: 100%;
+            }
+            &__anuncio {
+                width: 100%;
+                height: 100%;
+                &__contenido {
+                    padding-top: 1em;
+                    &__article {
+                        &__descrip {
+                            max-height: 80px;
+                            max-width: 290px;
+                            min-height: 80px;
+                            min-width: 290px;
+
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1240px) {
+    .cont {
+        padding: 3.5em;
+        &__header {
+            &__usuario {
+                &__datos {
+                    &__descrip {
+                        max-height: 80px;
+                        max-width: 450px;
+                    }
+                }
+            }
+        }
+
+        &__anuncios {
+            display: grid;
+            grid-template-columns: 30% 30% 30%;
+            grid-template-rows: 395px;
+            gap: 3.5em;
+            .agregar {
+                height: 100%;
+                width: 100%;
+            }
+            &__anuncio {
+                width: 100%;
+                height: 100%;
+                &__contenido {
+                    &__article {
+                        &__descrip {
+                            max-height: 85px;
+                            max-width: 365px;
+                            min-height: 85px;
+                            min-width: 365px;
+
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

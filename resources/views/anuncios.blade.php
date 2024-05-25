@@ -33,10 +33,10 @@
             @else
                 <h1>Mis Anuncios ({{ $numAnuncios }})</h1>
                 <section class="cont__anuncios">
-                    <article class="cont__anuncios__anuncio agregar">
+                    <a href="publicar" class="cont__anuncios__anuncio agregar">
                         <h1 class="agregar__texto">Añadir un nuevo anuncio</h1>
                         <p class="agregar__texto"><i class="fa-solid fa-square-plus"></i></p>
-                    </article>
+                    </a>
                     @foreach ($listadoAnuncios as $anuncio)
                         <article class="cont__anuncios__anuncio">
                             <a href="ver/{{ $anuncio->id }}">

@@ -204,6 +204,13 @@ $letra-label: #6b6766;
                     }
                 }
             }
+           
+            a:visited {
+                color: $letra-blanca;
+            }
+            a:link  {
+                color: $letra-blanca;
+            }
         }
     }
 }

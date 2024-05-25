@@ -187,6 +187,12 @@
   overflow: hidden;
   font-size: small;
 }
+.cont__anuncios__anuncio a:visited {
+  color: #fffcfb;
+}
+.cont__anuncios__anuncio a:link {
+  color: #fffcfb;
+}
 
 @media (min-width: 700px) {
   .cont {
@@ -316,4 +322,4 @@
   }
 }
 
-/*# sourceMappingURL=anuncios.css.map */
+/*# sourceMappingURL=anuncio.css.map */

@@ -89,10 +89,10 @@
             @else
                 <section class="box__section">
                     @foreach ($resultados as $anuncio)
-                        <form class="box__section__enlace" action="ver" method="post">
+                        <form  action="ver" method="post">
                             @csrf
                             <input type="hidden" name="id" value="{{ $anuncio->id }}">
-                            <button type="submit" class="cont__anuncios__anuncio">
+                            <button type="submit" class="box__section__enlace">
 
                                 <header class="box__section__enlace__header">
                                     @foreach ($habilidades as $habilidad)
@@ -140,10 +140,10 @@
         @else
             <section class="box__section">
                 @foreach ($anuncios as $anuncio)
-                    <form class="box__section__enlace" action="ver" method="post">
+                    <form action="ver" method="post">
                         @csrf
                         <input type="hidden" name="id" value="{{ $anuncio->id }}">
-                        <button type="submit" class="cont__anuncios__anuncio">
+                        <button type="submit" class="box__section__enlace">
 
                             <header class="box__section__enlace__header">
                                 @foreach ($habilidades as $habilidad)

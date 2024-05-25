@@ -17,7 +17,7 @@
                         <form action="/valoraciones" method="post">
                             @csrf
                             <input type="hidden" name="usuario" value="{{$id}}">
-                            <button type="submit">Valoraciones</button>
+                            <button  class="cont__header__menu__listado__enlace" type="submit">Valoraciones</button>
                         </form>
                     </li>
                 </ul>

@@ -46,6 +46,15 @@
   font-weight: bold;
   border-bottom: 0.1em solid #0c7489;
 }
+.cont__header__menu__listado__enlace {
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  font-size: large;
+}
+.cont__header__menu__listado__enlace:hover {
+  border-bottom: 0.15em solid #0c7489;
+}
 .cont__header__menu__listado a:visited {
   color: #000000;
 }
@@ -80,6 +89,7 @@
   background-color: #119da4;
 }
 .cont__anuncios .agregar {
+  background-color: #d9d9d9;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,16 +98,19 @@
   border: #948b89 0.2em dashed;
   margin: 0;
   padding: 0;
-  height: 310px;
+  height: 80%;
 }
 .cont__anuncios .agregar__texto {
-  font-size: xx-large;
+  font-size: x-large;
   margin: 0;
 }
 .cont__anuncios__anuncio {
-  height: 310px;
-  background-color: #d9d9d9;
+  width: 100%;
+  border: none;
+  height: 100%;
   z-index: 1;
+  padding: 0;
+  background-color: #d9d9d9;
 }
 .cont__anuncios__anuncio__enlace {
   color: #fffcfb;
@@ -107,7 +120,7 @@
   flex-direction: column;
   background-color: #0c7489;
   height: 105px;
-  padding: 0.5em;
+  width: 100%;
 }
 .cont__anuncios__anuncio__header__titulo {
   text-align: center;
@@ -119,21 +132,24 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-left: 1em;
   color: #fffcfb;
 }
 .cont__anuncios__anuncio__header__datos__menu {
   display: inline-block;
   position: relative;
+  padding-right: 1em;
 }
 .cont__anuncios__anuncio__header__datos__menu__contenido {
   display: none;
   position: absolute;
   overflow: auto;
-  width: 90px;
+  width: 70px;
   right: 0;
   z-index: 6;
-  padding: 0;
+  padding: 0.5em;
   margin: 0;
+  font-size: small;
   background-color: #fffcfb;
 }
 .cont__anuncios__anuncio__header__datos__menu__contenido__enlace {
@@ -165,10 +181,11 @@
   border-radius: 50px;
 }
 .cont__anuncios__anuncio__contenido {
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.5em;
-  align-items: center;
+  text-align: start;
   padding: 0.5em 0.5em 0 0.5em;
   color: #000000;
 }
@@ -195,6 +212,10 @@
 .cont__anuncios__anuncio a:link {
   color: #fffcfb;
 }
+.cont__anuncios__anuncio:hover {
+  cursor: pointer;
+  box-shadow: 0.1em 0.1em 10px #948b89;
+}
 
 @media (min-width: 700px) {
   .cont {
@@ -218,29 +239,34 @@
   .cont__anuncios {
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 320px;
+    grid-template-rows: 50%;
     gap: 1.5em;
   }
   .cont__anuncios .agregar {
-    height: 320px;
+    height: 100%;
     width: 300px;
   }
   .cont__anuncios__anuncio {
     width: 300px;
-    height: 320px;
+    height: 80%;
     background-color: #d9d9d9;
   }
+  .cont__anuncios__anuncio__header__datos__menu__contenido {
+    font-size: medium;
+    width: 115px;
+  }
   .cont__anuncios__anuncio__contenido {
+    align-items: center;
     display: flex;
     flex-direction: column;
     gap: 1.5em;
-    align-items: center;
     padding: 0.5em 0.5em 0 0.5em;
   }
   .cont__anuncios__anuncio__contenido__article {
     display: flex;
     flex-direction: column;
     gap: 0.5em;
+    font-size: large;
   }
   .cont__anuncios__anuncio__contenido__article__descrip {
     max-width: 280px;
@@ -268,26 +294,30 @@
   }
   .cont__anuncios {
     display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 360px;
+    grid-template-columns: 32% 32% 32%;
+    grid-template-rows: 65%;
     gap: 1em;
   }
   .cont__anuncios .agregar {
-    height: 100%;
+    height: 95%;
     width: 100%;
   }
   .cont__anuncios__anuncio {
     width: 100%;
-    height: 100%;
+    height: 65%;
   }
   .cont__anuncios__anuncio__contenido {
+    padding: 0;
     padding-top: 1em;
+    width: 100%;
+    text-align: left;
   }
   .cont__anuncios__anuncio__contenido__article__descrip {
+    align-items: center;
     max-height: 80px;
-    max-width: 290px;
+    max-width: 17em;
     min-height: 80px;
-    min-width: 290px;
+    min-width: 17em;
     text-overflow: ellipsis;
     overflow: hidden;
   }
@@ -316,12 +346,12 @@
   }
   .cont__anuncios__anuncio__contenido__article__descrip {
     max-height: 85px;
-    max-width: 365px;
+    max-width: 300px;
     min-height: 85px;
-    min-width: 365px;
+    min-width: 300px;
     text-overflow: ellipsis;
     overflow: hidden;
   }
 }
 
-/*# sourceMappingURL=anun.css.map */
+/*# sourceMappingURL=anuncios.css.map */

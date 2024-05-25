@@ -88,14 +88,17 @@
   padding-bottom: 1em;
 }
 .box__section__enlace {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   background-color: #d7d0d0;
+  border: none;
+  padding: 0;
 }
 .box__section__enlace__header {
   background-color: #0c7489;
   height: 45%;
+  width: 100%;
 }
 .box__section__enlace__header__titulo {
   color: #fffcfb;
@@ -124,14 +127,29 @@
   margin-right: 0.5em;
 }
 .box__section__enlace__contenido__article {
+  text-align: left;
   color: #000000;
 }
 .box__section__enlace__contenido__article__titulo {
-  font-size: x-large;
+  font-size: medium;
   margin: 0.5em 0em 0.5em 0;
+  min-width: 16em;
+  max-width: 16em;
+  min-height: 1.2em;
+  max-height: 1.2em;
 }
 .box__section__enlace__contenido__article__descripcion {
   font-size: small;
+  min-width: 20em;
+  max-width: 20em;
+  min-height: 2.3em;
+  max-height: 2.3em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.box__section__enlace:hover {
+  cursor: pointer;
+  box-shadow: 0.3em 0.3em 40px #948b89;
 }
 .box__article {
   width: 90%;
@@ -274,7 +292,7 @@
     width: 50px;
   }
   .box__section__enlace {
-    width: 70%;
+    width: 100%;
   }
   .box__section__enlace__header {
     background-color: #0c7489;
@@ -328,6 +346,17 @@
   .box__section__enlace__header {
     background-color: #0c7489;
     height: 40%;
+  }
+  .box__section__enlace__contenido__article__titulo {
+    font-size: medium;
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .box__section__enlace__contenido__article__descripcion {
+    margin: 0.3em 0em 0.3em 0;
+    font-size: small;
+    min-width: 100%;
+    max-width: 100%;
   }
   .box__article {
     width: 90%;
@@ -390,6 +419,17 @@
   .box__section__enlace__contenido {
     height: 200px;
   }
+  .box__section__enlace__contenido__article__titulo {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .box__section__enlace__contenido__article__descripcion {
+    margin: 0.3em 0em 0.3em 0;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 25%;
+    max-height: 25%;
+  }
   .box__article {
     width: 80%;
   }
@@ -424,4 +464,4 @@
   }
 }
 
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=home.css.map */

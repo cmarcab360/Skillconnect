@@ -11,9 +11,9 @@
     <link href="css/login.css" rel="stylesheet">
     <link href="css/registro.css" rel="stylesheet">
     <link href="css/head.css" rel="stylesheet">
-    <link href="css/index.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
     <link href="css/perfil.css" rel="stylesheet">
-    <link href="css/anun.css" rel="stylesheet">
+    <link href="css/anuncios.css" rel="stylesheet">
     <link href="css/publicar.css" rel="stylesheet">
 
     <!-- iconos-->

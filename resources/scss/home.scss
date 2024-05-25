@@ -28,7 +28,7 @@ $letra-blanca: #fffcfb;
             height: 35%;
         }
 
-        &__texto{
+        &__texto {
             font-size: small;
         }
     }
@@ -102,13 +102,16 @@ $letra-blanca: #fffcfb;
         align-items: center;
         padding-bottom: 1em;
         &__enlace {
-            width: 90%;
+            width: 100%;
             display: flex;
             flex-direction: column;
             background-color: $beige;
+            border: none;
+            padding: 0;
             &__header {
                 background-color: $azul-oscuro;
                 height: 45%;
+                width: 100%;
                 &__titulo {
                     color: $letra-blanca;
                     display: flex;
@@ -137,15 +140,30 @@ $letra-blanca: #fffcfb;
                 margin-left: 0.5em;
                 margin-right: 0.5em;
                 &__article {
+                    text-align: left;
                     color: $letra-negra;
                     &__titulo {
-                        font-size: x-large;
+                        font-size: medium;
                         margin: 0.5em 0em 0.5em 0;
+                        min-width: 16em;
+                        max-width: 16em;
+                        min-height: 1.2em;
+                        max-height: 1.2em;
                     }
                     &__descripcion {
                         font-size: small;
+                        min-width: 20em;
+                        max-width: 20em;
+                        min-height: 2.3em;
+                        max-height: 2.3em;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
                     }
                 }
+            }
+            &:hover {
+                cursor: pointer;
+                box-shadow: 0.3em 0.3em 40px $gris-oscuro;
             }
         }
     }
@@ -293,7 +311,7 @@ $letra-blanca: #fffcfb;
         //Anuncios
         &__section {
             &__enlace {
-                width: 70%;
+                width: 100%;
                 &__header {
                     background-color: $azul-oscuro;
                     height: 40%;
@@ -320,12 +338,12 @@ $letra-blanca: #fffcfb;
         &__contenedor {
             padding-top: 2em;
             text-align: center;
-    
+
             &__img {
                 height: 35%;
             }
-    
-            &__texto{
+
+            &__texto {
                 font-size: medium;
             }
         }
@@ -354,6 +372,21 @@ $letra-blanca: #fffcfb;
                 &__header {
                     background-color: $azul-oscuro;
                     height: 40%;
+                }
+                &__contenido {
+                    &__article {
+                        &__titulo {
+                            font-size: medium;
+                            min-width: 100%;
+                            max-width: 100%;
+                        }
+                        &__descripcion {
+                            margin: 0.3em 0em 0.3em 0;
+                            font-size: small;
+                            min-width: 100%;
+                            max-width: 100%;
+                        }
+                    }
                 }
             }
         }
@@ -424,6 +457,19 @@ $letra-blanca: #fffcfb;
                 }
                 &__contenido {
                     height: 200px;
+                    &__article {
+                        &__titulo {
+                            min-width: 100%;
+                            max-width: 100%;
+                        }
+                        &__descripcion {
+                            margin: 0.3em 0em 0.3em 0;
+                            min-width: 100%;
+                            max-width: 100%;
+                            min-height: 25%;
+                            max-height: 25%;
+                        }
+                    }
                 }
             }
         }

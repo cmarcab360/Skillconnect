@@ -42,15 +42,15 @@ Route::post('/perfil', [PerfilController::class, 'update'])->middleware('auth')-
 Route::get('/publicar', [PublicarAnunciosController::class, 'show'])->middleware('auth');
 Route::post('/publicar', [PublicarAnunciosController::class, 'create'])->middleware('auth');
 
-Route::get('/anuncios', [AnunciosController::class, 'show'])->middleware('auth');
+Route::get('/anuncios', [AnunciosController::class, 'show'])->middleware('auth')->name('anuncios.show');;
 Route::delete('/anuncios/{id}/delete', [AnunciosController::class, 'delete'])->middleware('auth')->name('anuncios.delete');
 Route::post('/editar', [AnunciosController::class, 'edit'])->middleware('auth');
 
-Route::get('/ver/{id}', [VerAnuncioController::class, 'show'])->middleware('auth');
+Route::post('/ver', [VerAnuncioController::class, 'show'])->middleware('auth');
 
-Route::get('/valorar/{id}', [ValoracionController::class, 'form'])->middleware('auth');
-Route::get('/valorar/{id}/mostrar', [ValoracionController::class, 'show'])->middleware('auth')->name('valorar.mostrar');
-Route::post('/valorar', [ValoracionController::class, 'create'])->middleware('auth');
+Route::get('/valoraciones/{id}', [ValoracionController::class, 'show']);
+Route::post('/valoraciones', [ValoracionController::class, 'show'])->middleware('auth');
+Route::get('/valorar', [ValoracionController::class, 'create'])->middleware('auth');
 
 
 

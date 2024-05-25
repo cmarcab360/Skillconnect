@@ -89,7 +89,62 @@
             @else
                 <section class="box__section">
                     @foreach ($resultados as $anuncio)
-                        <a class="box__section__enlace" href="/ver/{{ $anuncio->id }}">
+                        <form class="box__section__enlace" action="ver" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $anuncio->id }}">
+                            <button type="submit" class="cont__anuncios__anuncio">
+
+                                <header class="box__section__enlace__header">
+                                    @foreach ($habilidades as $habilidad)
+                                        @if ($anuncio->habilidad_ofrecida == $habilidad->id)
+                                            <h4 class="box__section__enlace__header__titulo">{{ $habilidad->titulo }}
+                                            </h4>
+                                        @endif
+                                    @endforeach
+                                    @foreach ($usuarios as $usuario)
+                                        @if ($usuario->id == $anuncio->id_usuario)
+                                            <article class="box__section__enlace__header__usuario">
+                                                <img class="box__section__enlace__header__usuario__img"
+                                                    src="{{ asset($usuario->avatar) }}" alt="foto de perfil">
+                                                <p>{{ $usuario->username }}</p>
+                                            </article>
+                                        @endif
+                                    @endforeach
+                                </header>
+
+                                <section class="box__section__enlace__contenido">
+                                    <article class="box__section__enlace__contenido__article">
+                                        <h3 class="box__section__enlace__contenido__article__titulo">
+                                            {{ $anuncio->titulo_of }}</h3>
+                                        <p class="box__section__enlace__contenido__article__descripcion">
+                                            {{ $anuncio->descripcion_of }}</p>
+                                    </article>
+
+                                    <article class="box__section__enlace__contenido__article">
+                                        @foreach ($habilidades as $habilidad)
+                                            @if ($anuncio->habilidad_buscada == $habilidad->id)
+                                                <h3 class="box__section__enlace__contenido__article__titulo">
+                                                    {{ $habilidad->titulo }}
+                                                </h3>
+                                            @endif
+                                        @endforeach
+                                        <p class="box__section__enlace__contenido__article__descripcion">
+                                            {{ $anuncio->descripcion_Bus }}</p>
+                                    </article>
+                                </section>
+                            </button>
+                        </form>
+                    @endforeach
+                </section>
+            @endif
+        @else
+            <section class="box__section">
+                @foreach ($anuncios as $anuncio)
+                    <form class="box__section__enlace" action="ver" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $anuncio->id }}">
+                        <button type="submit" class="cont__anuncios__anuncio">
+
                             <header class="box__section__enlace__header">
                                 @foreach ($habilidades as $habilidad)
                                     @if ($anuncio->habilidad_ofrecida == $habilidad->id)
@@ -110,7 +165,8 @@
                             <section class="box__section__enlace__contenido">
                                 <article class="box__section__enlace__contenido__article">
                                     <h3 class="box__section__enlace__contenido__article__titulo">
-                                        {{ $anuncio->titulo_of }}</h3>
+                                        {{ $anuncio->titulo_of }}
+                                    </h3>
                                     <p class="box__section__enlace__contenido__article__descripcion">
                                         {{ $anuncio->descripcion_of }}</p>
                                 </article>
@@ -127,52 +183,8 @@
                                         {{ $anuncio->descripcion_Bus }}</p>
                                 </article>
                             </section>
-                        </a>
-                    @endforeach
-                </section>
-            @endif
-        @else
-            <section class="box__section">
-                @foreach ($anuncios as $anuncio)
-                    <a class="box__section__enlace" href="/ver/{{ $anuncio->id }}">
-                        <header class="box__section__enlace__header">
-                            @foreach ($habilidades as $habilidad)
-                                @if ($anuncio->habilidad_ofrecida == $habilidad->id)
-                                    <h4 class="box__section__enlace__header__titulo">{{ $habilidad->titulo }}</h4>
-                                @endif
-                            @endforeach
-                            @foreach ($usuarios as $usuario)
-                                @if ($usuario->id == $anuncio->id_usuario)
-                                    <article class="box__section__enlace__header__usuario">
-                                        <img class="box__section__enlace__header__usuario__img"
-                                            src="{{ asset($usuario->avatar) }}" alt="foto de perfil">
-                                        <p>{{ $usuario->username }}</p>
-                                    </article>
-                                @endif
-                            @endforeach
-                        </header>
-
-                        <section class="box__section__enlace__contenido">
-                            <article class="box__section__enlace__contenido__article">
-                                <h3 class="box__section__enlace__contenido__article__titulo">{{ $anuncio->titulo_of }}
-                                </h3>
-                                <p class="box__section__enlace__contenido__article__descripcion">
-                                    {{ $anuncio->descripcion_of }}</p>
-                            </article>
-
-                            <article class="box__section__enlace__contenido__article">
-                                @foreach ($habilidades as $habilidad)
-                                    @if ($anuncio->habilidad_buscada == $habilidad->id)
-                                        <h3 class="box__section__enlace__contenido__article__titulo">
-                                            {{ $habilidad->titulo }}
-                                        </h3>
-                                    @endif
-                                @endforeach
-                                <p class="box__section__enlace__contenido__article__descripcion">
-                                    {{ $anuncio->descripcion_Bus }}</p>
-                            </article>
-                        </section>
-                    </a>
+                        </button>
+                    </form>
                 @endforeach
             </section>
         @endif

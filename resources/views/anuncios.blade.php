@@ -13,14 +13,20 @@
             <nav class="cont__header__menu">
                 <ul class="cont__header__menu__listado">
                     <li class="cont__header__menu__listado--select">Anuncios</li>
-                    <li><a href="{{ route('valorar.mostrar', $id) }}">Valoraciones</a></li>
+                    <li>
+                        <form action="/valoraciones" method="post">
+                            @csrf
+                            <input type="hidden" name="usuario" value="{{$id}}">
+                            <button type="submit">Valoraciones</button>
+                        </form>
+                    </li>
                 </ul>
             </nav>
         </header>
 
 
         @if ($id == $usuarioLog)
-        
+
             @if ($listadoAnuncios->isEmpty())
                 <article class="cont__anuncios__article">
                     <img class="cont__anuncios__article__img" src="img/buscar.png" alt="Buscar">
@@ -37,7 +43,6 @@
                     </a>
                     @foreach ($listadoAnuncios as $anuncio)
                         <article class="cont__anuncios__anuncio">
-                            <a href="ver/{{ $anuncio->id }}">
                             <header class="cont__anuncios__anuncio__header">
                                 @foreach ($habilidades as $habilidad)
                                     @if ($anuncio->habilidad_ofrecida == $habilidad->id)
@@ -66,7 +71,7 @@
                                                 </label>
                                             </form>
                                             <form action="editar" method="post">
-                                                <input type="hidden" name="id" value="{{$anuncio->id}}">
+                                                <input type="hidden" name="id" value="{{ $anuncio->id }}">
                                                 @csrf
                                                 <label
                                                     class="cont__anuncios__anuncio__header__datos__menu__contenido__enlace"><i
@@ -74,32 +79,37 @@
                                                     <input type="submit" value="Editar">
                                                 </label>
                                             </form>
-                                         
+
 
                                         </nav>
                                     </article>
                                 </article>
                             </header>
-                           
-                                <section class="cont__anuncios__anuncio__contenido">
-                                    <article class="cont__anuncios__anuncio__contenido__article">
-                                        <h3 class="cont__anuncios__anuncio__contenido__article__titulo">
-                                            {{ $anuncio->titulo_of }}</h3>
-                                        <p class="cont__anuncios__anuncio__contenido__article__descrip">
-                                            {{ $anuncio->descripcion_of }}</p>
-                                    </article>
-                                    <article class="cont__anuncios__anuncio__contenido__article">
-                                        @foreach ($habilidades as $habilidad)
-                                            @if ($anuncio->habilidad_buscada == $habilidad->id)
-                                                <h3 class="cont__anuncios__anuncio__contenido__article__titulo">
-                                                    {{ $habilidad->titulo }}</h3>
-                                            @endif
-                                        @endforeach
-                                        <p class="cont__anuncios__anuncio__contenido__article__descrip">
-                                            {{ $anuncio->descripcion_Bus }}</p>
-                                    </article>
-                                </section>
-                            </a>
+
+                            <form action="ver" method="post">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $anuncio->id }}">
+                                <button type="submit" class="cont__anuncios__anuncio">
+                                    <section class="cont__anuncios__anuncio__contenido">
+                                        <article class="cont__anuncios__anuncio__contenido__article">
+                                            <h3 class="cont__anuncios__anuncio__contenido__article__titulo">
+                                                {{ $anuncio->titulo_of }}</h3>
+                                            <p class="cont__anuncios__anuncio__contenido__article__descrip">
+                                                {{ $anuncio->descripcion_of }}</p>
+                                        </article>
+                                        <article class="cont__anuncios__anuncio__contenido__article">
+                                            @foreach ($habilidades as $habilidad)
+                                                @if ($anuncio->habilidad_buscada == $habilidad->id)
+                                                    <h3 class="cont__anuncios__anuncio__contenido__article__titulo">
+                                                        {{ $habilidad->titulo }}</h3>
+                                                @endif
+                                            @endforeach
+                                            <p class="cont__anuncios__anuncio__contenido__article__descrip">
+                                                {{ $anuncio->descripcion_Bus }}</p>
+                                        </article>
+                                    </section>
+                                </button>
+                            </form>
                         </article>
                     @endforeach
                 </section>
@@ -108,8 +118,13 @@
             <h2>Anuncios activos ({{ $numAnuncios }})</h2>
             <section class="cont__anuncios">
                 @foreach ($listadoAnuncios as $anuncio)
-                    <article class="cont__anuncios__anuncio">
-                        <a class="cont__anuncios__anuncio__enlace" href="ver/{{ $anuncio->id }}">
+                <article class="cont__anuncios__anuncio">
+                    <form action="ver" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $anuncio->id }}">
+                        <button type="submit" class="cont__anuncios__anuncio">
+                        
+                        
                             <header class="cont__anuncios__anuncio__header">
                                 @foreach ($habilidades as $habilidad)
                                     @if ($anuncio->habilidad_ofrecida == $habilidad->id)
@@ -144,7 +159,8 @@
                                         {{ $anuncio->descripcion_Bus }}</p>
                                 </article>
                             </section>
-                        </a>
+                            </button>
+                        </form>
                     </article>
                 @endforeach
             </section>

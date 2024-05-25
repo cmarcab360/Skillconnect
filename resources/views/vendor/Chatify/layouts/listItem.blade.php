@@ -4,9 +4,7 @@
         <tr data-action="0">
             {{-- Avatar side --}}
             <td>
-            <div class="saved-messages avatar av-m">
-                <span class="far fa-bookmark"></span>
-            </div>
+                <img src="/{{ $user->avatar }}" alt="">
             </td>
             {{-- center side --}}
             <td>
@@ -30,9 +28,7 @@ $lastMessageBody = strlen($lastMessageBody) > 30 ? mb_substr($lastMessageBody, 0
             @if($user->active_status)
                 <span class="activeStatus"></span>
             @endif
-        <div class="avatar av-m"
-        style="background-image: url('{{ $user->avatar }}');">
-        </div>
+            <img src="/{{ $user->avatar }}" alt="">
         </td>
         {{-- center side --}}
         <td>
@@ -68,9 +64,7 @@ $lastMessageBody = strlen($lastMessageBody) > 30 ? mb_substr($lastMessageBody, 0
     <tr data-action="0">
         {{-- Avatar side --}}
         <td>
-        <div class="avatar av-m"
-        style="background-image: url('{{ $user->avatar }}');">
-        </div>
+            <img src="/{{ $user->avatar }}" alt="">
         </td>
         {{-- center side --}}
         <td>

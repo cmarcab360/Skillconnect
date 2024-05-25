@@ -11,8 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class VerAnuncioController extends Controller
 {
-    public function show($id)
+    public function show(Request $request)
     {
+        $id = $request->id;
         $habilidades = Habilidad::all();
         $anuncio = Anuncio::where('id', $id)->first();
         $usuario = User::where('id', $anuncio->id_usuario)->first();

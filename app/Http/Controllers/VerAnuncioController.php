@@ -23,11 +23,18 @@ class VerAnuncioController extends Controller
 
         if (!empty($valoraciones)) {
             $media = 0;
-            foreach ($valoraciones as $valoracion) {
-                $media += $valoracion->calificacion;
+            if (count($valoraciones) > 1) {
+
+                foreach ($valoraciones as $valoracion) {
+                    $media += $valoracion->calificacion;
+                }
+                $media = round($media / count($valoraciones));
+            } else {
+                foreach ($valoraciones as $valoracion) {
+                    $media += $valoracion->calificacion;
+                }
             }
-            $media = round($media/count($valoraciones));
-        }else{
+        } else {
             $media = 0;
         }
 

@@ -16,7 +16,7 @@ class ValoracionController extends Controller
                 'calificacion' => 'required|integer',
                 'comentario' => 'required|string'
             ]);
-    
+
             //Crea el anuncio
             Valoracion::create([
                 'id_usuario_evaluador' => Auth::id(),
@@ -25,13 +25,13 @@ class ValoracionController extends Controller
                 'comentario' => $request->input('comentario')
             ]);
             $id = $request->input('id');
-    
+
             // Redirigir de vuelta al perfil del usuario con un mensaje de éxito
             //return view('/anuncios')->with(compact('id'));
 
             return redirect()->route('anuncios.show', ['id' => $id])
-                         ->with('message', 'Valoración guardada exitosamente');
-        }else{
+                ->with('message', 'Valoración guardada exitosamente');
+        } else {
             $id = $request->id;
             return view('/valorar')->with(compact('id'));
         }
@@ -47,15 +47,21 @@ class ValoracionController extends Controller
 
         if (!empty($valoraciones)) {
             $media = 0;
-            foreach ($valoraciones as $valoracion) {
-                $media += $valoracion->calificacion;
+            if (count($valoraciones) > 1) {
+
+                foreach ($valoraciones as $valoracion) {
+                    $media += $valoracion->calificacion;
+                }
+                $media = round($media / count($valoraciones));
+            } else {
+                foreach ($valoraciones as $valoracion) {
+                    $media += $valoracion->calificacion;
+                }
             }
-            $media = round($media/count($valoraciones));
-        }else{
+        } else {
             $media = 0;
         }
 
         return view('/valoraciones')->with(compact('media', 'valoraciones', 'usuario', 'usuarioLogueado', 'usuarios'));
     }
-       
 }

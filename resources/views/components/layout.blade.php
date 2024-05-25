@@ -13,7 +13,7 @@
     <link href="css/head.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
     <link href="css/perfil.css" rel="stylesheet">
-    <link href="css/anuncio.css" rel="stylesheet">
+    <link href="css/anun.css" rel="stylesheet">
     <link href="css/publicar.css" rel="stylesheet">
 
     <!-- iconos-->

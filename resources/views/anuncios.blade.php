@@ -19,10 +19,8 @@
         </header>
 
 
-
-
-
         @if ($id == $usuarioLog)
+        
             @if ($listadoAnuncios->isEmpty())
                 <article class="cont__anuncios__article">
                     <img class="cont__anuncios__article__img" src="img/buscar.png" alt="Buscar">
@@ -40,43 +38,49 @@
                     @foreach ($listadoAnuncios as $anuncio)
                         <article class="cont__anuncios__anuncio">
                             <a href="ver/{{ $anuncio->id }}">
-                                <header class="cont__anuncios__anuncio__header">
-                                    @foreach ($habilidades as $habilidad)
-                                        @if ($anuncio->habilidad_ofrecida == $habilidad->id)
-                                            <h4 class="cont__anuncios__anuncio__header__titulo">{{ $habilidad->titulo }}
-                                            </h4>
-                                        @endif
-                                    @endforeach
-                                    <article class="cont__anuncios__anuncio__header__datos">
-                                        <div class="cont__anuncios__anuncio__header__datos__usuario">
-                                            <img class="cont__anuncios__anuncio__header__datos__usuario__img"
-                                                src="{{ $usuario->avatar }}" alt="Imagen base">
-                                            <p>{{ ucfirst($usuario->username) }}</p>
-                                        </div>
+                            <header class="cont__anuncios__anuncio__header">
+                                @foreach ($habilidades as $habilidad)
+                                    @if ($anuncio->habilidad_ofrecida == $habilidad->id)
+                                        <h4 class="cont__anuncios__anuncio__header__titulo">{{ $habilidad->titulo }}
+                                        </h4>
+                                    @endif
+                                @endforeach
+                                <article class="cont__anuncios__anuncio__header__datos">
+                                    <div class="cont__anuncios__anuncio__header__datos__usuario">
+                                        <img class="cont__anuncios__anuncio__header__datos__usuario__img"
+                                            src="{{ $usuario->avatar }}" alt="Imagen base">
+                                        <p>{{ ucfirst($usuario->username) }}</p>
+                                    </div>
 
-                                        <article class="cont__anuncios__anuncio__header__datos__menu">
-                                            <p class="cont__anuncios__anuncio__header__datos__menu__icono"><i
-                                                    class="fa-solid fa-bars"></i></p>
-                                            <nav class="cont__anuncios__anuncio__header__datos__menu__contenido">
-                                                <form action="{{ route('anuncios.delete', $anuncio->id) }}"
-                                                    method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <label
-                                                        class="cont__anuncios__anuncio__header__datos__menu__contenido__enlace"><i
-                                                            class="fa-solid fa-trash"></i> Eliminar
-                                                        <input type="submit" value="Eliminar">
-                                                    </label>
+                                    <article class="cont__anuncios__anuncio__header__datos__menu">
+                                        <p class="cont__anuncios__anuncio__header__datos__menu__icono"><i
+                                                class="fa-solid fa-bars"></i></p>
+                                        <nav class="cont__anuncios__anuncio__header__datos__menu__contenido">
+                                            <form action="{{ route('anuncios.delete', $anuncio->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <label
+                                                    class="cont__anuncios__anuncio__header__datos__menu__contenido__enlace"><i
+                                                        class="fa-solid fa-trash"></i> Eliminar
+                                                    <input type="submit" value="Eliminar">
+                                                </label>
+                                            </form>
+                                            <form action="editar" method="post">
+                                                <input type="hidden" name="id" value="{{$anuncio->id}}">
+                                                @csrf
+                                                <label
+                                                    class="cont__anuncios__anuncio__header__datos__menu__contenido__enlace"><i
+                                                        class="fa-regular fa-pen-to-square"></i> Editar
+                                                    <input type="submit" value="Editar">
+                                                </label>
+                                            </form>
+                                         
 
-                                                </form>
-                                                <a class="cont__anuncios__anuncio__header__datos__menu__contenido__enlace"
-                                                    href="{{ route('anuncios.editar', $anuncio->id) }}"><i
-                                                        class="fa-regular fa-pen-to-square"></i> Editar</a>
-                                            </nav>
-                                        </article>
+                                        </nav>
                                     </article>
-                                </header>
-
+                                </article>
+                            </header>
+                           
                                 <section class="cont__anuncios__anuncio__contenido">
                                     <article class="cont__anuncios__anuncio__contenido__article">
                                         <h3 class="cont__anuncios__anuncio__contenido__article__titulo">
@@ -119,27 +123,6 @@
                                             src="{{ $usuario->avatar }}" alt="Imagen base">
                                         <p>{{ ucfirst($usuario->username) }}</p>
                                     </div>
-
-                                    <article class="cont__anuncios__anuncio__header__datos__menu">
-                                        <p class="cont__anuncios__anuncio__header__datos__menu__icono"><i
-                                                class="fa-solid fa-bars"></i></p>
-                                        <nav class="cont__anuncios__anuncio__header__datos__menu__contenido">
-                                            <form action="{{ route('anuncios.delete', $anuncio->id) }}"
-                                                method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <label
-                                                    class="cont__anuncios__anuncio__header__datos__menu__contenido__enlace"><i
-                                                        class="fa-solid fa-trash"></i> Eliminar
-                                                    <input type="submit" value="Eliminar">
-                                                </label>
-
-                                            </form>
-                                            <a class="cont__anuncios__anuncio__header__datos__menu__contenido__enlace"
-                                                href="{{ route('anuncios.editar', $anuncio->id) }}"><i
-                                                    class="fa-regular fa-pen-to-square"></i> Editar</a>
-                                        </nav>
-                                    </article>
                                 </article>
                             </header>
 

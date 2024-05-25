@@ -113,7 +113,7 @@ $letra-label: #6b6766;
         &__anuncio {
             height: 310px;
             background-color: $gris-claro;
-
+            z-index: 1;
             &__enlace {
                 color: $letra-blanca;
             }
@@ -144,7 +144,7 @@ $letra-label: #6b6766;
                             overflow: auto;
                             width: 90px;
                             right: 0;
-                            z-index: 3;
+                            z-index: 6;
                             padding: 0;
                             margin: 0;
                             background-color: $letra-blanca;
@@ -186,6 +186,7 @@ $letra-label: #6b6766;
                 gap: 1.5em;
                 align-items: center;
                 padding: 0.5em 0.5em 0 0.5em;
+                color: #000000;
                 &__article {
                     display: flex;
                     flex-direction: column;
@@ -204,11 +205,11 @@ $letra-label: #6b6766;
                     }
                 }
             }
-           
+
             a:visited {
                 color: $letra-blanca;
             }
-            a:link  {
+            a:link {
                 color: $letra-blanca;
             }
         }

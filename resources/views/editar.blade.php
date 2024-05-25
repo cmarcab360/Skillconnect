@@ -3,9 +3,9 @@
     <x-header />
 <h1>Editar Anuncio</h1>
 
-    <form action="{{ route('anuncios.editar', $anuncios->id) }}" method="post">
+    <form action="editar" method="post">
         @csrf
-        @method('PUT')
+        <input type="hidden" name="id_anuncio" value="{{$anuncios->id}}">
         <h2>Servicio/habilidad que ofrece</h2>
         <label for="titulo_of">Titulo descriptivo</label>
         <input type="text" name="titulo_of" id="titulo_of" placeholder="Titulo" value="{{ $anuncios->titulo_of }}"><br>

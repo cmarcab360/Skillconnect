@@ -32,10 +32,9 @@ class AnunciosController extends Controller
         return view('/anuncios')->with(compact('listadoAnuncios', 'habilidades', 'id', 'usuario', 'numAnuncios', 'usuarioLog'));
     }
 
-    public function edit(Request $request, $id)
+    public function edit(Request $request,)
     {
-
-        if ($request->isMethod('put')) {
+        if (isset($request->id_anuncio)) {
             $request->validate([
                 'titulo_of' => 'required|string',
                 'habilidad_ofrecida' => 'required|integer',
@@ -47,9 +46,7 @@ class AnunciosController extends Controller
                 'descripcion_bus' => 'required|string'
             ]);
             // dd($request);
-            $anuncio = Anuncio::findOrFail($request->id);
-
-
+            $anuncio = Anuncio::findOrFail($request->id_anuncio);
 
             // Actualizar los datos del usuario
             if ($anuncio->titulo_of !== $request->titulo_of) {
@@ -88,20 +85,20 @@ class AnunciosController extends Controller
             $anuncio->save();
 
             // Redirigir de vuelta al perfil del usuario con un mensaje de éxito           
-
-
             return redirect('/anuncios')->with('success', '¡Anuncio actualizado exitosamente!');
+
+        } else {
+            // Obtener el anuncio que se desea editar
+            $id = $request->id;
+            $anuncios = Anuncio::findOrFail($id);
+            //dd($anuncios);
+            $habilidades = Habilidad::all();
+            $userId = Auth::id();
+
+
+            // Devolver la vista de edición junto con los datos del anuncio
+            return view('/editar')->with(compact('anuncios', 'habilidades', 'userId'));
         }
-
-        // Obtener el anuncio que se desea editar
-        $anuncios = Anuncio::findOrFail($id);
-        //dd($anuncios);
-        $habilidades = Habilidad::all();
-        $userId = Auth::id();
-
-
-        // Devolver la vista de edición junto con los datos del anuncio
-        return view('editar')->with(compact('anuncios', 'habilidades', 'userId'));
     }
 
     public function delete($id)

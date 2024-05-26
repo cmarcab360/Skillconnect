@@ -1,0 +1,227 @@
+/*------------Colores primarios----------*/
+$azul-claro: #119da4;
+$azul-oscuro: #0c7489;
+
+/*------------Colores Secundarios----------*/
+$gris-oscuro: #948b89;
+$gris-claro: #d9d9d9;
+$beige: #d7d0d0;
+$beige-claro: #ece3e3;
+
+/*------------Letras (Estilo, tamaño, color)----------*/
+$font-family: "Nunito", sans-serif;
+$letra-negra: #000000;
+$letra-blanca: #fffcfb;
+$letra-label: #6b6766;
+
+.section {
+    max-width: 100%;
+    overflow-x: hidden;
+
+    flex: 1;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    //anuncios
+    &__anuncio {
+        margin-top: 0.5em;
+        width: 85%;
+        background-color: $gris-claro;
+        padding: 0.5em;
+        &__titulo {
+            text-align: center;
+            margin: 0.2em;
+            font-size: x-large;
+        }
+        &__article {
+            &__seccion {
+                font-size: x-large;
+                margin: 0.2em 0em;
+            }
+            &__titulo {
+                margin: 0.2em 0em;
+            }
+            &__decripcion {
+                margin: 0.5em 0em;
+                text-align: justify;
+            }
+        }
+        &__info {
+            text-align: end;
+            font-size: small;
+            margin: 0.5em 0em;
+        }
+    }
+    //Datos de usuario
+    &__aside {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        width: 90%;
+        &__usuario {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+            padding: 1em;
+            background-color: $azul-oscuro;
+            border-radius: 20px;
+            &__header {
+                color: $letra-blanca;
+                font-size: medium;
+                display: flex;
+                justify-content: space-between;
+                align-items: end;
+                &__datos {
+                    display: flex;
+                    gap: 0.5em;
+                    align-items: end;
+                    &__img {
+                        height: 50px;
+                        width: 50px;
+                        border-radius: 50px;
+                    }
+                    &__nombre {
+                        background: none;
+                        border: none;
+                        color: $letra-blanca;
+                        font-size: medium;
+                        &:hover {
+                            font-size: large;
+                        }
+                    }
+                }
+                &__valor {
+                    margin: 0;
+                }
+            }
+            &__boton {
+                width: 100%;
+                align-items: center;
+                border: none;
+                background-color: $letra-blanca;
+                align-items: center;
+                color: $azul-oscuro;
+                padding: 0.5em;
+                border-radius: 5px;
+                font-size: medium;
+
+                a:visited {
+                    color: $azul-oscuro;
+                }
+                &:hover {
+                    cursor: pointer;
+                    box-shadow: 0.2em 0.2em 10px $azul-claro;
+                }
+            }
+        }
+
+        &__anuncios {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            &__titulo {
+                margin: 0;
+                font-size: larger;
+            }
+            &__anuncio {
+                text-align: left;
+                border: none;
+                background-color: $gris-claro;
+                width: 100%;
+                height: 35vh;
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                &__header {
+                    background-color: $azul-oscuro;
+                    width: 100%;
+                    text-align: center;
+                }
+                &__contenido {
+                    padding: 0em 0.5em;
+                    &__titulo {
+                        padding-top: 1em;
+                        margin: 0em;
+                    }
+                    &__descrip {
+                        padding-top: 0.4em;
+                        margin: 0em;
+                        min-width: 100%;
+                        max-width: 100%;
+                        min-height: 7.5vh;
+                        max-height: 7.5vh;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        text-align: justify;
+                    }
+                }
+                &:hover {
+                    cursor: pointer;
+                    box-shadow: 0.1em 0.1em 10px $gris-oscuro;
+                }
+            }
+        }
+    }
+}
+
+//--------------Media Query-----------------
+@media (min-width: 700px) {
+    .section {
+        padding: 0;
+        display: grid;
+        grid-template-columns: 65% 35%;
+        align-items: flex-start;
+        margin: 0.5em;
+        gap: 0.5em;
+        //anuncios
+        &__anuncio {
+            width: 95%;
+            height: 98%;
+            padding: 0.5em;
+            margin: 0;
+            &__article {
+                height: 40%;
+                &__seccion {
+                    font-size: xx-large;
+                    margin: 0.5em 0em;
+                }
+                &__titulo {
+                    margin: 0.5em 0em;
+                }
+                &__decripcion {
+                    min-width: 100%;
+                    max-width: 100%;
+                    min-height: 50%;
+                    max-height: 50%;
+                }
+            }
+        }
+        //Datos de usuario
+        &__aside {
+            gap: 0.5em;
+            &__anuncios {
+                &__anuncio {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .section {
+        margin: 2em;
+        grid-template-columns: 70% 30%;
+        gap: 1em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .section {
+        margin: 2em;
+        grid-template-columns: 75% 25%;
+        gap: 1.5em;
+    }
+}

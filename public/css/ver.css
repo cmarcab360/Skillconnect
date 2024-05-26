@@ -1,0 +1,203 @@
+@charset "UTF-8";
+/*------------Colores primarios----------*/
+/*------------Colores Secundarios----------*/
+/*------------Letras (Estilo, tamaño, color)----------*/
+.section {
+  max-width: 100%;
+  overflow-x: hidden;
+  flex: 1;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.section__anuncio {
+  margin-top: 0.5em;
+  width: 85%;
+  background-color: #d9d9d9;
+  padding: 0.5em;
+}
+.section__anuncio__titulo {
+  text-align: center;
+  margin: 0.2em;
+  font-size: x-large;
+}
+.section__anuncio__article__seccion {
+  font-size: x-large;
+  margin: 0.2em 0em;
+}
+.section__anuncio__article__titulo {
+  margin: 0.2em 0em;
+}
+.section__anuncio__article__decripcion {
+  margin: 0.5em 0em;
+  text-align: justify;
+}
+.section__anuncio__info {
+  text-align: end;
+  font-size: small;
+  margin: 0.5em 0em;
+}
+.section__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 90%;
+}
+.section__aside__usuario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 1em;
+  background-color: #0c7489;
+  border-radius: 20px;
+}
+.section__aside__usuario__header {
+  color: #fffcfb;
+  font-size: medium;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.section__aside__usuario__header__datos {
+  display: flex;
+  gap: 0.5em;
+  align-items: end;
+}
+.section__aside__usuario__header__datos__img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+}
+.section__aside__usuario__header__datos__nombre {
+  background: none;
+  border: none;
+  color: #fffcfb;
+  font-size: medium;
+}
+.section__aside__usuario__header__datos__nombre:hover {
+  font-size: large;
+}
+.section__aside__usuario__header__valor {
+  margin: 0;
+}
+.section__aside__usuario__boton {
+  width: 100%;
+  align-items: center;
+  border: none;
+  background-color: #fffcfb;
+  align-items: center;
+  color: #0c7489;
+  padding: 0.5em;
+  border-radius: 5px;
+  font-size: medium;
+}
+.section__aside__usuario__boton a:visited {
+  color: #0c7489;
+}
+.section__aside__usuario__boton:hover {
+  cursor: pointer;
+  box-shadow: 0.2em 0.2em 10px #119da4;
+}
+.section__aside__anuncios {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.section__aside__anuncios__titulo {
+  margin: 0;
+  font-size: larger;
+}
+.section__aside__anuncios__anuncio {
+  text-align: left;
+  border: none;
+  background-color: #d9d9d9;
+  width: 100%;
+  height: 35vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.section__aside__anuncios__anuncio__header {
+  background-color: #0c7489;
+  width: 100%;
+  text-align: center;
+}
+.section__aside__anuncios__anuncio__contenido {
+  padding: 0em 0.5em;
+}
+.section__aside__anuncios__anuncio__contenido__titulo {
+  padding-top: 1em;
+  margin: 0em;
+}
+.section__aside__anuncios__anuncio__contenido__descrip {
+  padding-top: 0.4em;
+  margin: 0em;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 7.5vh;
+  max-height: 7.5vh;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: justify;
+}
+.section__aside__anuncios__anuncio:hover {
+  cursor: pointer;
+  box-shadow: 0.1em 0.1em 10px #948b89;
+}
+
+@media (min-width: 700px) {
+  .section {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 65% 35%;
+    align-items: flex-start;
+    margin: 0.5em;
+    gap: 0.5em;
+  }
+  .section__anuncio {
+    width: 95%;
+    height: 98%;
+    padding: 0.5em;
+    margin: 0;
+  }
+  .section__anuncio__article {
+    height: 40%;
+  }
+  .section__anuncio__article__seccion {
+    font-size: xx-large;
+    margin: 0.5em 0em;
+  }
+  .section__anuncio__article__titulo {
+    margin: 0.5em 0em;
+  }
+  .section__anuncio__article__decripcion {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 50%;
+    max-height: 50%;
+  }
+  .section__aside {
+    gap: 0.5em;
+  }
+  .section__aside__anuncios__anuncio {
+    width: 100%;
+  }
+}
+@media (min-width: 1024px) {
+  .section {
+    margin: 2em;
+    grid-template-columns: 70% 30%;
+    gap: 1em;
+  }
+}
+@media (min-width: 1200px) {
+  .section {
+    margin: 2em;
+    grid-template-columns: 75% 25%;
+    gap: 1.5em;
+  }
+}
+
+/*# sourceMappingURL=ver.css.map */

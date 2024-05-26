@@ -17,8 +17,9 @@ class VerAnuncioController extends Controller
         $habilidades = Habilidad::all();
         $anuncio = Anuncio::where('id', $id)->first();
         $usuario = User::where('id', $anuncio->id_usuario)->first();
+        $usuarioLog = Auth::id();
 
-        $anunciosSimilares = Anuncio::where('habilidad_buscada', $anuncio->habilidad_buscada)->where('id', '!=', $anuncio->id)->limit(3)->get();
+        $anunciosSimilares = Anuncio::where('habilidad_buscada', $anuncio->habilidad_buscada)->where('id', '!=', $anuncio->id)->limit(2)->get();
         $valoraciones = Valoracion::where('id_usuario_evaluado', $anuncio->id_usuario)->get();
 
         if (!empty($valoraciones)) {
@@ -38,6 +39,6 @@ class VerAnuncioController extends Controller
             $media = 0;
         }
 
-        return view('ver')->with(compact('anuncio', 'anunciosSimilares', 'usuario', 'habilidades', 'media'));
+        return view('ver')->with(compact('anuncio', 'anunciosSimilares', 'usuario', 'usuarioLog', 'habilidades', 'media'));
     }
 }

@@ -227,13 +227,6 @@ $letra-label: #6b6766;
                 }
             }
 
-            a:visited {
-                color: $letra-blanca;
-            }
-            a:link {
-                color: $letra-blanca;
-            }
-
             &:hover {
                 cursor: pointer;
                 box-shadow: 0.1em 0.1em 10px $gris-oscuro;

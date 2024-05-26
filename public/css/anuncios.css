@@ -206,12 +206,6 @@
   overflow: hidden;
   font-size: small;
 }
-.cont__anuncios__anuncio a:visited {
-  color: #fffcfb;
-}
-.cont__anuncios__anuncio a:link {
-  color: #fffcfb;
-}
 .cont__anuncios__anuncio:hover {
   cursor: pointer;
   box-shadow: 0.1em 0.1em 10px #948b89;

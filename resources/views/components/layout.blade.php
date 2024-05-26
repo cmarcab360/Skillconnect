@@ -15,6 +15,7 @@
     <link href="css/perfil.css" rel="stylesheet">
     <link href="css/anuncios.css" rel="stylesheet">
     <link href="css/publicar.css" rel="stylesheet">
+    <link href="css/editar.css" rel="stylesheet">
 
     <!-- iconos-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />

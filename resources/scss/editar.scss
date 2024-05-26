@@ -1,0 +1,241 @@
+/*------------Colores primarios----------*/
+$azul-claro: #119da4;
+$azul-oscuro: #0c7489;
+
+/*------------Colores Secundarios----------*/
+$gris-oscuro: #948b89;
+$gris-claro: #d9d9d9;
+$beige: #d7d0d0;
+$beige-claro: #ece3e3;
+
+/*------------Letras (Estilo, tamaño, color)----------*/
+$font-family: "Nunito", sans-serif;
+$letra-negra: #000000;
+$letra-blanca: #fffcfb;
+$letra-label: #6b6766;
+
+.sect {
+    width: 100%;
+    flex: 1;
+    padding: 0;
+    margin: 0;
+    &__titulo {
+        padding-left: 1em;
+        padding-top: 0.5em;
+        margin: 0;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        gap: 0.5em;
+        &__section {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+            &__article {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5em;
+                padding: 0.5em;
+                background-color: $gris-claro;
+                border-radius: 15px;
+                &__titulo {
+                    padding: 0;
+                    margin: 0;
+                    font-size: large;
+                    text-align: center;
+                }
+                &__datos {
+                    display: flex;
+                    flex-direction: column;
+
+                    &__input {
+                        width: 98%;
+                        border: none;
+                        padding: 0.2em;
+                        &--select {
+                            width: 100%;
+                            border: none;
+                            padding: 0.2em;
+                        }
+                    }
+
+                    &__juntos {
+                        display: grid;
+                        grid-template-columns: 50% 50%;
+                        gap: 0.5em;
+                        &__info {
+                            display: flex;
+                            flex-direction: column;
+                            &__input {
+                                width: 90%;
+                                border: none;
+                                padding: 0.2em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &__botones {
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+            justify-content: end;
+            &__boton {
+                border: none;
+                background-color: $azul-oscuro;
+                color: $letra-blanca;
+                padding: 0.5em;
+                width: 30%;
+                border-radius: 20px;
+                font-weight: 700;
+                &:hover {
+                    cursor: pointer;
+                    background-color: #119da4;
+                }
+            }
+        }
+    }
+}
+
+//--------------Media Query-----------------
+@media (min-width: 700px) {
+    .sect {
+        &__titulo {
+            padding-top: 0.8em;
+        }
+        &__form {
+            padding: 1em;
+            flex: 1;
+            &__section {
+                display: grid;
+                grid-template-columns: 50% 50%;
+                grid-template-rows: 55vh;
+                &__article {
+                    padding: 1em;
+                    gap: 1em;
+                    &__datos {
+                        width: 100%;
+                        &__input {
+                            width: 96%;
+                            padding: 0.5em;
+                            &--select {
+                                padding: 0.5em;
+                            }
+                        }
+                        &__juntos {
+                            display: grid;
+                            grid-template-columns: 50% 50%;
+                            gap: 0.5em;
+                            &__info {
+                                display: flex;
+                                flex-direction: column;
+                                &__input {
+                                    width: 86%;
+                                    padding: 0.5em;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &__botones {
+                &__boton {
+                    padding: 0.5em;
+                    width: 15%;
+                    border-radius: 20px;
+                    font-weight: 500;
+                    font-size: large;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .sect {
+        &__titulo {
+            padding-left: 2em;
+        }
+        &__form {
+            padding: 1em 2em;
+            &__section {
+                display: grid;
+                grid-template-columns: 49% 47%;
+                grid-template-rows: 65vh;
+                gap: 2.5em;
+                &__article {
+                    gap: 1.5em;
+                    &__titulo{
+                        font-size: x-large;
+                    }
+                    &__datos {
+                        font-size: large;
+                        &__input {
+                            width: 97%;
+                            padding: 0.5em;
+                            &--select {
+                                padding: 0.5em;
+                            }
+                        }
+                        &__juntos {
+                            &__info {
+                                &__input {
+                                    width: 90%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .sect {
+        &__titulo {
+            padding-left: 5.5em;
+        }
+        &__form {
+            padding: 1em 8em;
+            &__section {
+                &__article {
+                    &__titulo{
+                        font-size: x-large;
+                    }
+                    &__datos {
+                        &__input {
+                            font-size: larger;
+                            width: 96.5%;
+                            padding: 0.5em;
+                            &--select {
+                                padding: 0.5em;
+                                font-size: larger;
+                            }
+                        }
+                        &__juntos {
+                            &__info {
+                                &__input {
+                                    font-size: larger;
+                                    width: 90%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &__botones {
+                &__boton {
+                    padding: 0.5em;
+                    width: 14%;
+                    border-radius: 20px;
+                    font-weight: 500;
+                    font-size: larger;
+                }
+            }
+        }
+    }
+}

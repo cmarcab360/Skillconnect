@@ -1,0 +1,202 @@
+@charset "UTF-8";
+/*------------Colores primarios----------*/
+/*------------Colores Secundarios----------*/
+/*------------Letras (Estilo, tamaño, color)----------*/
+.sect {
+  width: 100%;
+  flex: 1;
+  padding: 0;
+  margin: 0;
+}
+.sect__titulo {
+  padding-left: 1em;
+  padding-top: 0.5em;
+  margin: 0;
+}
+.sect__form {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  gap: 0.5em;
+}
+.sect__form__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.sect__form__section__article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 0.5em;
+  background-color: #d9d9d9;
+  border-radius: 15px;
+}
+.sect__form__section__article__titulo {
+  padding: 0;
+  margin: 0;
+  font-size: large;
+  text-align: center;
+}
+.sect__form__section__article__datos {
+  display: flex;
+  flex-direction: column;
+}
+.sect__form__section__article__datos__input {
+  width: 98%;
+  border: none;
+  padding: 0.2em;
+}
+.sect__form__section__article__datos__input--select {
+  width: 100%;
+  border: none;
+  padding: 0.2em;
+}
+.sect__form__section__article__datos__juntos {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 0.5em;
+}
+.sect__form__section__article__datos__juntos__info {
+  display: flex;
+  flex-direction: column;
+}
+.sect__form__section__article__datos__juntos__info__input {
+  width: 90%;
+  border: none;
+  padding: 0.2em;
+}
+.sect__form__botones {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  justify-content: end;
+}
+.sect__form__botones__boton {
+  border: none;
+  background-color: #0c7489;
+  color: #fffcfb;
+  padding: 0.5em;
+  width: 30%;
+  border-radius: 20px;
+  font-weight: 700;
+}
+.sect__form__botones__boton:hover {
+  cursor: pointer;
+  background-color: #119da4;
+}
+
+@media (min-width: 700px) {
+  .sect__titulo {
+    padding-top: 0.8em;
+  }
+  .sect__form {
+    padding: 1em;
+    flex: 1;
+  }
+  .sect__form__section {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 55vh;
+  }
+  .sect__form__section__article {
+    padding: 1em;
+    gap: 1em;
+  }
+  .sect__form__section__article__datos {
+    width: 100%;
+  }
+  .sect__form__section__article__datos__input {
+    width: 96%;
+    padding: 0.5em;
+  }
+  .sect__form__section__article__datos__input--select {
+    padding: 0.5em;
+  }
+  .sect__form__section__article__datos__juntos {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 0.5em;
+  }
+  .sect__form__section__article__datos__juntos__info {
+    display: flex;
+    flex-direction: column;
+  }
+  .sect__form__section__article__datos__juntos__info__input {
+    width: 86%;
+    padding: 0.5em;
+  }
+  .sect__form__botones__boton {
+    padding: 0.5em;
+    width: 15%;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: large;
+  }
+}
+@media (min-width: 1024px) {
+  .sect__titulo {
+    padding-left: 2em;
+  }
+  .sect__form {
+    padding: 1em 2em;
+  }
+  .sect__form__section {
+    display: grid;
+    grid-template-columns: 49% 47%;
+    grid-template-rows: 65vh;
+    gap: 2.5em;
+  }
+  .sect__form__section__article {
+    gap: 1.5em;
+  }
+  .sect__form__section__article__titulo {
+    font-size: x-large;
+  }
+  .sect__form__section__article__datos {
+    font-size: large;
+  }
+  .sect__form__section__article__datos__input {
+    width: 97%;
+    padding: 0.5em;
+  }
+  .sect__form__section__article__datos__input--select {
+    padding: 0.5em;
+  }
+  .sect__form__section__article__datos__juntos__info__input {
+    width: 90%;
+  }
+}
+@media (min-width: 1200px) {
+  .sect__titulo {
+    padding-left: 5.5em;
+  }
+  .sect__form {
+    padding: 1em 8em;
+  }
+  .sect__form__section__article__titulo {
+    font-size: x-large;
+  }
+  .sect__form__section__article__datos__input {
+    font-size: larger;
+    width: 96.5%;
+    padding: 0.5em;
+  }
+  .sect__form__section__article__datos__input--select {
+    padding: 0.5em;
+    font-size: larger;
+  }
+  .sect__form__section__article__datos__juntos__info__input {
+    font-size: larger;
+    width: 90%;
+  }
+  .sect__form__botones__boton {
+    padding: 0.5em;
+    width: 14%;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: larger;
+  }
+}
+
+/*# sourceMappingURL=editar.css.map */

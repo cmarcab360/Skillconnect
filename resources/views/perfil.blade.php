@@ -1,5 +1,4 @@
 <x-layout>
-    <x-header />
     <section class="container">
         <article class="container__box">
             <form class="container__box__formulario" action="{{ route('perfil.update') }}" method="POST"

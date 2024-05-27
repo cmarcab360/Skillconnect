@@ -1,5 +1,4 @@
 <x-layout>
-    <x-header />
     <section class="sect">
         <h1 class="sect__titulo">Editar Anuncio</h1>
 

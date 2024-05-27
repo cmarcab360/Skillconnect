@@ -1,6 +1,4 @@
 <x-layout>
-    <x-header />
-
     <section class="conte">
         <form class="conte__formulario" action="/publicar" method="post">
             @csrf

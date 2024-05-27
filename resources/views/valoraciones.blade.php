@@ -1,5 +1,5 @@
 <x-layout>
-    <x-header />
+    
 
     <dialog id="modal" class="modal">
         <article class="modal__contenido">

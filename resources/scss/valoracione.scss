@@ -93,9 +93,7 @@ $letra-label: #6b6766;
             }
         }
     }
-    &__titulo {
-        text-align: left;
-    }
+
     &__section {
         display: flex;
         flex-direction: column;
@@ -132,7 +130,6 @@ $letra-label: #6b6766;
 //--------------Media Query-----------------
 @media (min-width: 700px) {
     .conte {
-        height: 100vh;
         padding: 1.5em 2em 1.5em 2em;
         &__header {
             &__usuario {
@@ -162,9 +159,7 @@ $letra-label: #6b6766;
                 }
             }
         }
-        &__titulo {
-            padding-right: 31em;
-        }
+
         &__section {
             display: flex;
             flex-direction: column;
@@ -224,9 +219,7 @@ $letra-label: #6b6766;
                 }
             }
         }
-        &__titulo {
-            padding-right: 47em;
-        }
+
         &__section {
             display: grid;
             grid-template-columns: 49% 49%;
@@ -240,12 +233,11 @@ $letra-label: #6b6766;
 @media (min-width: 1240px) {
     .conte {
         width: 93.5%;
+       
         &__header {
             width: 90%;
         }
-        &__titulo {
-            padding-right: 70em;
-        }
+
         &__section {
             width: 90%;
             display: grid;

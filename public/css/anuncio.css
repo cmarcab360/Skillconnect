@@ -4,6 +4,8 @@
 /*------------Letras (Estilo, tamaño, color)----------*/
 .cont {
   flex: 1;
+  display: flex;
+  flex-direction: column;
   margin: 1em;
   padding: 1.5em;
 }
@@ -213,7 +215,8 @@
 
 @media (min-width: 700px) {
   .cont {
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
     padding: 1.5em 2em 1.5em 2em;
   }
   .cont__header__usuario__datos__img {
@@ -348,4 +351,4 @@
   }
 }
 
-/*# sourceMappingURL=anuncios.css.map */
+/*# sourceMappingURL=anuncio.css.map */

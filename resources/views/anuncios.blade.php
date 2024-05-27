@@ -1,6 +1,4 @@
 <x-layout>
-    <x-header />
-
     <section class="cont">
         <header class="cont__header">
             <article class="cont__header__usuario">

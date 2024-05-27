@@ -461,13 +461,17 @@ $letra-blanca: #fffcfb;
                         &__titulo {
                             min-width: 100%;
                             max-width: 100%;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
                         }
                         &__descripcion {
                             margin: 0.3em 0em 0.3em 0;
                             min-width: 100%;
                             max-width: 100%;
-                            min-height: 25%;
-                            max-height: 25%;
+                            min-height: 4.5em;
+                            max-height: 4.5em;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
                         }
                     }
                 }

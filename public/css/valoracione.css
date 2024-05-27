@@ -78,9 +78,6 @@
 .conte__header__menu__boton:hover {
   background-color: #119da4;
 }
-.conte__titulo {
-  text-align: left;
-}
 .conte__section {
   display: flex;
   flex-direction: column;
@@ -115,7 +112,6 @@
 
 @media (min-width: 700px) {
   .conte {
-    height: 100vh;
     padding: 1.5em 2em 1.5em 2em;
   }
   .conte__header__usuario__datos__img {
@@ -139,9 +135,6 @@
   }
   .conte__header__menu__boton {
     margin: 0;
-  }
-  .conte__titulo {
-    padding-right: 31em;
   }
   .conte__section {
     display: flex;
@@ -191,9 +184,6 @@
   .conte__header__menu__listado {
     font-size: x-large;
   }
-  .conte__titulo {
-    padding-right: 47em;
-  }
   .conte__section {
     display: grid;
     grid-template-columns: 49% 49%;
@@ -209,9 +199,6 @@
   .conte__header {
     width: 90%;
   }
-  .conte__titulo {
-    padding-right: 70em;
-  }
   .conte__section {
     width: 90%;
     display: grid;
@@ -221,4 +208,4 @@
   }
 }
 
-/*# sourceMappingURL=valoraciones.css.map */
+/*# sourceMappingURL=valoracione.css.map */

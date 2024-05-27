@@ -1,5 +1,5 @@
 <x-layout>
-    <x-header />
+    
     <section class="box">
         <form class="box__formulario" action="/home" method="post">
             @if (isset($habilidad) && !empty($habilidad))

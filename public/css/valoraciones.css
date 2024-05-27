@@ -1,0 +1,224 @@
+@charset "UTF-8";
+/*------------Colores primarios----------*/
+/*------------Colores Secundarios----------*/
+/*------------Letras (Estilo, tamaño, color)----------*/
+.conte {
+  flex: 1;
+  margin: 1em;
+  padding: 1em;
+}
+.conte__header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.conte__header__usuario {
+  display: flex;
+  justify-content: space-between;
+  background-color: #d9d9d9;
+  padding: 1em;
+  border-radius: 15px;
+}
+.conte__header__usuario__datos {
+  display: flex;
+  gap: 0.5em;
+  align-items: end;
+}
+.conte__header__usuario__datos__img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+.conte__header__usuario__datos__texto {
+  display: flex;
+  gap: 1.5em;
+  font-size: large;
+}
+.conte__header__usuario__datos__texto__nombre {
+  margin: 0;
+  padding: 0;
+}
+.conte__header__usuario__datos__texto__media {
+  margin: 0;
+  padding: 0;
+}
+.conte__header__usuario__datos__descrip {
+  display: none;
+}
+.conte__header__menu__listado {
+  display: flex;
+  gap: 2em;
+  padding: 0;
+  list-style: none;
+}
+.conte__header__menu__listado--select {
+  font-weight: bold;
+  border-bottom: 0.1em solid #0c7489;
+}
+.conte__header__menu__listado__enlace {
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  font-size: large;
+}
+.conte__header__menu__listado__enlace:hover {
+  border-bottom: 0.15em solid #0c7489;
+}
+.conte__header__menu__boton {
+  border: none;
+  background-color: #0c7489;
+  box-shadow: none;
+  font-size: large;
+  color: #fffcfb;
+  text-align: center;
+  padding: 0.5em;
+  border-radius: 5px;
+  margin: 0.5em 0em 0em 0em;
+}
+.conte__header__menu__boton:hover {
+  background-color: #119da4;
+}
+.conte__titulo {
+  text-align: left;
+}
+.conte__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 100%;
+}
+.conte__section__valoracion {
+  padding: 0.5em;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+}
+.conte__section__valoracion__nombre {
+  margin: 0.5em 0em 0em 0em;
+}
+.conte__section__valoracion__estrellas {
+  height: 14%;
+  display: flex;
+  gap: 0.5em;
+}
+.conte__section__valoracion__estrellas__estrella {
+  color: #0c7489;
+}
+.conte__section__valoracion__coment {
+  min-height: 35%;
+  max-height: 35%;
+  text-align: justify;
+}
+.conte__section__valoracion__fech {
+  text-align: end;
+  font-size: small;
+}
+
+@media (min-width: 700px) {
+  .conte {
+    height: 100vh;
+    padding: 1.5em 2em 1.5em 2em;
+  }
+  .conte__header__usuario__datos__img {
+    width: 85px;
+    height: 85px;
+  }
+  .conte__header__usuario__datos__descrip {
+    display: block;
+    max-height: 80px;
+    max-width: 300px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .conte__header__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .conte__header__menu__listado {
+    font-size: larger;
+  }
+  .conte__header__menu__boton {
+    margin: 0;
+  }
+  .conte__titulo {
+    padding-right: 31em;
+  }
+  .conte__section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: large;
+  }
+  .conte__section__valoracion {
+    gap: 0.5em;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #d9d9d9;
+    border-radius: 5px;
+  }
+  .conte__section__valoracion__nombre {
+    margin: 0;
+  }
+  .conte__section__valoracion__estrellas {
+    height: 14%;
+    display: flex;
+    gap: 0.5em;
+  }
+  .conte__section__valoracion__estrellas__estrella {
+    color: #0c7489;
+    margin: 0;
+  }
+  .conte__section__valoracion__coment {
+    min-height: 45%;
+    max-height: 45%;
+    margin: 0;
+  }
+}
+@media (min-width: 1024px) {
+  .conte__header__usuario__datos__img {
+    width: 100px;
+    height: 100px;
+  }
+  .conte__header__usuario__datos__descrip {
+    max-height: 80px;
+    max-width: 400px;
+    min-height: 80px;
+    min-width: 400px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .conte__header__menu__listado {
+    font-size: x-large;
+  }
+  .conte__titulo {
+    padding-right: 47em;
+  }
+  .conte__section {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    gap: 1em;
+    width: 100%;
+    font-size: large;
+  }
+}
+@media (min-width: 1240px) {
+  .conte {
+    width: 93.5%;
+  }
+  .conte__header {
+    width: 90%;
+  }
+  .conte__titulo {
+    padding-right: 70em;
+  }
+  .conte__section {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 49% 49%;
+    gap: 1em;
+    font-size: large;
+  }
+}
+
+/*# sourceMappingURL=valoraciones.css.map */

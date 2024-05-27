@@ -17,7 +17,7 @@
     <link href="css/publicar.css" rel="stylesheet">
     <link href="css/editar.css" rel="stylesheet">
     <link href="css/ver.css" rel="stylesheet">
-     <!--<link href="css/valoraciones.css" rel="stylesheet">-->
+    <link href="css/valoraciones.css" rel="stylesheet">
     <link href="css/valorar.css" rel="stylesheet">
 
     <!-- iconos-->

@@ -27,7 +27,7 @@
                 <p class="section__anuncio__article__decripcion">{{ $anuncio->descripcion_Bus }}</p>
             </article>
 
-            <p class="section__anuncio__info">Publicado el {{ $anuncio->created_at }}</p>
+            <p class="section__anuncio__info">Publicado el {{ $anuncio->created_at->format('d/m/Y') }}</p>
             
         </section>
 

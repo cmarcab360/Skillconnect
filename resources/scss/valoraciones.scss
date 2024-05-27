@@ -1,0 +1,257 @@
+/*------------Colores primarios----------*/
+$azul-claro: #119da4;
+$azul-oscuro: #0c7489;
+
+/*------------Colores Secundarios----------*/
+$gris-oscuro: #948b89;
+$gris-claro: #d9d9d9;
+$beige: #d7d0d0;
+$beige-claro: #ece3e3;
+
+/*------------Letras (Estilo, tamaño, color)----------*/
+$font-family: "Nunito", sans-serif;
+$letra-negra: #000000;
+$letra-blanca: #fffcfb;
+$letra-label: #6b6766;
+
+.conte {
+    flex: 1;
+    margin: 1em;
+    padding: 1em;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        &__usuario {
+            display: flex;
+            justify-content: space-between;
+            background-color: $gris-claro;
+            padding: 1em;
+            border-radius: 15px;
+
+            &__datos {
+                display: flex;
+                gap: 0.5em;
+                align-items: end;
+                &__img {
+                    height: 70px;
+                    width: 70px;
+                    border-radius: 50%;
+                }
+                &__texto {
+                    display: flex;
+                    gap: 1.5em;
+                    font-size: large;
+                    &__nombre {
+                        margin: 0;
+                        padding: 0;
+                    }
+                    &__media {
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+                &__descrip {
+                    display: none;
+                }
+            }
+        }
+        &__menu {
+            &__listado {
+                display: flex;
+                gap: 2em;
+                padding: 0;
+                list-style: none;
+                &--select {
+                    font-weight: bold;
+                    border-bottom: 0.1em solid $azul-oscuro;
+                }
+                &__enlace {
+                    border: none;
+                    background-color: transparent;
+                    box-shadow: none;
+                    font-size: large;
+                    &:hover {
+                        border-bottom: 0.15em solid $azul-oscuro;
+                    }
+                }
+            }
+            &__boton {
+                border: none;
+                background-color: $azul-oscuro;
+                box-shadow: none;
+                font-size: large;
+                color: $letra-blanca;
+                text-align: center;
+                padding: 0.5em;
+                border-radius: 5px;
+                margin: 0.5em 0em 0em 0em;
+                &:hover {
+                    background-color: $azul-claro;
+                }
+            }
+        }
+    }
+    &__titulo {
+        text-align: left;
+    }
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        width: 100%;
+        &__valoracion {
+            padding: 0.5em;
+            background-color: $gris-claro;
+            border-radius: 5px;
+            &__nombre {
+                margin: 0.5em 0em 0em 0em;
+            }
+            &__estrellas {
+                height: 14%;
+                display: flex;
+                gap: 0.5em;
+                &__estrella {
+                    color: $azul-oscuro;
+                }
+            }
+            &__coment {
+                min-height: 35%;
+                max-height: 35%;
+                text-align: justify;
+            }
+            &__fech {
+                text-align: end;
+                font-size: small;
+            }
+        }
+    }
+}
+
+//--------------Media Query-----------------
+@media (min-width: 700px) {
+    .conte {
+        height: 100vh;
+        padding: 1.5em 2em 1.5em 2em;
+        &__header {
+            &__usuario {
+                &__datos {
+                    &__img {
+                        width: 85px;
+                        height: 85px;
+                    }
+                    &__descrip {
+                        display: block;
+                        max-height: 80px;
+                        max-width: 300px;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                }
+            }
+            &__menu {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                &__listado {
+                    font-size: larger;
+                }
+                &__boton {
+                    margin: 0;
+                }
+            }
+        }
+        &__titulo {
+            padding-right: 31em;
+        }
+        &__section {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            font-size: large;
+            &__valoracion {
+                gap: 0.5em;
+                height: 30vh;
+                display: flex;
+                flex-direction: column;
+                background-color: $gris-claro;
+                border-radius: 5px;
+                &__nombre {
+                    margin: 0;
+                }
+                &__estrellas {
+                    height: 14%;
+                    display: flex;
+                    gap: 0.5em;
+                    &__estrella {
+                        color: $azul-oscuro;
+                        margin: 0;
+                    }
+                }
+                &__coment {
+                    min-height: 45%;
+                    max-height: 45%;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .conte {
+        &__header {
+            &__usuario {
+                &__datos {
+                    &__img {
+                        width: 100px;
+                        height: 100px;
+                    }
+                    &__descrip {
+                        max-height: 80px;
+                        max-width: 400px;
+                        min-height: 80px;
+                        min-width: 400px;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                }
+            }
+            &__menu {
+                &__listado {
+                    font-size: x-large;
+                }
+            }
+        }
+        &__titulo {
+            padding-right: 47em;
+        }
+        &__section {
+            display: grid;
+            grid-template-columns: 49% 49%;
+            gap: 1em;
+            width: 100%;
+            font-size: large;
+        }
+    }
+}
+
+@media (min-width: 1240px) {
+    .conte {
+        width: 93.5%;
+        &__header {
+            width: 90%;
+        }
+        &__titulo {
+            padding-right: 70em;
+        }
+        &__section {
+            width: 90%;
+            display: grid;
+            grid-template-columns: 49% 49%;
+            gap: 1em;
+            font-size: large;
+        }
+    }
+}

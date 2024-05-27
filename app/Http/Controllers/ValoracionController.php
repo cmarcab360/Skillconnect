@@ -7,6 +7,8 @@ use App\Models\Valoracion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use function PHPUnit\Framework\isEmpty;
+
 class ValoracionController extends Controller
 {
     public function create(Request $request)
@@ -39,7 +41,7 @@ class ValoracionController extends Controller
         $usuario = User::where('id', $usuario)->first();
         $usuarios = User::all();
 
-        if (!empty($valoraciones)) {
+        if (!$valoraciones->isEmpty()) {
             $media = 0;
             if (count($valoraciones) > 1) {
 

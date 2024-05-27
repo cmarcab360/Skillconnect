@@ -1,0 +1,142 @@
+/*------------Colores primarios----------*/
+$azul-claro: #119da4;
+$azul-oscuro: #0c7489;
+
+/*------------Colores Secundarios----------*/
+$gris-oscuro: #948b89;
+$gris-claro: #d9d9d9;
+$beige: #d7d0d0;
+$beige-claro: #ece3e3;
+
+/*------------Letras (Estilo, tamaño, color)----------*/
+$font-family: "Nunito", sans-serif;
+$letra-negra: #000000;
+$letra-blanca: #fffcfb;
+$letra-label: #6b6766;
+
+/*------------Valoracion estreellas----------*/
+.estrellas {
+    display: flex;
+    justify-content: left;
+}
+
+.raiting {
+    position: relative;
+    display: flex;
+
+    flex-direction: row-reverse;
+}
+
+.raiting input {
+    position: relative;
+    width: 1em;
+    height: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.raiting input::before {
+    content: "\f005";
+    position: absolute;
+    font-family: fontAwesome;
+    font-size: 1em;
+    color: $gris-oscuro;
+    transition: 0.5s;
+}
+
+.raiting input:hover ~ input::before,
+.raiting input:hover::before,
+.raiting input:checked ~ input::before,
+.raiting input:checked::before {
+    color: $azul-claro;
+}
+
+/*------------Dialogo---------*/
+.modal {
+    background-color: $gris-claro;
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+   
+    
+    &__contenido {
+        width: 94%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        padding: 0.5em;
+        &__boton {
+            text-align: right;
+            color: $azul-oscuro;
+            margin: 0.5em 0em;
+            &:hover {
+                color: $azul-claro;
+            }
+        }
+        &__formulario {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+            &__boton {
+                border: none;
+                background-color: $azul-oscuro;
+                color: $letra-blanca;
+                padding: 0.5em;
+                border-radius: 10px;
+
+                &:hover {
+                    background-color: $azul-claro;
+                }
+            }
+        }
+    }
+}
+
+/*-----------Media Query----------*/
+@media (min-width: 700px) {
+    .modal {
+        width: 60%;
+        &__contenido {
+            width: 96%;
+        }
+    }
+    
+    .raiting input {
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 1000px) {
+    .modal {
+        width: 50%;
+    }
+
+    .raiting input {
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 1138px) {
+    .modal {
+        width: 40%;
+    }
+
+    .raiting input {
+        font-size: 1.5em;
+    }
+}
+@media (min-width: 1300px) {
+    .modal {
+        width: 30%;
+    }
+
+    .raiting input {
+        font-size: 1.5em;
+    }
+}

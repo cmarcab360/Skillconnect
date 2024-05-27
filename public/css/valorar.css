@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/*------------Colores primarios----------*/
+/*------------Colores Secundarios----------*/
+/*------------Letras (Estilo, tamaño, color)----------*/
+/*------------Valoracion estreellas----------*/
+.estrellas {
+  display: flex;
+  justify-content: left;
+}
+
+.raiting {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.raiting input {
+  position: relative;
+  width: 1em;
+  height: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.raiting input::before {
+  content: "\f005";
+  position: absolute;
+  font-family: fontAwesome;
+  font-size: 1em;
+  color: #948b89;
+  transition: 0.5s;
+}
+
+.raiting input:hover ~ input::before,
+.raiting input:hover::before,
+.raiting input:checked ~ input::before,
+.raiting input:checked::before {
+  color: #119da4;
+}
+
+/*------------Dialogo---------*/
+.modal {
+  background-color: #d9d9d9;
+  width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+.modal__contenido {
+  width: 94%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5em;
+}
+.modal__contenido__boton {
+  text-align: right;
+  color: #0c7489;
+  margin: 0.5em 0em;
+}
+.modal__contenido__boton:hover {
+  color: #119da4;
+}
+.modal__contenido__formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.modal__contenido__formulario__boton {
+  border: none;
+  background-color: #0c7489;
+  color: #fffcfb;
+  padding: 0.5em;
+  border-radius: 10px;
+}
+.modal__contenido__formulario__boton:hover {
+  background-color: #119da4;
+}
+
+/*-----------Media Query----------*/
+@media (min-width: 700px) {
+  .modal {
+    width: 60%;
+  }
+  .modal__contenido {
+    width: 96%;
+  }
+  .raiting input {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 1000px) {
+  .modal {
+    width: 50%;
+  }
+  .raiting input {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 1138px) {
+  .modal {
+    width: 40%;
+  }
+  .raiting input {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 1300px) {
+  .modal {
+    width: 30%;
+  }
+  .raiting input {
+    font-size: 1.5em;
+  }
+}
+
+/*# sourceMappingURL=valorar.css.map */

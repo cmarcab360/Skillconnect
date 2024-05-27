@@ -11,30 +11,24 @@ class ValoracionController extends Controller
 {
     public function create(Request $request)
     {
-        if (isset($request->valorar)) {
-            $request->validate([
-                'calificacion' => 'required|integer',
-                'comentario' => 'required|string'
-            ]);
+        $request->validate([
+            'calificacion' => 'required|integer',
+            'comentario' => 'required|string'
+        ]);
 
-            //Crea el anuncio
-            Valoracion::create([
-                'id_usuario_evaluador' => Auth::id(),
-                'id_usuario_evaluado' =>  $request->input('id'),
-                'calificacion' => $request->input('calificacion'),
-                'comentario' => $request->input('comentario')
-            ]);
-            $id = $request->input('id');
+        //Crea el anuncio
+        Valoracion::create([
+            'id_usuario_evaluador' => Auth::id(),
+            'id_usuario_evaluado' =>  $request->input('id'),
+            'calificacion' => $request->input('calificacion'),
+            'comentario' => $request->input('comentario')
+        ]);
+        $id = $request->input('id');
 
-            // Redirigir de vuelta al perfil del usuario con un mensaje de éxito
-            //return view('/anuncios')->with(compact('id'));
+        // Redirigir de vuelta al perfil del usuario con un mensaje de éxito
+        //return view('/anuncios')->with(compact('id'));
 
-            return redirect()->route('anuncios.show', ['id' => $id])
-                ->with('message', 'Valoración guardada exitosamente');
-        } else {
-            $id = $request->id;
-            return view('/valorar')->with(compact('id'));
-        }
+        return redirect()->route('anuncios.show', ['id' => $id])->with('message', 'Valoración guardada exitosamente');
     }
 
     public function show(Request $request)

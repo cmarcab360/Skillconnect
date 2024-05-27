@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 
 class SesionController extends Controller
 {
+    //Lleva al fromulario de iniciar sesion
     public function create(){
         return view('welcome');
     }
+    
     public function store(){
         //Validate
         $attributes = request()->validate([
@@ -22,9 +24,10 @@ class SesionController extends Controller
             return redirect('/home')->with('success','Bienvenido!');
         }
         //Fallo de autenticacion withInput()->Deja los datos en los inputs cuando hay un error withErrors->personalizo el mensaje de la variable $errors de email
-        return back()->withInput()->withErrors(['email' => 'El usuario o la contraseña es incorrecta, porfavor intente de nuevo']);
-        //Redirect
+        return back()->withInput()->withErrors(['email' => 'El usuario o la contraseña es incorrecta, intente de nuevo']);
     }
+
+    //Cerrar sesion
     public function destroy(){
         auth()->logout();
         return redirect('/')->with('success','Hasta pronto');

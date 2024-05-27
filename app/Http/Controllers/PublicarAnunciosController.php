@@ -10,31 +10,32 @@ use Illuminate\Support\Facades\Auth;
 
 class PublicarAnunciosController extends Controller
 {
+    // Funcion para mostrar el formulrio de creacion de anuncio
     public function show()
     {
-
         $habilidades = Habilidad::all();
         //dd($habilidades);
         $userId = Auth::id();
         return view('/publicar')->with(compact('userId', 'habilidades'));
     }
 
+    // Guarda el anuncio en la BD
     public function create(Request $request)
     {
-
+        // Valida los datos recibidos por el formulario
         $request->validate([
-            'titulo_of' => 'required|string',
-            'habilidad_ofrecida' => 'required|integer',
+            'titulo_of' => 'required|string|max:255',
+            'habilidad_ofrecida' => 'required|integer|exists:habilidades,id',
             'descripcion_of' => 'required|string',
-            'localidad' => 'required|string',
-            'ciudad' => 'required|string',
-            'titulo_B' => 'required|string',
-            'habilidad_buscada' => 'required|integer',
+            'localidad' => 'required|string|max:50',
+            'ciudad' => 'required|string|max:50',
+            'titulo_B' => 'required|string|max:255',
+            'habilidad_buscada' => 'required|integer|exists:habilidades,id',
             'descripcion_bus' => 'required|string'
 
         ]);
 
-        //Crea el anuncio
+        // Si son validos crea un nuevo anuncio con los datos recibidos
         Anuncio::create([
             'id_usuario' => Auth::id(),
             'habilidad_buscada' => $request->input('habilidad_buscada'),
@@ -48,7 +49,6 @@ class PublicarAnunciosController extends Controller
 
         ]);
 
-        // Redirigir de vuelta al perfil del usuario con un mensaje de éxito
         return redirect('/anuncios');
     }
 }

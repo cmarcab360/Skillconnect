@@ -1,4 +1,4 @@
-<x-layout>
+<x-layoutPrincipal>
     @guest
         <section class="contenedor">
             <section class="contenedor__texto">
@@ -37,4 +37,4 @@
             </section>
         </section>
     @endguest
-</x-layout>
+</x-layoutPrincipal>

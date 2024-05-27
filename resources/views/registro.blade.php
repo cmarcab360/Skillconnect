@@ -1,4 +1,4 @@
-<x-layout>
+<x-layoutPrincipal>
     @guest
         <section class="caja">
             <section class="caja__texto">
@@ -55,4 +55,4 @@
         </section>
         </section>
     @endguest
-</x-layout>
+</x-layoutPrincipal>

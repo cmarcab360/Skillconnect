@@ -27,8 +27,8 @@ class BuscadorController extends Controller
             
             $anuncios = Anuncio::where('id_usuario', '!=', $userId)->get();
             return view('home', compact('anuncios', 'userId', 'habilidades', 'usuarios'));
-        } else {
 
+        } else {
             // Si no va filtrando por cada campo
             if ($request->input('palabra') !== null) {
                 $palabra = $request->input('palabra');

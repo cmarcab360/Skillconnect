@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnunciosController;
 use App\Http\Controllers\BuscadorController;
+use App\Http\Controllers\ediarAnuncioController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\PublicarAnunciosController;
@@ -25,10 +26,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[SesionController::class, 'create'])->middleware('guest')->name('login');
 Route::post('/',[SesionController::class, 'store'])->middleware('guest')->name('login');
 
-//Ruta Registro / ->middleware('guest') -> Estas rutas solo tienen logica cuando el usuario no está logueado,SOLO si eres un guest entras aqui (auth , caso contrario)
 Route::get('/registro', [RegistroController::class, 'create'])->middleware('guest');
 Route::post('/registro', [RegistroController::class, 'store'])->middleware('guest');
-
 
 Route::get('/home', [HomeController::class, 'home'])->middleware('auth');
 Route::post('/home', [BuscadorController::class, 'show'])->middleware('auth');
@@ -44,7 +43,9 @@ Route::post('/publicar', [PublicarAnunciosController::class, 'create'])->middlew
 
 Route::get('/anuncios', [AnunciosController::class, 'show'])->middleware('auth')->name('anuncios.show');;
 Route::delete('/anuncios/{id}/delete', [AnunciosController::class, 'delete'])->middleware('auth')->name('anuncios.delete');
-Route::post('/editar', [AnunciosController::class, 'edit'])->middleware('auth');
+
+Route::post('/editar', [ediarAnuncioController::class, 'edit'])->middleware('auth');
+Route::get('/anuncio', [ediarAnuncioController::class, 'show'])->middleware('auth');
 
 Route::post('/ver', [VerAnuncioController::class, 'show'])->middleware('auth');
 

@@ -1,7 +1,8 @@
 <header class="header">
+    @auth  <!--Solo se muestra a usuarios logueados-->
     <picture class="header__picture">
         <source media="(min-width: 700px)" srcset="/img/logo.png">
-        <img src="/img/logo.png" alt="Logo TFTTactics" class="header__picture__logo">
+        <img src="/img/logo.png" alt="Logo SkillConnect" class="header__picture__logo">
     </picture>
     <div class="header__options">
         <!--index-->
@@ -31,8 +32,6 @@
                 </section>
             </nav>
         </section>
-
-        
-        
     </div>
+    @endauth
 </header>

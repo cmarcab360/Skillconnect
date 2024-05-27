@@ -1,6 +1,4 @@
 <x-layout>
-   
-
     <section class="section">
         {{-- Anuncios --}}
         <section class="section__anuncio">
@@ -70,22 +68,17 @@
                             <header class="section__aside__anuncios__anuncio__header">
                                 @foreach ($habilidades as $habilidad)
                                     @if ($anuncio->habilidad_ofrecida == $habilidad->id)
-                                        <h3 class="section__aside__anuncios__anuncio__header__titulo">
-                                            {{ $habilidad->titulo }}</h3>
+                                        <h3 class="section__aside__anuncios__anuncio__header__titulo"> {{ $habilidad->titulo }}</h3>
                                     @endif
                                 @endforeach
                             </header>
                             <article class="section__aside__anuncios__anuncio__contenido">
-                                <h4 class="section__aside__anuncios__anuncio__contenido__titulo">
-                                    {{ $anuncio->titulo_of }}</h4>
-                                <p class="section__aside__anuncios__anuncio__contenido__descrip">
-                                    {{ $anuncio->descripcion_of }}</p>
+                                <h4 class="section__aside__anuncios__anuncio__contenido__titulo"> {{ $anuncio->titulo_of }}</h4>
+                                <p class="section__aside__anuncios__anuncio__contenido__descrip"> {{ $anuncio->descripcion_of }}</p>
                             </article>
                             <article class="section__aside__anuncios__anuncio__contenido">
-                                <h4 class="section__aside__anuncios__anuncio__contenido__titulo">
-                                    {{ $anuncio->tituloB }}</h4>
-                                <p class="section__aside__anuncios__anuncio__contenido__descrip">
-                                    {{ $anuncio->descripcion_Bus }}</p>
+                                <h4 class="section__aside__anuncios__anuncio__contenido__titulo"> {{ $anuncio->tituloB }}</h4>
+                                <p class="section__aside__anuncios__anuncio__contenido__descrip"> {{ $anuncio->descripcion_Bus }}</p>
                             </article>
                         </button>
                     </form>

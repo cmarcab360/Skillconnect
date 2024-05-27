@@ -9,37 +9,32 @@ use Illuminate\Support\Facades\Validator;
 
 class PerfilController extends Controller
 {
+    // Funcion para mostrar el perfil de usuario logueado
     public function show(Request $request)
     {
         $userId = Auth::id();
-
         $usuario = User::where('id', $userId)->first();
-        //$contrasena_desencriptada = decrypt($usuario->password);
+
         return view('/perfil')->with(compact('usuario', 'userId'));
     }
 
+    // Actualiza los datos del perfil de usuario en la BD
     public function update(Request $request)
     {
-        //dd($request->all());
         $userId = Auth::id();
         $usuario = User::findOrFail($userId);
 
-        // Validar los datos de entrada
+        // Validar los datos recibidos del formulario 
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'username' => 'required|string|max:255|unique:users,username,' . $usuario->id,
+            'username' => 'required|string|min:3|max:100|unique:users,username,' . $usuario->id,
             'email' => 'required|string|email|max:255|unique:users,email,' . $usuario->id,
-            'password' => 'nullable|string|min:8',
+            'password' => 'required|string|min:8',
             'descripcion' => 'nullable|string|max:255',
-            'url_foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'url_foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
-        // Verificar si la validación falla
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
-        // Actualizar los datos del usuario
+        //Si son correctos verifica si los datos recibidos son diferentes a los almacenados en la BD
         if ($usuario->name !== $request->name) {
             $usuario->name = $request->name;
         }
@@ -63,16 +58,16 @@ class PerfilController extends Controller
         if ($usuario->avatar !== $request->url_foto && !empty($request->url_foto)) {
             $foto = $request->file('url_foto');
 
-            // Guardar el archivo en la carpeta de almacenamiento
+            // Guardar el archivo en la carpeta
             $rutaFoto = $foto->store('fotos', 'public');
 
             $usuario->avatar = $rutaFoto;
         }
 
-        // Guardar los cambios en la base de datos
+        // Guarda los cambios en la base de datos
         $usuario->save();
 
-        // Redirigir de vuelta al perfil del usuario con un mensaje de éxito
+
         return redirect()->route('perfil.show', $usuario->id)->with('success', '¡Perfil actualizado exitosamente!');
     }
 }

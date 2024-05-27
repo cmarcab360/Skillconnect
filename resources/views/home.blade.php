@@ -1,6 +1,6 @@
 <x-layout>
-    
     <section class="box">
+        <!--Formulario de busquedad-->
         <form class="box__formulario" action="/home" method="post">
             @if (isset($habilidad) && !empty($habilidad))
                 <input type="hidden" name="habilidad" value="{{ $habilidad }}">
@@ -8,28 +8,25 @@
             @csrf
             <article class="box__formulario__article">
                 <label class="box__formulario__article__label" for="ciudad">Ciudad</label>
-                <input class="box__formulario__article__input" type="text" name="ciudad" id="ciudad"
-                    value="{{ $busqueda['ciudad'] ?? '' }}" placeholder="Introduce la ciudad">
+                <input class="box__formulario__article__input" type="text" name="ciudad" id="ciudad" value="{{ $busqueda['ciudad'] ?? '' }}" placeholder="Introduce la ciudad">
             </article>
 
             <article class="box__formulario__article">
                 <label class="box__formulario__article__label" for="localidad">Localidad</label>
-                <input class="box__formulario__article__input" type="text" name="localidad" id="localidad"
-                    value="{{ $busqueda['localidad'] ?? '' }}" placeholder="Introduce la localidad">
+                <input class="box__formulario__article__input" type="text" name="localidad" id="localidad" value="{{ $busqueda['localidad'] ?? '' }}" placeholder="Introduce la localidad">
             </article>
 
             <article class="box__formulario__article">
                 <label class="box__formulario__article__label" for="palabra">Palabra clave</label>
-                <input class="box__formulario__article__input" type="text" name="palabra" id="palabra"
-                    value="{{ $busqueda['palabra'] ?? '' }}" placeholder="Introduce la palabra">
+                <input class="box__formulario__article__input" type="text" name="palabra" id="palabra" value="{{ $busqueda['palabra'] ?? '' }}" placeholder="Introduce la palabra">
             </article>
 
             <article class="box__formulario__boton">
-                <button class="box__formulario__boton--busquedad" type="submit"><i
-                        class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="box__formulario__boton--busquedad" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </article>
         </form>
 
+        <!--Slide de habilidades-->
         <section class="wrapper">
             <p class="flecha"><i class="fa-solid fa-chevron-left"></i></p>
             <ul class="carousel">
@@ -70,6 +67,7 @@
 
         <article class="box__article">
             <h1 class="box__article__titulo">Anuncios</h1>
+            <!--Formulario para eliminar la busquedad-->
             <form action="/home" method="post">
                 @csrf
                 <input type="hidden" name="eliminar" value="eliminar">
@@ -79,9 +77,8 @@
         </article>
 
 
-        @if (isset($resultados))
+        @if (isset($resultados))<!--Si hay anuncios con las caracteriticas buscada los muestra y si no da un mensaje-->
             @if ($resultados->isEmpty())
-
                 <article class="box__contenedor">
                     <img class="box__contenedor__img" src="img/buscar.png" alt="sin resultados">
                     <p class="box__contenedor__texto">Parece que no hay resultados</p>
@@ -137,7 +134,7 @@
                     @endforeach
                 </section>
             @endif
-        @else
+        @else<!--Si no se ha buscado nada muestra los anucnios-->
             <section class="box__section">
                 @foreach ($anuncios as $anuncio)
                     <form action="ver" method="post">
@@ -188,15 +185,20 @@
                 @endforeach
             </section>
         @endif
-
-
-
     </section>
+    
     <script>
+        // Contenedor principal y el carrusel
         const wrapper = document.querySelector(".wrapper");
         const carousel = document.querySelector(".carousel");
+
+        //Ancho de la primera tarjeta
         const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+        
+        //Botones
         const arrowBtns = document.querySelectorAll(".wrapper .flecha");
+
+        //// Convierte los hijos del carrusel en un array
         const carouselChildrens = [...carousel.children];
 
         let isDragging = false,
@@ -205,10 +207,10 @@
             startScrollLeft,
             timeoutId;
 
-        // Get the number of cards that can fit in the carousel at once
+        // Calcula el número de tarjetas que caben en el carrusel a la vez
         let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
 
-        // Insert copies of the last few cards to beginning of carousel for infinite scrolling
+        // Inserta copias de las últimas tarjetas al principio y al final del carrusel para que sea infinito
         carouselChildrens
             .slice(-cardPerView)
             .reverse()
@@ -216,17 +218,17 @@
                 carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
             });
 
-        // Insert copies of the first few cards to end of carousel for infinite scrolling
+        
         carouselChildrens.slice(0, cardPerView).forEach((card) => {
             carousel.insertAdjacentHTML("beforeend", card.outerHTML);
         });
 
-        // Scroll the carousel at appropriate postition to hide first few duplicate cards on Firefox
+        // Desplaza el carrusel a la posición adecuada para ocultar las primeras tarjetas duplicadas 
         carousel.classList.add("no-transition");
         carousel.scrollLeft = carousel.offsetWidth;
         carousel.classList.remove("no-transition");
 
-        // Add event listeners for the arrow buttons to scroll the carousel left and right
+       // Añade event listeners a los botones de flecha para desplazar el carrusel a la izquierda y derecha
         arrowBtns.forEach((btn) => {
             btn.addEventListener("click", () => {
                 carousel.scrollLeft +=
@@ -237,14 +239,14 @@
         const dragStart = (e) => {
             isDragging = true;
             carousel.classList.add("dragging");
-            // Records the initial cursor and scroll position of the carousel
+           // Registra la posición inicial del cursor y la posición de desplazamiento del carrusel
             startX = e.pageX;
             startScrollLeft = carousel.scrollLeft;
         };
 
         const dragging = (e) => {
-            if (!isDragging) return; // if isDragging is false return from here
-            // Updates the scroll position of the carousel based on the cursor movement
+            if (!isDragging) return; // Si isDragging es falso, retorna aquí
+            // Actualiza la posición de desplazamiento del carrusel basada en el movimiento del cursor
             carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
         };
 
@@ -254,13 +256,13 @@
         };
 
         const infiniteScroll = () => {
-            // If the carousel is at the beginning, scroll to the end
+             // Si el carrusel está al inicio se desplaza hasta al final
             if (carousel.scrollLeft === 0) {
                 carousel.classList.add("no-transition");
                 carousel.scrollLeft = carousel.scrollWidth - 2 * carousel.offsetWidth;
                 carousel.classList.remove("no-transition");
             }
-            // If the carousel is at the end, scroll to the beginning
+            // Si el carrusel esta al final se desplaza hasta al inicio
             else if (
                 Math.ceil(carousel.scrollLeft) ===
                 carousel.scrollWidth - carousel.offsetWidth
@@ -270,6 +272,7 @@
                 carousel.classList.remove("no-transition");
             }
 
+            // Añade event listeners para manejar el arrastre del carrusel
             carousel.addEventListener("mousedown", dragStart);
             carousel.addEventListener("mousemove", dragging);
             document.addEventListener("mouseup", dragStop);

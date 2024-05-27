@@ -13,6 +13,9 @@
                     <article class="sect__form__section__article__datos">
                         <label class="sect__form__section__article__datos__label" for="titulo_of">Titulo descriptivo</label>
                         <input class="sect__form__section__article__datos__input" type="text" name="titulo_of" id="titulo_of" placeholder="Titulo" value="{{ $anuncios->titulo_of }}">
+                        @error('titulo_of')
+                            <p class="error">{{ $message }}</p>
+                        @enderror
                     </article>
 
                     <article class="sect__form__section__article__datos">
@@ -26,23 +29,34 @@
                                 @endif
                             @endforeach
                         </select>
+                        @error('habilidad_ofrecida')
+                            <p class="error">{{ $message }}</p>
+                        @enderror
                     </article>
 
                     <article class="sect__form__section__article__datos">
                         <label class="sect__form__section__article__datos__label" for="descripcion_of">Descripcion detallada que ofrece</label>
                         <textarea class="sect__form__section__article__datos__input" type="text" name="descripcion_of" id="descripcion_of" placeholder="Introdece la descripcion">{{ $anuncios->descripcion_of }}</textarea>
+                        @error('descripcion_of')
+                            <p class="error">{{ $message }}</p>
+                        @enderror
                     </article>
 
                     <section class="sect__form__section__article__datos__juntos">
                         <article class="sect__form__section__article__datos__juntos__info">
                             <label class="sect__form__section__article__datos__juntos__info__label" for="localidad">Localidad</label>
-                            <input class="sect__form__section__article__datos__juntos__info__input" type="text" name="localidad"
-                                id="localidad" placeholder="Introuce la localidad" value="{{ $anuncios->Localidad }}">
+                            <input class="sect__form__section__article__datos__juntos__info__input" type="text" name="localidad" id="localidad" placeholder="Introuce la localidad" value="{{ $anuncios->Localidad }}">
+                            @error('localidad')
+                                <p class="error">{{ $message }}</p>
+                            @enderror
                         </article>
 
                         <article class="sect__form__section__article__datos__juntos__info">
                             <label class="sect__form__section__article__datos__juntos__info__label" for="ciudad">Ciudad</label>
                             <input class="sect__form__section__article__datos__juntos__info__input" type="text" name="ciudad" id="ciudad" placeholder="Introduce tu ciudad" value="{{ $anuncios->Ciudad }}">
+                            @error('ciudad')
+                                <p class="error">{{ $message }}</p>
+                            @enderror
                         </article>
 
                     </section>
@@ -53,8 +67,10 @@
 
                     <article class="sect__form__section__article__datos">
                         <label class="sect__form__section__article__datos__label" for="titulo_B">Titulo descriptivo</label>
-                        <input class="sect__form__section__article__datos__input" type="text" name="titulo_B" id="titulo_B" placeholder="Titulo"
-                            value="{{ $anuncios->tituloB }}">
+                        <input class="sect__form__section__article__datos__input" type="text" name="titulo_B" id="titulo_B" placeholder="Titulo" value="{{ $anuncios->tituloB }}">
+                        @error('titulo_B')
+                            <p class="error">{{ $message }}</p>
+                        @enderror
                     </article>
 
                     <article class="sect__form__section__article__datos">
@@ -68,11 +84,17 @@
                                 @endif
                             @endforeach
                         </select>
+                        @error('habilidad_buscada')
+                            <p class="error">{{ $message }}</p>
+                        @enderror
                     </article>
 
                     <article class="sect__form__section__article__datos">
                         <label class="sect__form__section__article__datos__label" for="descripcion_bus">Descripcion detallada que ofrece</label>
                         <textarea class="sect__form__section__article__datos__input" class="sect__form__section__article__label" type="text" name="descripcion_bus" id="descripcion_bus" placeholder="Introdece la descriocion">{{ $anuncios->descripcion_Bus }}</textarea>
+                        @error('descripcion_bus')
+                            <p class="error">{{ $message }}</p>
+                        @enderror
                     </article>
 
                 </article>

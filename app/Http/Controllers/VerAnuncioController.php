@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class VerAnuncioController extends Controller
 {
+    // Funcio para ver un anuncio en esprecifico
     public function show(Request $request)
     {
         $id = $request->id;
@@ -19,23 +20,26 @@ class VerAnuncioController extends Controller
         $usuario = User::where('id', $anuncio->id_usuario)->first();
         $usuarioLog = Auth::id();
 
+        //Busca 2 anuncios similares con el seleccionado
         $anunciosSimilares = Anuncio::where('habilidad_buscada', $anuncio->habilidad_buscada)->where('id', '!=', $anuncio->id)->limit(2)->get();
+
+        //Busca la valoracion del usuario del anuncio
         $valoraciones = Valoracion::where('id_usuario_evaluado', $anuncio->id_usuario)->get();
 
-        if (!empty($valoraciones)) {
+        //Si hay mas valoraciones calcula la media
+        if (!$valoraciones->isEmpty()) {
             $media = 0;
             if (count($valoraciones) > 1) {
-
                 foreach ($valoraciones as $valoracion) {
                     $media += $valoracion->calificacion;
                 }
                 $media = round($media / count($valoraciones));
-            } else {
+            } else { // Si es la primera valoracion se establece la calificacion como media
                 foreach ($valoraciones as $valoracion) {
                     $media += $valoracion->calificacion;
                 }
             }
-        } else {
+        } else { //Si hay valoraciones se asigna a 0
             $media = 0;
         }
 

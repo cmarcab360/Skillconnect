@@ -1,10 +1,8 @@
 <x-layout>
-    
-
+    <!--Dialog para valoracion-->
     <dialog id="modal" class="modal">
         <article class="modal__contenido">
             <p class="modal__contenido__boton" id="cerrar"><i class="fa-solid fa-x"></i></p>
-
             <form class="modal__contenido__formulario" action="/valorar" method="GET">
                 @csrf
                 <input type="hidden" name="id" value="{{ $usuario->id }}">
@@ -29,6 +27,7 @@
 
 
     <section class="conte">
+        <!--Datos del usuario-->
         <header class="conte__header">
             <article class="conte__header__usuario">
                 <div class="conte__header__usuario__datos">
@@ -47,6 +46,7 @@
                 <p class="conte__header__usuario__datos__descrip">{{ $usuario->descripcion }}</p>
             </article>
             <nav class="conte__header__menu">
+                <!--Menu de navegacion-->
                 <ul class="conte__header__menu__listado">
                     <li>
                         <form action="/anuncios" method="get">
@@ -67,7 +67,7 @@
             <h2 >Valoraciones ({{ count($valoraciones) }})</h2>
         </section>
         <section class="conte__section">
-            @if  (!$valoraciones->isEmpty())
+            @if  (!$valoraciones->isEmpty())<!--Listado de valoraciones-->
                 @foreach ($valoraciones as $valoracion)
                     <article class="conte__section__valoracion">
                         @foreach ($usuarios as $usuario)
@@ -100,7 +100,7 @@
                             {{ $valoracion->created_at->format('d/m/Y') }}</p>
                     </article>
                 @endforeach
-            @else
+            @else<!--Si esta vacion muestra un mensaje-->
                 <section class="conte__section__info">
                     <p>Aún no hay valoraciones</p>
                 </section>
@@ -121,16 +121,14 @@
         }
 
         // Mostrar el modal al hacer clic en el botón
-        abrir
-
         function abrir() {
             modal.showModal();
         }
 
         // Cerrar el modal al hacer clic en el botón de cerrar (x)
-
         function cerrar() {
             modal.close();
         }
+        
     </script>
 </x-layout>

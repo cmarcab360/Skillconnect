@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+    //Funcion para obtener todos los anuncios disponibles que no sean del usario logueado
     public function home(Request $request)
     {
         $userId = Auth::id();

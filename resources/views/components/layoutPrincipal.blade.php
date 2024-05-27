@@ -9,15 +9,26 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href="css/login.css" rel="stylesheet">
     <link href="css/registro.css" rel="stylesheet">
-    <link href="css/body.css" rel="stylesheet">    
     <!-- iconos-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://kit.fontawesome.com/f0d12fad38.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/f0d12fad38.js" crossorigin="anonymous"></script>   
+    
 
 </head>
 <x-header />
-<body>
-        {{ $slot }}
 
+<body>
+    @if (session()->has('success'))
+        <div class="success" id="success">
+            <p><i class="fa-solid fa-check"></i></p>
+            <p>{{ session('success') }}</p>
+        </div>
+    @endif
+
+    {{ $slot }}
+
+    <!--Scripts-->
+    <script src="{{ asset('js/success-message.js') }}"></script>
 </body>

@@ -16,8 +16,8 @@ class RegistroController extends Controller
     public function store(){
         $attributes = request()->validate([
             'name'=>'required|string|max:255',
-            'username'=>'required|min:3|unique:usuarios,username',//unique:users,username-> comprueba que este valor en la tabla users y la columna username, sea único
-            'email'=>'required|email|unique:usuarios,email',
+            'username'=>'required|min:3|unique:users,username',//unique:users,username-> comprueba que este valor en la tabla users y la columna username, sea único
+            'email'=>'required|email|unique:users,email',
             'password'=>'required|string|min:8'
         ]);
         

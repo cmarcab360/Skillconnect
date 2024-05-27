@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class SesionController extends Controller
 {
     //Lleva al fromulario de iniciar sesion
@@ -24,7 +22,7 @@ class SesionController extends Controller
             return redirect('/home')->with('success','Bienvenido!');
         }
         //Fallo de autenticacion withInput()->Deja los datos en los inputs cuando hay un error withErrors->personalizo el mensaje de la variable $errors de email
-        return back()->withInput()->withErrors(['email' => 'El usuario o la contraseña es incorrecta, intente de nuevo']);
+        return back()->withInput()->withErrors(['password' => 'El usuario o la contraseña es incorrecta']);
     }
 
     //Cerrar sesion

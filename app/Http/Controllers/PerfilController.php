@@ -25,7 +25,7 @@ class PerfilController extends Controller
         $usuario = User::findOrFail($userId);
 
         // Validar los datos recibidos del formulario 
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required|string|max:255',
             'username' => 'required|string|min:3|max:100|unique:users,username,' . $usuario->id,
             'email' => 'required|string|email|max:255|unique:users,email,' . $usuario->id,

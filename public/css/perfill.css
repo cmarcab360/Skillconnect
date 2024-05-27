@@ -136,11 +136,9 @@
   }
   .container__box {
     width: 45%;
-    height: 600px;
+    height: 100%;
   }
   .container__box__formulario {
-    height: 30em;
-    background-color: #000000;
     padding: 1em 3.5em 1em 3.5em;
     align-items: center;
   }
@@ -167,4 +165,4 @@
   }
 }
 
-/*# sourceMappingURL=perfil.css.map */
+/*# sourceMappingURL=perfill.css.map */

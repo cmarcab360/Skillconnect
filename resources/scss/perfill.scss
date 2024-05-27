@@ -132,7 +132,7 @@ $letra-label: #6b6766;
                     display: flex;
                     justify-content: end;
                     gap: 0.5em;
-                    
+
                     &__boton {
                         color: $letra-blanca;
                         background-color: $azul-oscuro;
@@ -160,16 +160,13 @@ $letra-label: #6b6766;
         flex-direction: column;
         &__box {
             width: 45%;
-            height: 600px;
-            &__formulario {
-              height: 30em;
-              background-color: #000000;
+            height: 100%;
+            &__formulario {            
                 padding: 1em 3.5em 1em 3.5em;
                 &__usuario {
                     &__img {
                         height: 140px;
                         width: 140px;
-                        
                     }
                     &__label {
                         font-size: medium;
@@ -180,7 +177,7 @@ $letra-label: #6b6766;
                     width: 80%;
                     display: flex;
                     flex-direction: column;
-                    gap:0.8em;
+                    gap: 0.8em;
                     padding: 1em;
                     background-color: $letra-blanca;
                 }
@@ -190,7 +187,6 @@ $letra-label: #6b6766;
                     padding-right: 40px;
                     align-self: end;
                     gap: 0.5em;
-                    
                 }
             }
         }

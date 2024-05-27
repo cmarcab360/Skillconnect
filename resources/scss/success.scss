@@ -1,0 +1,29 @@
+/*------------Colores primarios----------*/
+$azul-claro: #119da4;
+$azul-oscuro: #0c7489;
+
+/*------------Colores Secundarios----------*/
+$gris-oscuro: #948b89;
+$gris-claro: #d7d9ce;
+$beige: #d7d0d0;
+
+/*------------Letras (Estilo, tamaño, color)----------*/
+$font-family: "Nunito", sans-serif;
+$letra-negra: #000000;
+$letra-blanca: #fffcfb;
+/*------------Success-message-----------*/
+
+.success {
+    color: $letra-blanca; 
+    background-color: $azul-oscuro;
+    padding: 10px 20px; 
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    text-align: center; 
+    z-index: 1000; //pone el mensaje encima de todos los elementos
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}

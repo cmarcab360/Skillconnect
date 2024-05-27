@@ -57,6 +57,6 @@ class ValoracionController extends Controller
         ]);
         $id = $request->input('id');
 
-        return redirect()->route('anuncios.show', ['id' => $id])->with('message', 'Valoración guardada exitosamente');
+        return redirect()->route('anuncios.show', ['id' => $id])->with('success', '¡Valoracion guardada!');
     }
 }

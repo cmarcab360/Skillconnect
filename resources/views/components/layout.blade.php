@@ -12,13 +12,14 @@
     <link href="css/registro.css" rel="stylesheet">
     <link href="css/head.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
-    <link href="css/perfil.css" rel="stylesheet">
+    <link href="css/perfill.css" rel="stylesheet">
     <link href="css/anuncio.css" rel="stylesheet">
     <link href="css/publicar.css" rel="stylesheet">
     <link href="css/editar.css" rel="stylesheet">
     <link href="css/verAnuncio.css" rel="stylesheet">
     <link href="css/valoracione.css" rel="stylesheet">
     <link href="css/valorar.css" rel="stylesheet">
+    <link href="css/success.css" rel="stylesheet">
     <!-- iconos-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://kit.fontawesome.com/f0d12fad38.js" crossorigin="anonymous"></script>

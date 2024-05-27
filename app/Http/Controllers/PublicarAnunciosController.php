@@ -49,6 +49,6 @@ class PublicarAnunciosController extends Controller
 
         ]);
 
-        return redirect('/anuncios');
+        return redirect('/anuncios')->with('success', '¡Anuncio creado exitosamente!');;
     }
 }

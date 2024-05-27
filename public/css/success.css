@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/*------------Colores primarios----------*/
+/*------------Colores Secundarios----------*/
+/*------------Letras (Estilo, tamaño, color)----------*/
+/*------------Success-message-----------*/
+.success {
+  color: #fffcfb;
+  background-color: #0c7489;
+  padding: 10px 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*# sourceMappingURL=success.css.map */

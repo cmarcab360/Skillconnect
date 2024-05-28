@@ -17,8 +17,12 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('username', 100)->unique();
             $table->longText('descripcion')->nullable();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('avatar')->default('/fotos/usuario_base.jpg');
+            $table->string('messenger_color')->nullable();
+            $table->boolean('active_status')->default(0);
+            $table->boolean('dark_mode')->default(0);
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -146,6 +146,7 @@
   max-height: 2.3em;
   text-overflow: ellipsis;
   overflow: hidden;
+  text-align: justify;
 }
 .box__section__enlace:hover {
   cursor: pointer;
@@ -351,6 +352,10 @@
     font-size: medium;
     min-width: 100%;
     max-width: 100%;
+    min-height: 3vh;
+    max-height: 3vh;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   .box__section__enlace__contenido__article__descripcion {
     margin: 0.3em 0em 0.3em 0;
@@ -468,4 +473,4 @@
   }
 }
 
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=home.css.map */

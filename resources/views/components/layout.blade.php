@@ -11,12 +11,12 @@
     <link href="css/login.css" rel="stylesheet">
     <link href="css/registro.css" rel="stylesheet">
     <link href="css/head.css" rel="stylesheet">
-    <link href="css/index.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
     <link href="css/perfill.css" rel="stylesheet">
-    <link href="css/anuncio.css" rel="stylesheet">
+    <link href="css/anuncios.css" rel="stylesheet">
     <link href="css/publicar.css" rel="stylesheet">
     <link href="css/editar.css" rel="stylesheet">
-    <link href="css/verAnuncio.css" rel="stylesheet">
+    <link href="css/ver.css" rel="stylesheet">
     <link href="css/valoracione.css" rel="stylesheet">
     <link href="css/valorar.css" rel="stylesheet">
     <link href="css/success.css" rel="stylesheet">

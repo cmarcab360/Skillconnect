@@ -162,31 +162,32 @@
     padding: 0.5em;
     margin: 0;
   }
+  .section__anuncio__titulo {
+    font-size: xx-large;
+  }
   .section__anuncio__article {
-    height: 45vh;
+    padding: 1em;
+    height: 35vh;
   }
   .section__anuncio__article__seccion {
     font-size: xx-large;
-    margin: 0.5em 0em;
-  }
-  .section__anuncio__article__titulo {
-    margin: 0.5em 0em;
   }
   .section__anuncio__article__decripcion {
     min-width: 100%;
     max-width: 100%;
-    min-height: 65%;
-    max-height: 65%;
+    min-height: 50%;
+    max-height: 50%;
   }
   .section__aside {
     gap: 1em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
   }
   .section__aside__usuario {
-    gap: 2em;
+    gap: 1em;
     height: 20%;
     display: flex;
     flex-direction: column;
@@ -196,12 +197,31 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 80vh;
+    gap: 1em;
   }
   .section__aside__anuncios__anuncio {
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-height: 20%;
+  }
+  .section__aside__anuncios__anuncio__contenido {
+    min-height: 32%;
+    max-height: 32%;
+  }
+  .section__aside__anuncios__anuncio__contenido__titulo {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 2vh;
+    max-height: 2vh;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .section__aside__anuncios__anuncio__contenido__descrip {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 65%;
+    max-height: 65%;
   }
 }
 @media (min-width: 1024px) {
@@ -214,9 +234,18 @@
 @media (min-width: 1200px) {
   .section {
     margin: 2em;
-    grid-template-columns: 75% 25%;
-    gap: 1.5em;
+    grid-template-columns: 80% 20%;
+    justify-content: space-between;
+  }
+  .section__anuncio {
+    width: 90%;
+    min-height: 95vh;
+    padding: 2em;
+    margin: 0;
+  }
+  .section__anuncio__article {
+    font-size: large;
   }
 }
 
-/*# sourceMappingURL=verAnuncio.css.map */
+/*# sourceMappingURL=ver.css.map */

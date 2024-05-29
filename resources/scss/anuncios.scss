@@ -209,23 +209,32 @@ $letra-label: #6b6766;
                 flex-direction: column;
                 gap: 1.5em;
                 text-align: start;
-                padding: 0.5em 0.5em 0 0.5em;
+                padding: 0.5em 0.5em 0.5em 0.5em;
                 color: $letra-negra;
                 &__article {
                     display: flex;
                     flex-direction: column;
+                    width: 100%;
+                    height: 100%;
                     &__titulo {
                         margin: 0;
+                        max-width: 100%;
+                        max-height: 3.5vh;
+                        min-width: 100%;
+                        min-height: 3.5vh;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
                     }
                     &__descrip {
                         margin: 0;
-                        max-width: 224px;
-                        max-height: 46px;
-                        min-width: 224px;
-                        min-height: 46px;
+                        max-width:100%;
+                        max-height: 10vh;
+                        min-width: 100%;
+                        min-height: 10vh;
                         text-overflow: ellipsis;
                         overflow: hidden;
                         font-size: small;
+                        text-align: justify;
                     }
                 }
             }
@@ -244,6 +253,7 @@ $letra-label: #6b6766;
         display: flex;
         flex-direction: column;
         padding: 1.5em 2em 1.5em 2em;
+
         &__header {
             &__usuario {
                 &__datos {
@@ -269,15 +279,15 @@ $letra-label: #6b6766;
 
         &__anuncios {
             display: grid;
+            width: 96%;
             grid-template-columns: 50% 50%;
-            grid-template-rows: 50%;
             gap: 1.5em;
+           
             .agregar {
                 height: 100%;
                 width: 300px;
             }
             &__anuncio {
-                width: 300px;
                 height: 80%;
                 background-color: $gris-claro;
                 &__header {
@@ -295,19 +305,27 @@ $letra-label: #6b6766;
                     align-items: center;
                     display: flex;
                     flex-direction: column;
-                    gap: 1.5em;
-                    padding: 0.5em 0.5em 0 0.5em;
+                    gap: 1em;
+                    padding: 0.5em;
                     &__article {
                         display: flex;
                         flex-direction: column;
                         gap: 0.5em;
-                        font-size: large;
+                        &__titulo {
+                            margin: 0;
+                            max-width: 100%;
+                            max-height: 3.5vh;
+                            min-width: 100%;
+                            min-height: 3.5vh;
+
+                        }
                         &__descrip {
-                            max-width: 280px;
-                            max-height: 50px;
-                            min-width: 280px;
-                            min-height: 50px;
-                            font-size: medium;
+                            margin: 0;
+                            max-width:100%;
+                            max-height: 12vh;
+                            min-width: 100%;
+                            min-height: 12vh;
+
                         }
                     }
                 }
@@ -344,8 +362,8 @@ $letra-label: #6b6766;
 
         &__anuncios {
             display: grid;
-            grid-template-columns: 32% 32% 32%;
-            grid-template-rows: 65%;
+            width: 96%;
+            grid-template-columns: 33.4% 33.4% 33.4%;
             gap: 1em;
             .agregar {
                 height: 95%;
@@ -353,21 +371,27 @@ $letra-label: #6b6766;
             }
             &__anuncio {
                 width: 100%;
-                height: 65%;
                 &__contenido {
-                    padding: 0;
-                    padding-top: 1em;
-                    width: 100%;
-                    text-align: left;
+                    padding: 0.5em;
+                    width: 95%;
+                    
                     &__article {
+                        width: 100%;
+                        &__titulo {
+                            margin: 0;
+                            max-width: 100%;
+                            max-height: 3.3vh;
+                            min-width: 100%;
+                            min-height: 3.3vh;
+
+                        }
                         &__descrip {
-                            align-items: center;
-                            max-height: 80px;
-                            max-width: 17em;
-                            min-height: 80px;
-                            min-width: 17em;
-                            text-overflow: ellipsis;
-                            overflow: hidden;
+                            margin: 0;
+                            max-width: 100%;
+                            max-height: 14vh;
+                            min-width: 100%;
+                            min-height: 14vh;
+
                         }
                     }
                 }
@@ -393,8 +417,8 @@ $letra-label: #6b6766;
         &__anuncios {
             display: grid;
             grid-template-columns: 30% 30% 30%;
-            grid-template-rows: 395px;
             gap: 3.5em;
+            width: 100%;
             .agregar {
                 height: 100%;
                 width: 100%;
@@ -403,15 +427,25 @@ $letra-label: #6b6766;
                 width: 100%;
                 height: 100%;
                 &__contenido {
+                    padding: 1em;
+                    width: 92%;
                     &__article {
-                        &__descrip {
-                            max-height: 85px;
-                            max-width: 300px;
-                            min-height: 85px;
-                            min-width: 300px;
+                        width: 100%;
+                        &__titulo {
+                            margin: 0;
+                            max-width: 100%;
+                            max-height: 3vh;
+                            min-width: 100%;
+                            min-height: 3vh;
 
-                            text-overflow: ellipsis;
-                            overflow: hidden;
+                        }
+                        &__descrip {
+                            margin: 0;
+                            max-width: 100%;
+                            max-height: 10vh;
+                            min-width: 100%;
+                            min-height: 10vh;
+
                         }
                     }
                 }

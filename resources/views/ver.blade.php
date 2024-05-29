@@ -61,10 +61,10 @@
             <section class="section__aside__anuncios">
                 <h1 class="section__aside__anuncios__titulo">Anuncios similares</h1>
                 @foreach ($anunciosSimilares as $anuncio)
-                    <form action="ver" method="post">
+                    <form class="section__aside__anuncios__anuncio" action="ver" method="post">
                         @csrf
                         <input type="hidden" name="id" value="{{ $anuncio->id }}">
-                        <button class="section__aside__anuncios__anuncio" type="submit" class="box__section__enlace">
+                        <button  type="submit" class="box__section__enlace">
                             <header class="section__aside__anuncios__anuncio__header">
                                 @foreach ($habilidades as $habilidad)
                                     @if ($anuncio->habilidad_ofrecida == $habilidad->id)

@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 
 class PerfilController extends Controller
 {
@@ -66,7 +63,6 @@ class PerfilController extends Controller
 
         // Guarda los cambios en la base de datos
         $usuario->save();
-
 
         return redirect()->route('perfil.show', $usuario->id)->with('success', '¡Perfil actualizado exitosamente!');
     }

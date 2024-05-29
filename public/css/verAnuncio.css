@@ -43,6 +43,7 @@
   flex-direction: column;
   gap: 1em;
   width: 90%;
+  justify-content: space-between;
 }
 .section__aside__usuario {
   display: flex;
@@ -56,7 +57,6 @@
   color: #fffcfb;
   font-size: medium;
   display: flex;
-  justify-content: space-between;
   align-items: end;
 }
 .section__aside__usuario__header__datos {
@@ -179,13 +179,23 @@
   }
   .section__aside {
     gap: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
   .section__aside__usuario {
-    gap: 5em;
+    gap: 2em;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .section__aside__anuncios {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     min-height: 80vh;
-    gap: 0.9em;
   }
   .section__aside__anuncios__anuncio {
     display: flex;
@@ -208,4 +218,4 @@
   }
 }
 
-/*# sourceMappingURL=ver.css.map */
+/*# sourceMappingURL=verAnuncio.css.map */

@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Anuncio;
 use App\Models\Habilidad;
 use App\Models\User;

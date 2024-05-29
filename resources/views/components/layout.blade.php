@@ -16,7 +16,7 @@
     <link href="css/anuncio.css" rel="stylesheet">
     <link href="css/publicar.css" rel="stylesheet">
     <link href="css/editar.css" rel="stylesheet">
-    <link href="css/ver.css" rel="stylesheet">
+    <link href="css/verAnuncio.css" rel="stylesheet">
     <link href="css/valoracione.css" rel="stylesheet">
     <link href="css/valorar.css" rel="stylesheet">
     <link href="css/success.css" rel="stylesheet">
@@ -41,4 +41,6 @@
 
     <!--Scripts-->
     <script src="{{ asset('js/success-message.js') }}"></script>
+    <script src="{{ asset('js/habilidades.js') }}"></script>
+    <script src="{{ asset('js/modal.js') }}"></script>
 </body>

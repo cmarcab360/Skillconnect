@@ -58,6 +58,7 @@ $letra-label: #6b6766;
         flex-direction: column;
         gap: 1em;
         width: 90%;
+        justify-content: space-between;
         &__usuario {
             display: flex;
             flex-direction: column;
@@ -69,7 +70,6 @@ $letra-label: #6b6766;
                 color: $letra-blanca;
                 font-size: medium;
                 display: flex;
-                justify-content: space-between;
                 align-items: end;
                 &__datos {
                     display: flex;
@@ -199,17 +199,27 @@ $letra-label: #6b6766;
         //Datos de usuario
         &__aside {
             gap: 1em;
-            
-            &__usuario{
-                gap: 5em;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            &__usuario {
+                gap: 2em;
+                height: 20%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
             &__anuncios {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
                 min-height: 80vh;
-                gap: 0.9em;
+
                 &__anuncio {
                     display: flex;
                     flex-direction: column;
-                   
+
                     width: 100%;
                 }
             }

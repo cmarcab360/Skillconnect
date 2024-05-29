@@ -111,24 +111,6 @@
     </section>  
 
     <script>
-        window.onload = iniciar;
-
-        function iniciar() {
-            const modal = document.getElementById("modal");
-            document.getElementById("btnOpen").addEventListener("click", abrir);
-            document.getElementById("cerrar").addEventListener("click", cerrar);
-
-        }
-
-        // Mostrar el modal al hacer clic en el botón
-        function abrir() {
-            modal.showModal();
-        }
-
-        // Cerrar el modal al hacer clic en el botón de cerrar (x)
-        function cerrar() {
-            modal.close();
-        }
-        
+       
     </script>
 </x-layout>

@@ -1,12 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Anuncio;
 use App\Models\Habilidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 
 class PublicarAnunciosController extends Controller
 {
@@ -48,7 +45,6 @@ class PublicarAnunciosController extends Controller
             'localidad' => $request->input('localidad')
 
         ]);
-
-        return redirect('/anuncios')->with('success', '¡Anuncio creado exitosamente!');;
+        return redirect('/anuncios')->with('success', '¡Anuncio creado exitosamente!');
     }
 }

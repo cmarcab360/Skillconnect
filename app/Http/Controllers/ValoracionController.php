@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\User;
 use App\Models\Valoracion;
 use Illuminate\Http\Request;
@@ -9,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ValoracionController extends Controller
 {
-
     //Muestra las valoraciones de un usario
     public function show(Request $request)
     {

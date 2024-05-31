@@ -47,7 +47,7 @@ Route::get('/publicar', [PublicarAnunciosController::class, 'show'])->middleware
 Route::post('/publicar', [PublicarAnunciosController::class, 'create'])->middleware('auth');
 
 // Mostrar todos los anuncios y eliminar un anuncio 
-Route::get('/anuncios', [AnunciosController::class, 'show'])->middleware('auth')->name('anuncios.show');;
+Route::get('/anuncios', [AnunciosController::class, 'show'])->middleware('auth')->name('anuncios.show');
 Route::delete('/anuncios/{id}/delete', [AnunciosController::class, 'delete'])->middleware('auth')->name('anuncios.delete');
 
 // Editar anuncios

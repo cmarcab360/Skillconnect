@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Models\User;
+use App\Models\ChMessage;
 use App\Models\Valoracion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,21 +42,27 @@ class ValoracionController extends Controller
     //Funcion para crear una valoracion
     public function create(Request $request)
     {
-        //Valida los datos
-        $request->validate([
-            'calificacion' => 'required|integer|between:1,5',
-            'comentario' => 'required|string'
-        ]);
-
-        // Si los datos son correctos crea una nueva valoracion
-        Valoracion::create([
-            'id_usuario_evaluador' => Auth::id(),
-            'id_usuario_evaluado' =>  $request->input('id'),
-            'calificacion' => $request->input('calificacion'),
-            'comentario' => $request->input('comentario')
-        ]);
         $id = $request->input('id');
+        $contactar = ChMessage::where('from_id', Auth::id())->get();
+        //dd($contactar->isEmpty());
+        if (!$contactar->isEmpty()) {
+            //Valida los datos
+            $request->validate([
+                'calificacion' => 'required|integer|between:1,5',
+                'comentario' => 'required|string'
+            ]);
 
-        return redirect()->route('anuncios.show', ['id' => $id])->with('success', '¡Valoracion guardada!');
+            // Si los datos son correctos crea una nueva valoracion
+            Valoracion::create([
+                'id_usuario_evaluador' => Auth::id(),
+                'id_usuario_evaluado' =>  $id,
+                'calificacion' => $request->input('calificacion'),
+                'comentario' => $request->input('comentario')
+            ]);
+
+            return redirect()->route('anuncios.show', ['id' => $id])->with('success', '¡Valoracion guardada!');
+        }else{
+            return redirect()->route('anuncios.show', ['id' => $id])->with('success', 'Para realizar un valoración primero se debe contactar con el usuario');
+        }
     }
 }

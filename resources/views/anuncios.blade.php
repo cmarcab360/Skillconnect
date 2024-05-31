@@ -4,7 +4,7 @@
             <!--Datos del usuario-->
             <article class="cont__header__usuario">
                 <div class="cont__header__usuario__datos">
-                    <img class="cont__header__usuario__datos__img" src="{{ $usuario->avatar }}" alt="Imagen usuario">
+                    <img class="cont__header__usuario__datos__img" src="/users-avatar/{{$usuario->avatar }}" alt="Imagen usuario">
                     <p class="cont__header__usuario__datos__nombre">{{ ucfirst($usuario->username) }}</p>
                 </div>
                 <p class="cont__header__usuario__datos__descrip">{{ $usuario->descripcion }}</p>
@@ -51,7 +51,7 @@
                                 @endforeach
                                 <article class="cont__anuncios__anuncio__header__datos">
                                     <div class="cont__anuncios__anuncio__header__datos__usuario">
-                                        <img class="cont__anuncios__anuncio__header__datos__usuario__img" src="{{ $usuario->avatar }}" alt="Imagen base">
+                                        <img class="cont__anuncios__anuncio__header__datos__usuario__img" src="/users-avatar/{{$usuario->avatar }}" alt="Imagen base">
                                         <p>{{ ucfirst($usuario->username) }}</p>
                                     </div>
 
@@ -128,7 +128,7 @@
                                 @endforeach
                                 <article class="cont__anuncios__anuncio__header__datos">
                                     <div class="cont__anuncios__anuncio__header__datos__usuario">
-                                        <img class="cont__anuncios__anuncio__header__datos__usuario__img" src="{{ $usuario->avatar }}" alt="Imagen base">
+                                        <img class="cont__anuncios__anuncio__header__datos__usuario__img" src="/users-avatar/{{$usuario->avatar }}" alt="Imagen base">
                                         <p>{{ ucfirst($usuario->username) }}</p>
                                     </div>
                                 </article>

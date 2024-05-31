@@ -35,7 +35,7 @@
             <section class="section__aside__usuario">
                 <header class="section__aside__usuario__header">
                     <article class="section__aside__usuario__header__datos">
-                        <img class="section__aside__usuario__header__datos__img" src="{{ $usuario->avatar }}" alt="Foto de usuario">
+                        <img class="section__aside__usuario__header__datos__img" src="/users-avatar/{{$usuario->avatar }}" alt="Foto de usuario">
                         <form action="/anuncios" method="get">
                             <input type="hidden" name="id" value="{{ $usuario->id }}">
                             <input class="section__aside__usuario__header__datos__nombre" type="submit" value="{{ ucfirst($usuario->username) }}">

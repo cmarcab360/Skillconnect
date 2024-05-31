@@ -96,6 +96,11 @@ Route::post('/updateSettings', 'MessagesController@updateSettings')->name('avata
  */
 Route::post('/setActiveStatus', 'MessagesController@setActiveStatus')->name('activeStatus.set');
 
+
+
+
+
+
 /*
 * [Group] view by id
 */

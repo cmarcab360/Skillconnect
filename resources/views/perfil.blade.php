@@ -5,7 +5,7 @@
                 enctype="multipart/form-data">
                 @csrf
                 <section class="container__box__formulario__usuario">
-                    <img class="container__box__formulario__usuario__img" src="{{ $usuario->avatar }}"  alt="foto de perfil">
+                    <img class="container__box__formulario__usuario__img" src="/users-avatar/{{$usuario->avatar }}"  alt="foto de perfil">
                     <label class="container__box__formulario__usuario__label" for="url_foto">Subir foto
                         <input class="container__box__formulario__usuario__label__input" type="file" name="url_foto"  id="url_foto" placeholder="Seleccionar">
                         @error('url_foto')

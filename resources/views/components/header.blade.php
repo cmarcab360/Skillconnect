@@ -14,7 +14,7 @@
 
         <!--Datos Usuario-->
         <section class="header__options__user">
-            <img class="header__options__user__img" src="{{ auth()->user()->avatar }}" alt="imagen usuario">
+            <img class="header__options__user__img" src="/users-avatar/{{ auth()->user()->avatar }}"  alt="imagen usuario">
             <nav class="header__options__user__menu">
                 <p class="header__options__user__menu__icono"><i class="fa-solid fa-chevron-down"></i></p>
                 <section class="header__options__user__menu__contenido">

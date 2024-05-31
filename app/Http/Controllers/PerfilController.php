@@ -56,9 +56,10 @@ class PerfilController extends Controller
             $foto = $request->file('url_foto');
 
             // Guardar el archivo en la carpeta
-            $rutaFoto = $foto->store('fotos', 'public');
-
-            $usuario->avatar = $rutaFoto;
+            $foto->store('users-avatar', 'public');
+            
+            $usuario->avatar = $foto->store();
+            //dd($usuario->avatar);
         }
 
         // Guarda los cambios en la base de datos

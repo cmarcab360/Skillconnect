@@ -31,7 +31,7 @@
         <header class="conte__header">
             <article class="conte__header__usuario">
                 <div class="conte__header__usuario__datos">
-                    <img class="conte__header__usuario__datos__img" src="{{ $usuario->avatar }}" alt="Imagen usuario">
+                    <img class="conte__header__usuario__datos__img" src="/users-avatar/{{$usuario->avatar }}" alt="Imagen usuario">
                     <article class="conte__header__usuario__datos__texto">
                         <p class="conte__header__usuario__datos__texto__nombre">{{ ucfirst($usuario->username) }}</p>
                         @if ($media > 0)

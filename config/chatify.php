@@ -22,7 +22,7 @@ return [
     |-------------------------------------
     */
     'routes' => [
-        'custom' => env('CHATIFY_CUSTOM_ROUTES', true),
+        'custom' => env('CHATIFY_CUSTOM_ROUTES', false),
         'prefix' => env('CHATIFY_ROUTES_PREFIX', 'mensajes'),
         'middleware' => env('CHATIFY_ROUTES_MIDDLEWARE', ['web','auth']),
         'namespace' => env('CHATIFY_ROUTES_NAMESPACE', 'Chatify\Http\Controllers'),
@@ -58,7 +58,10 @@ return [
     | User Avatar
     |-------------------------------------
     */
-
+    'user_avatar' => [
+        'folder' => 'users-avatar',
+        'default' => 'avatar.png',
+    ],
 
     /*
     |-------------------------------------
@@ -68,7 +71,12 @@ return [
     | [ 404 | mp | identicon (default) | monsterid | wavatar ]
     |-------------------------------------
     */
-   
+    'gravatar' => [
+        'enabled' => true,
+        'image_size' => 200,
+        'imageset' => 'identicon'
+    ],
+
     /*
     |-------------------------------------
     | Attachments
@@ -112,8 +120,5 @@ return [
         'enabled' => true,
         'public_path' => 'sounds/chatify',
         'new_message' => 'new-message-sound.mp3',
-    ],
-
-    //********** */
-
+    ]
 ];

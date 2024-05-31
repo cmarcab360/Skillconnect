@@ -102,7 +102,7 @@
                                         @if ($usuario->id == $anuncio->id_usuario)
                                             <article class="box__section__enlace__header__usuario">
                                                 <img class="box__section__enlace__header__usuario__img"
-                                                    src="{{ asset($usuario->avatar) }}" alt="foto de perfil">
+                                                src="/users-avatar/{{$usuario->avatar }}" alt="foto de perfil">
                                                 <p>{{ $usuario->username }}</p>
                                             </article>
                                         @endif
@@ -152,7 +152,7 @@
                                     @if ($usuario->id == $anuncio->id_usuario)
                                         <article class="box__section__enlace__header__usuario">
                                             <img class="box__section__enlace__header__usuario__img"
-                                                src="{{ asset($usuario->avatar) }}" alt="foto de perfil">
+                                            src="/users-avatar/{{$usuario->avatar }}" alt="foto de perfil">
                                             <p>{{ $usuario->username }}</p>
                                         </article>
                                     @endif

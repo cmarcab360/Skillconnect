@@ -4,9 +4,9 @@ Plataforma web para intercambiar habilidades y trabajos entre usuarios.
 
 ## 🛠 Tecnologías Utilizadas  
 
-- **Lenguajes:** PHP, JavaScript, CSS, SCSS  
+- **Lenguajes:** PHP, JavaScript
 - **Frameworks y Librerías:** Laravel, Chatify  
-- **Frontend:** Bootstrap, SCSS  
+- **Frontend:** SCSS  
 - **Backend:** Laravel (PHP)  
 - **Bases de Datos:** MySQL  
 - **Herramientas:** Git  
